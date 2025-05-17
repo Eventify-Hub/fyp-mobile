@@ -140,14 +140,16 @@ const PhotographerDetailsScreen: React.FC = () => {
 
             {/* Cover Image */}
             <Image
-                testID="vendor-cover-image" // ✅ Added testID
-                source={{
-                    uri: vendorData?.coverImage
-                        ? `${vendorData.coverImage}`
-                        : "https://via.placeholder.com/200",
-                }}
-                style={styles.mainImage}
-            />
+  testID="vendor-cover-image"
+  source={{
+    uri: vendorData?.contactDetails?.brandLogo
+      ? `${vendorData.contactDetails.brandLogo}`
+      : "https://via.placeholder.com/600x300",
+  }}
+  style={styles.coverImage}
+/>
+
+
 
             {/* Tab Navigation */}
             <View style={styles.tabContainer}>
@@ -227,23 +229,49 @@ const PhotographerDetailsScreen: React.FC = () => {
 
                     {/* Photos Section */}
                     <View style={styles.photosSection}>
-                        <TouchableOpacity
+                    {/* <Text style={styles.sectionTitle}>Photos</Text>
+                        {/* <TouchableOpacity
                             onPress={() => router.push("/vendorprofileimages")}
                         >
                             <Text style={styles.sectionTitle}>Photos</Text>
-                        </TouchableOpacity>
-                        {/* <ScrollView
-                            horizontal
-                            showsHorizontalScrollIndicator={false}
-                            style={styles.photosScroll}
-                        >
-                            {/* Replace with dynamic images */}
-                        {/* <Image source={{ uri: 'https://cdn.builder.io/api/v1/image/assets/TEMP/ee8619c3ba7069ac2ac92e880c53f6a08b69c1a800aaf83f5653c512dd5631a5?apiKey=0a92af3bc6e24da3a9ef8b1ae693931a&' }} style={styles.photo} />
-                            <Image source={{ uri: 'https://cdn.builder.io/api/v1/image/assets/TEMP/ee8619c3ba7069ac2ac92e880c53f6a08b69c1a800aaf83f5653c512dd5631a5?apiKey=0a92af3bc6e24da3a9ef8b1ae693931a&' }} style={styles.photo} />
-                            <Image source={{ uri: 'https://cdn.builder.io/api/v1/image/assets/TEMP/ee8619c3ba7069ac2ac92e880c53f6a08b69c1a800aaf83f5653c512dd5631a5?apiKey=0a92af3bc6e24da3a9ef8b1ae693931a&' }} style={styles.photo} />
-                            <Image source={{ uri: 'https://cdn.builder.io/api/v1/image/assets/TEMP/ee8619c3ba7069ac2ac92e880c53f6a08b69c1a800aaf83f5653c512dd5631a5?apiKey=0a92af3bc6e24da3a9ef8b1ae693931a&' }} style={styles.photo} />
-                        </ScrollView> */}
-                        {/*add test id*/}
+                        </TouchableOpacity> 
+                        <TouchableOpacity
+    testID="see-all-photos"
+    onPress={() => router.push('/vendorprofileimages')}
+  >
+    <Text style={styles.editLink}>See All</Text>
+  </TouchableOpacity> */}
+  <View style={styles.sectionTitleRow}>
+  <Text style={styles.sectionTitle}>Photos</Text>
+  {/* <TouchableOpacity
+    testID="see-all-photos"
+    onPress={() => 
+        //router.push('/vendorprofileimages')}
+        router.push({
+            pathname: '/vendorprofileimages',
+            params: { vendorId: vendorData._id },
+          });
+          
+  >
+    <Text style={styles.seeAllLink}>See All</Text>
+  </TouchableOpacity> */}
+  <TouchableOpacity
+  testID="see-all-photos"
+  onPress={() =>
+    router.push({
+      pathname: '/vendorprofileimages',
+      params: { vendorId: vendorData._id },
+    })
+  }
+>
+  <Text style={styles.seeAllLink}>See All</Text>
+</TouchableOpacity>
+
+</View>
+
+
+  
+                        
                         <ScrollView
                             testID="scroll-view"
                             horizontal
@@ -264,24 +292,52 @@ const PhotographerDetailsScreen: React.FC = () => {
                     {/* Additional Details Section */}
 
                     {/* Details Section */}
-                    <Text style={styles.sectionTitle}>Details</Text>
+                    {/* <Text style={styles.sectionTitle}>Details
+                    
+                                <TouchableOpacity
+                                  //  testID={`edit-package-${pkg._id}`}
+                                    style={styles.cartButton}
+                                    onPress={() => {
+                                        router.push('/vendoreditprofile');
+                                    }}
+                                >
+                                    <Text style={styles.cartButtonText}>Edit</Text>
+                                </TouchableOpacity>
+                                
+                    </Text> */}
+                   <View style={styles.detailsHeader}>
+  <Text style={styles.sectionTitle}>Details</Text>
+  <TouchableOpacity onPress={() => router.push('/vendoreditprofile')}>
+    <Text style={styles.editLink}>Edit</Text>
+  </TouchableOpacity>
+</View>
 
-                    <Text style={styles.detailLabel}>Staff</Text>
+
+
+                     <Text style={styles.detailLabel}>Staff</Text>
+                    
                     <Text style={styles.detailValue}>
                         {vendorData?.BusinessDetails?.staff || "N/A"}
                     </Text>
+                   
+
+
+
 
                     <Text style={styles.detailLabel}>Cancellation Policy</Text>
+                    
                     <Text style={styles.detailValue}>
                         {vendorData?.BusinessDetails?.covidRefundPolicy || "N/A"}
                     </Text>
 
                     <Text style={styles.detailLabel}>Cities Covered</Text>
+    
                     <Text style={styles.detailValue}>
                         {vendorData?.BusinessDetails?.cityCovered || "N/A"}
                     </Text>
 
                     <Text style={styles.detailLabel}>Description</Text>
+                    
                     <Text style={styles.detailValue}>
                         {vendorData?.BusinessDetails?.description || "N/A"}
                     </Text>
@@ -475,12 +531,7 @@ const PhotographerDetailsScreen: React.FC = () => {
             )}
 
             {/* Contact Button */}
-            <TouchableOpacity
-                style={styles.contactButton}
-                onPress={() => router.push("/message")}
-            >
-                <Text style={styles.contactButtonText}>Contact Now</Text>
-            </TouchableOpacity>
+            {/* s */}
         </ScrollView>
     );
 };
@@ -870,6 +921,68 @@ const styles = StyleSheet.create({
     cartIconButton: {
         padding: 4,
     },
+labelWithIcon: {
+  flexDirection: 'row',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  gap: 0
+},
+editIcon: {
+  fontSize: 16,
+  marginLeft: 8,
+  color: '#7B2869',
+},
+sectionTitleRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginTop: 12,
+    marginBottom: 8,
+  },
+  
+  editButton: {
+    backgroundColor: '#7B2869',
+    paddingVertical: 6,
+    paddingHorizontal: 12,
+    borderRadius: 12,
+  },
+  
+  editButtonText: {
+    color: '#FFFFFF',
+    fontSize: 14,
+    fontWeight: 'bold',
+  },
+  detailsHeader: {
+  flexDirection: 'row',
+  alignItems: 'baseline', // 🔥 aligns "Edit" with text baseline
+  marginTop: 12,
+  marginBottom: 8,
+  gap: 8,
+},
+
+editLink: {
+  fontSize: 11, // Slightly smaller than sectionTitle
+  color: '#000',
+  textDecorationLine: 'underline',
+  paddingBottom: 2, // Fine-tuning vertical position if needed
+},
+coverImage: {
+    width: '100%',
+    height: 230,
+    resizeMode: 'cover', // Makes it behave like a banner
+    backgroundColor: '#fff', // Optional: fallback background
+  },
+  
+
+  
+  seeAllLink: {
+    fontSize: 12,
+    color: '#000',
+    textDecorationLine: 'underline',
+    fontWeight: '600',
+    alignItems: 'baseline',
+  },
+  
 
 
 });
