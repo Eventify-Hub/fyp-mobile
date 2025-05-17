@@ -1,0 +1,4575 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CategoryVendorListing Component Tests Snapshot Tests — CategoryVendorListing 1. Renders main screen layout correctly 1`] = `
+<View
+  style={
+    {
+      "backgroundColor": "#F8E9F0",
+      "flex": 1,
+      "padding": 16,
+      "paddingTop": 70,
+    }
+  }
+>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "marginBottom": 20,
+      }
+    }
+  >
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "opacity": 1,
+        }
+      }
+      testID="back-button"
+    >
+      <Text
+        color="black"
+        name="arrow-back"
+        size={24}
+        testID="icon-arrow-back"
+      >
+        Ionicons: 
+        arrow-back
+      </Text>
+    </View>
+    <Text
+      style={
+        {
+          "fontSize": 18,
+          "fontWeight": "bold",
+          "marginLeft": 12,
+        }
+      }
+    >
+      Salon & Spa
+    </Text>
+  </View>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "backgroundColor": "white",
+        "borderRadius": 25,
+        "elevation": 1,
+        "flexDirection": "row",
+        "marginBottom": 20,
+        "paddingHorizontal": 15,
+        "paddingVertical": 10,
+      }
+    }
+  >
+    <Text
+      color="#C4C4C4"
+      name="search"
+      size={20}
+      style={
+        {
+          "marginRight": 10,
+        }
+      }
+      testID="icon-search"
+    >
+      Ionicons: 
+      search
+    </Text>
+    <TextInput
+      placeholder="Search Salon & Spa"
+      placeholderTextColor="#C4C4C4"
+      style={
+        {
+          "color": "#000",
+          "flex": 1,
+          "fontSize": 14,
+        }
+      }
+    />
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "opacity": 1,
+        }
+      }
+      testID="filter-button"
+    >
+      <Text
+        color="#C4C4C4"
+        name="tune"
+        size={24}
+        testID="icon-tune"
+      >
+        MaterialIcons: 
+        tune
+      </Text>
+    </View>
+  </View>
+  <RCTScrollView
+    contentContainerStyle={
+      {
+        "paddingBottom": 20,
+      }
+    }
+    data={
+      [
+        {
+          "BusinessDetails": {
+            "minimumPrice": "1000",
+          },
+          "_id": "default",
+          "contactDetails": {
+            "city": "Default City",
+          },
+          "name": "Default Vendor",
+        },
+      ]
+    }
+    getItem={[Function]}
+    getItemCount={[Function]}
+    keyExtractor={[Function]}
+    onContentSizeChange={[Function]}
+    onLayout={[Function]}
+    onMomentumScrollBegin={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={0.0001}
+    stickyHeaderIndices={[]}
+    viewabilityConfigCallbackPairs={[]}
+  >
+    <View>
+      <View
+        onFocusCapture={[Function]}
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          style={
+            {
+              "alignItems": "center",
+              "backgroundColor": "white",
+              "borderRadius": 15,
+              "elevation": 1,
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+              "marginBottom": 16,
+              "padding": 15,
+            }
+          }
+        >
+          <Image
+            source={
+              {
+                "uri": "https://t3.ftcdn.net/jpg/05/28/01/42/360_F_528014283_FMTbnoxTAtLJkVzuYiRT9gI94EAXUoJY.jpg",
+              }
+            }
+            style={
+              {
+                "borderRadius": 10,
+                "height": 70,
+                "marginRight": 10,
+                "width": 70,
+              }
+            }
+          />
+          <View
+            style={
+              {
+                "flex": 2,
+              }
+            }
+          >
+            <Text
+              style={
+                {
+                  "color": "#000",
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "marginBottom": 5,
+                }
+              }
+            >
+              Default Vendor
+            </Text>
+            <Text
+              style={
+                {
+                  "color": "#777",
+                  "fontSize": 14,
+                  "marginBottom": 5,
+                }
+              }
+            >
+              Pakistan
+            </Text>
+            <View
+              style={
+                {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                }
+              }
+            >
+              <Text
+                color="#FF8C00"
+                name="location-outline"
+                size={14}
+                testID="icon-location-outline"
+              >
+                Ionicons: 
+                location-outline
+              </Text>
+              <Text
+                style={
+                  {
+                    "color": "#7A7A7A",
+                    "fontSize": 14,
+                    "marginVertical": 8,
+                  }
+                }
+              >
+                Default City
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+              {
+                "alignItems": "flex-end",
+                "flex": 1,
+                "marginRight": 10,
+              }
+            }
+          >
+            <Text
+              style={
+                {
+                  "color": "#888",
+                  "fontSize": 12,
+                }
+              }
+            >
+              Starting From
+            </Text>
+            <Text
+              style={
+                {
+                  "color": "#000",
+                  "fontSize": 14,
+                  "fontWeight": "bold",
+                }
+              }
+            >
+              1000
+              /-
+            </Text>
+          </View>
+          <View
+            accessibilityState={
+              {
+                "busy": undefined,
+                "checked": undefined,
+                "disabled": undefined,
+                "expanded": undefined,
+                "selected": undefined,
+              }
+            }
+            accessibilityValue={
+              {
+                "max": undefined,
+                "min": undefined,
+                "now": undefined,
+                "text": undefined,
+              }
+            }
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "backgroundColor": "#780C60",
+                "borderRadius": 20,
+                "opacity": 1,
+                "paddingHorizontal": 16,
+                "paddingVertical": 8,
+              }
+            }
+          >
+            <Text
+              style={
+                {
+                  "color": "white",
+                  "fontSize": 14,
+                  "fontWeight": "bold",
+                }
+              }
+            >
+              View
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;
+
+exports[`CategoryVendorListing Component Tests Snapshot Tests — CategoryVendorListing 2. Renders header with category title 1`] = `
+<View
+  style={
+    {
+      "backgroundColor": "#F8E9F0",
+      "flex": 1,
+      "padding": 16,
+      "paddingTop": 70,
+    }
+  }
+>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "marginBottom": 20,
+      }
+    }
+  >
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "opacity": 1,
+        }
+      }
+      testID="back-button"
+    >
+      <Text
+        color="black"
+        name="arrow-back"
+        size={24}
+        testID="icon-arrow-back"
+      >
+        Ionicons: 
+        arrow-back
+      </Text>
+    </View>
+    <Text
+      style={
+        {
+          "fontSize": 18,
+          "fontWeight": "bold",
+          "marginLeft": 12,
+        }
+      }
+    >
+      Salon & Spa
+    </Text>
+  </View>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "backgroundColor": "white",
+        "borderRadius": 25,
+        "elevation": 1,
+        "flexDirection": "row",
+        "marginBottom": 20,
+        "paddingHorizontal": 15,
+        "paddingVertical": 10,
+      }
+    }
+  >
+    <Text
+      color="#C4C4C4"
+      name="search"
+      size={20}
+      style={
+        {
+          "marginRight": 10,
+        }
+      }
+      testID="icon-search"
+    >
+      Ionicons: 
+      search
+    </Text>
+    <TextInput
+      placeholder="Search Salon & Spa"
+      placeholderTextColor="#C4C4C4"
+      style={
+        {
+          "color": "#000",
+          "flex": 1,
+          "fontSize": 14,
+        }
+      }
+    />
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "opacity": 1,
+        }
+      }
+      testID="filter-button"
+    >
+      <Text
+        color="#C4C4C4"
+        name="tune"
+        size={24}
+        testID="icon-tune"
+      >
+        MaterialIcons: 
+        tune
+      </Text>
+    </View>
+  </View>
+  <RCTScrollView
+    contentContainerStyle={
+      {
+        "paddingBottom": 20,
+      }
+    }
+    data={
+      [
+        {
+          "BusinessDetails": {
+            "minimumPrice": "1000",
+          },
+          "_id": "default",
+          "contactDetails": {
+            "city": "Default City",
+          },
+          "name": "Default Vendor",
+        },
+      ]
+    }
+    getItem={[Function]}
+    getItemCount={[Function]}
+    keyExtractor={[Function]}
+    onContentSizeChange={[Function]}
+    onLayout={[Function]}
+    onMomentumScrollBegin={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={0.0001}
+    stickyHeaderIndices={[]}
+    viewabilityConfigCallbackPairs={[]}
+  >
+    <View>
+      <View
+        onFocusCapture={[Function]}
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          style={
+            {
+              "alignItems": "center",
+              "backgroundColor": "white",
+              "borderRadius": 15,
+              "elevation": 1,
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+              "marginBottom": 16,
+              "padding": 15,
+            }
+          }
+        >
+          <Image
+            source={
+              {
+                "uri": "https://t3.ftcdn.net/jpg/05/28/01/42/360_F_528014283_FMTbnoxTAtLJkVzuYiRT9gI94EAXUoJY.jpg",
+              }
+            }
+            style={
+              {
+                "borderRadius": 10,
+                "height": 70,
+                "marginRight": 10,
+                "width": 70,
+              }
+            }
+          />
+          <View
+            style={
+              {
+                "flex": 2,
+              }
+            }
+          >
+            <Text
+              style={
+                {
+                  "color": "#000",
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "marginBottom": 5,
+                }
+              }
+            >
+              Default Vendor
+            </Text>
+            <Text
+              style={
+                {
+                  "color": "#777",
+                  "fontSize": 14,
+                  "marginBottom": 5,
+                }
+              }
+            >
+              Pakistan
+            </Text>
+            <View
+              style={
+                {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                }
+              }
+            >
+              <Text
+                color="#FF8C00"
+                name="location-outline"
+                size={14}
+                testID="icon-location-outline"
+              >
+                Ionicons: 
+                location-outline
+              </Text>
+              <Text
+                style={
+                  {
+                    "color": "#7A7A7A",
+                    "fontSize": 14,
+                    "marginVertical": 8,
+                  }
+                }
+              >
+                Default City
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+              {
+                "alignItems": "flex-end",
+                "flex": 1,
+                "marginRight": 10,
+              }
+            }
+          >
+            <Text
+              style={
+                {
+                  "color": "#888",
+                  "fontSize": 12,
+                }
+              }
+            >
+              Starting From
+            </Text>
+            <Text
+              style={
+                {
+                  "color": "#000",
+                  "fontSize": 14,
+                  "fontWeight": "bold",
+                }
+              }
+            >
+              1000
+              /-
+            </Text>
+          </View>
+          <View
+            accessibilityState={
+              {
+                "busy": undefined,
+                "checked": undefined,
+                "disabled": undefined,
+                "expanded": undefined,
+                "selected": undefined,
+              }
+            }
+            accessibilityValue={
+              {
+                "max": undefined,
+                "min": undefined,
+                "now": undefined,
+                "text": undefined,
+              }
+            }
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "backgroundColor": "#780C60",
+                "borderRadius": 20,
+                "opacity": 1,
+                "paddingHorizontal": 16,
+                "paddingVertical": 8,
+              }
+            }
+          >
+            <Text
+              style={
+                {
+                  "color": "white",
+                  "fontSize": 14,
+                  "fontWeight": "bold",
+                }
+              }
+            >
+              View
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;
+
+exports[`CategoryVendorListing Component Tests Snapshot Tests — CategoryVendorListing 3. Renders vendor card layout properly 1`] = `
+<View
+  style={
+    {
+      "backgroundColor": "#F8E9F0",
+      "flex": 1,
+      "padding": 16,
+      "paddingTop": 70,
+    }
+  }
+>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "marginBottom": 20,
+      }
+    }
+  >
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "opacity": 1,
+        }
+      }
+      testID="back-button"
+    >
+      <Text
+        color="black"
+        name="arrow-back"
+        size={24}
+        testID="icon-arrow-back"
+      >
+        Ionicons: 
+        arrow-back
+      </Text>
+    </View>
+    <Text
+      style={
+        {
+          "fontSize": 18,
+          "fontWeight": "bold",
+          "marginLeft": 12,
+        }
+      }
+    >
+      Salon & Spa
+    </Text>
+  </View>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "backgroundColor": "white",
+        "borderRadius": 25,
+        "elevation": 1,
+        "flexDirection": "row",
+        "marginBottom": 20,
+        "paddingHorizontal": 15,
+        "paddingVertical": 10,
+      }
+    }
+  >
+    <Text
+      color="#C4C4C4"
+      name="search"
+      size={20}
+      style={
+        {
+          "marginRight": 10,
+        }
+      }
+      testID="icon-search"
+    >
+      Ionicons: 
+      search
+    </Text>
+    <TextInput
+      placeholder="Search Salon & Spa"
+      placeholderTextColor="#C4C4C4"
+      style={
+        {
+          "color": "#000",
+          "flex": 1,
+          "fontSize": 14,
+        }
+      }
+    />
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "opacity": 1,
+        }
+      }
+      testID="filter-button"
+    >
+      <Text
+        color="#C4C4C4"
+        name="tune"
+        size={24}
+        testID="icon-tune"
+      >
+        MaterialIcons: 
+        tune
+      </Text>
+    </View>
+  </View>
+  <RCTScrollView
+    contentContainerStyle={
+      {
+        "paddingBottom": 20,
+      }
+    }
+    data={
+      [
+        {
+          "BusinessDetails": {
+            "minimumPrice": "1000",
+          },
+          "_id": "default",
+          "contactDetails": {
+            "city": "Default City",
+          },
+          "name": "Default Vendor",
+        },
+      ]
+    }
+    getItem={[Function]}
+    getItemCount={[Function]}
+    keyExtractor={[Function]}
+    onContentSizeChange={[Function]}
+    onLayout={[Function]}
+    onMomentumScrollBegin={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={0.0001}
+    stickyHeaderIndices={[]}
+    viewabilityConfigCallbackPairs={[]}
+  >
+    <View>
+      <View
+        onFocusCapture={[Function]}
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          style={
+            {
+              "alignItems": "center",
+              "backgroundColor": "white",
+              "borderRadius": 15,
+              "elevation": 1,
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+              "marginBottom": 16,
+              "padding": 15,
+            }
+          }
+        >
+          <Image
+            source={
+              {
+                "uri": "https://t3.ftcdn.net/jpg/05/28/01/42/360_F_528014283_FMTbnoxTAtLJkVzuYiRT9gI94EAXUoJY.jpg",
+              }
+            }
+            style={
+              {
+                "borderRadius": 10,
+                "height": 70,
+                "marginRight": 10,
+                "width": 70,
+              }
+            }
+          />
+          <View
+            style={
+              {
+                "flex": 2,
+              }
+            }
+          >
+            <Text
+              style={
+                {
+                  "color": "#000",
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "marginBottom": 5,
+                }
+              }
+            >
+              Default Vendor
+            </Text>
+            <Text
+              style={
+                {
+                  "color": "#777",
+                  "fontSize": 14,
+                  "marginBottom": 5,
+                }
+              }
+            >
+              Pakistan
+            </Text>
+            <View
+              style={
+                {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                }
+              }
+            >
+              <Text
+                color="#FF8C00"
+                name="location-outline"
+                size={14}
+                testID="icon-location-outline"
+              >
+                Ionicons: 
+                location-outline
+              </Text>
+              <Text
+                style={
+                  {
+                    "color": "#7A7A7A",
+                    "fontSize": 14,
+                    "marginVertical": 8,
+                  }
+                }
+              >
+                Default City
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+              {
+                "alignItems": "flex-end",
+                "flex": 1,
+                "marginRight": 10,
+              }
+            }
+          >
+            <Text
+              style={
+                {
+                  "color": "#888",
+                  "fontSize": 12,
+                }
+              }
+            >
+              Starting From
+            </Text>
+            <Text
+              style={
+                {
+                  "color": "#000",
+                  "fontSize": 14,
+                  "fontWeight": "bold",
+                }
+              }
+            >
+              1000
+              /-
+            </Text>
+          </View>
+          <View
+            accessibilityState={
+              {
+                "busy": undefined,
+                "checked": undefined,
+                "disabled": undefined,
+                "expanded": undefined,
+                "selected": undefined,
+              }
+            }
+            accessibilityValue={
+              {
+                "max": undefined,
+                "min": undefined,
+                "now": undefined,
+                "text": undefined,
+              }
+            }
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "backgroundColor": "#780C60",
+                "borderRadius": 20,
+                "opacity": 1,
+                "paddingHorizontal": 16,
+                "paddingVertical": 8,
+              }
+            }
+          >
+            <Text
+              style={
+                {
+                  "color": "white",
+                  "fontSize": 14,
+                  "fontWeight": "bold",
+                }
+              }
+            >
+              View
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;
+
+exports[`CategoryVendorListing Component Tests Snapshot Tests — CategoryVendorListing 4. Renders pricing section correctly 1`] = `
+<View
+  style={
+    {
+      "backgroundColor": "#F8E9F0",
+      "flex": 1,
+      "padding": 16,
+      "paddingTop": 70,
+    }
+  }
+>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "marginBottom": 20,
+      }
+    }
+  >
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "opacity": 1,
+        }
+      }
+      testID="back-button"
+    >
+      <Text
+        color="black"
+        name="arrow-back"
+        size={24}
+        testID="icon-arrow-back"
+      >
+        Ionicons: 
+        arrow-back
+      </Text>
+    </View>
+    <Text
+      style={
+        {
+          "fontSize": 18,
+          "fontWeight": "bold",
+          "marginLeft": 12,
+        }
+      }
+    >
+      Salon & Spa
+    </Text>
+  </View>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "backgroundColor": "white",
+        "borderRadius": 25,
+        "elevation": 1,
+        "flexDirection": "row",
+        "marginBottom": 20,
+        "paddingHorizontal": 15,
+        "paddingVertical": 10,
+      }
+    }
+  >
+    <Text
+      color="#C4C4C4"
+      name="search"
+      size={20}
+      style={
+        {
+          "marginRight": 10,
+        }
+      }
+      testID="icon-search"
+    >
+      Ionicons: 
+      search
+    </Text>
+    <TextInput
+      placeholder="Search Salon & Spa"
+      placeholderTextColor="#C4C4C4"
+      style={
+        {
+          "color": "#000",
+          "flex": 1,
+          "fontSize": 14,
+        }
+      }
+    />
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "opacity": 1,
+        }
+      }
+      testID="filter-button"
+    >
+      <Text
+        color="#C4C4C4"
+        name="tune"
+        size={24}
+        testID="icon-tune"
+      >
+        MaterialIcons: 
+        tune
+      </Text>
+    </View>
+  </View>
+  <RCTScrollView
+    contentContainerStyle={
+      {
+        "paddingBottom": 20,
+      }
+    }
+    data={
+      [
+        {
+          "BusinessDetails": {
+            "minimumPrice": "1000",
+          },
+          "_id": "default",
+          "contactDetails": {
+            "city": "Default City",
+          },
+          "name": "Default Vendor",
+        },
+      ]
+    }
+    getItem={[Function]}
+    getItemCount={[Function]}
+    keyExtractor={[Function]}
+    onContentSizeChange={[Function]}
+    onLayout={[Function]}
+    onMomentumScrollBegin={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={0.0001}
+    stickyHeaderIndices={[]}
+    viewabilityConfigCallbackPairs={[]}
+  >
+    <View>
+      <View
+        onFocusCapture={[Function]}
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          style={
+            {
+              "alignItems": "center",
+              "backgroundColor": "white",
+              "borderRadius": 15,
+              "elevation": 1,
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+              "marginBottom": 16,
+              "padding": 15,
+            }
+          }
+        >
+          <Image
+            source={
+              {
+                "uri": "https://t3.ftcdn.net/jpg/05/28/01/42/360_F_528014283_FMTbnoxTAtLJkVzuYiRT9gI94EAXUoJY.jpg",
+              }
+            }
+            style={
+              {
+                "borderRadius": 10,
+                "height": 70,
+                "marginRight": 10,
+                "width": 70,
+              }
+            }
+          />
+          <View
+            style={
+              {
+                "flex": 2,
+              }
+            }
+          >
+            <Text
+              style={
+                {
+                  "color": "#000",
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "marginBottom": 5,
+                }
+              }
+            >
+              Default Vendor
+            </Text>
+            <Text
+              style={
+                {
+                  "color": "#777",
+                  "fontSize": 14,
+                  "marginBottom": 5,
+                }
+              }
+            >
+              Pakistan
+            </Text>
+            <View
+              style={
+                {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                }
+              }
+            >
+              <Text
+                color="#FF8C00"
+                name="location-outline"
+                size={14}
+                testID="icon-location-outline"
+              >
+                Ionicons: 
+                location-outline
+              </Text>
+              <Text
+                style={
+                  {
+                    "color": "#7A7A7A",
+                    "fontSize": 14,
+                    "marginVertical": 8,
+                  }
+                }
+              >
+                Default City
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+              {
+                "alignItems": "flex-end",
+                "flex": 1,
+                "marginRight": 10,
+              }
+            }
+          >
+            <Text
+              style={
+                {
+                  "color": "#888",
+                  "fontSize": 12,
+                }
+              }
+            >
+              Starting From
+            </Text>
+            <Text
+              style={
+                {
+                  "color": "#000",
+                  "fontSize": 14,
+                  "fontWeight": "bold",
+                }
+              }
+            >
+              1000
+              /-
+            </Text>
+          </View>
+          <View
+            accessibilityState={
+              {
+                "busy": undefined,
+                "checked": undefined,
+                "disabled": undefined,
+                "expanded": undefined,
+                "selected": undefined,
+              }
+            }
+            accessibilityValue={
+              {
+                "max": undefined,
+                "min": undefined,
+                "now": undefined,
+                "text": undefined,
+              }
+            }
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "backgroundColor": "#780C60",
+                "borderRadius": 20,
+                "opacity": 1,
+                "paddingHorizontal": 16,
+                "paddingVertical": 8,
+              }
+            }
+          >
+            <Text
+              style={
+                {
+                  "color": "white",
+                  "fontSize": 14,
+                  "fontWeight": "bold",
+                }
+              }
+            >
+              View
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;
+
+exports[`CategoryVendorListing Component Tests Snapshot Tests — CategoryVendorListing 5. Matches snapshot with multiple vendors 1`] = `
+<View
+  style={
+    {
+      "backgroundColor": "#F8E9F0",
+      "flex": 1,
+      "padding": 16,
+      "paddingTop": 70,
+    }
+  }
+>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "marginBottom": 20,
+      }
+    }
+  >
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "opacity": 1,
+        }
+      }
+      testID="back-button"
+    >
+      <Text
+        color="black"
+        name="arrow-back"
+        size={24}
+        testID="icon-arrow-back"
+      >
+        Ionicons: 
+        arrow-back
+      </Text>
+    </View>
+    <Text
+      style={
+        {
+          "fontSize": 18,
+          "fontWeight": "bold",
+          "marginLeft": 12,
+        }
+      }
+    >
+      Salon & Spa
+    </Text>
+  </View>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "backgroundColor": "white",
+        "borderRadius": 25,
+        "elevation": 1,
+        "flexDirection": "row",
+        "marginBottom": 20,
+        "paddingHorizontal": 15,
+        "paddingVertical": 10,
+      }
+    }
+  >
+    <Text
+      color="#C4C4C4"
+      name="search"
+      size={20}
+      style={
+        {
+          "marginRight": 10,
+        }
+      }
+      testID="icon-search"
+    >
+      Ionicons: 
+      search
+    </Text>
+    <TextInput
+      placeholder="Search Salon & Spa"
+      placeholderTextColor="#C4C4C4"
+      style={
+        {
+          "color": "#000",
+          "flex": 1,
+          "fontSize": 14,
+        }
+      }
+    />
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "opacity": 1,
+        }
+      }
+      testID="filter-button"
+    >
+      <Text
+        color="#C4C4C4"
+        name="tune"
+        size={24}
+        testID="icon-tune"
+      >
+        MaterialIcons: 
+        tune
+      </Text>
+    </View>
+  </View>
+  <RCTScrollView
+    contentContainerStyle={
+      {
+        "paddingBottom": 20,
+      }
+    }
+    data={
+      [
+        {
+          "BusinessDetails": {
+            "minimumPrice": "2000",
+          },
+          "_id": "1",
+          "contactDetails": {
+            "city": "Karachi",
+          },
+          "name": "Salon A",
+        },
+        {
+          "BusinessDetails": {
+            "minimumPrice": "2500",
+          },
+          "_id": "2",
+          "contactDetails": {
+            "city": "Lahore",
+          },
+          "name": "Salon B",
+        },
+      ]
+    }
+    getItem={[Function]}
+    getItemCount={[Function]}
+    keyExtractor={[Function]}
+    onContentSizeChange={[Function]}
+    onLayout={[Function]}
+    onMomentumScrollBegin={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={0.0001}
+    stickyHeaderIndices={[]}
+    viewabilityConfigCallbackPairs={[]}
+  >
+    <View>
+      <View
+        onFocusCapture={[Function]}
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          style={
+            {
+              "alignItems": "center",
+              "backgroundColor": "white",
+              "borderRadius": 15,
+              "elevation": 1,
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+              "marginBottom": 16,
+              "padding": 15,
+            }
+          }
+        >
+          <Image
+            source={
+              {
+                "uri": "https://t3.ftcdn.net/jpg/05/28/01/42/360_F_528014283_FMTbnoxTAtLJkVzuYiRT9gI94EAXUoJY.jpg",
+              }
+            }
+            style={
+              {
+                "borderRadius": 10,
+                "height": 70,
+                "marginRight": 10,
+                "width": 70,
+              }
+            }
+          />
+          <View
+            style={
+              {
+                "flex": 2,
+              }
+            }
+          >
+            <Text
+              style={
+                {
+                  "color": "#000",
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "marginBottom": 5,
+                }
+              }
+            >
+              Salon A
+            </Text>
+            <Text
+              style={
+                {
+                  "color": "#777",
+                  "fontSize": 14,
+                  "marginBottom": 5,
+                }
+              }
+            >
+              Pakistan
+            </Text>
+            <View
+              style={
+                {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                }
+              }
+            >
+              <Text
+                color="#FF8C00"
+                name="location-outline"
+                size={14}
+                testID="icon-location-outline"
+              >
+                Ionicons: 
+                location-outline
+              </Text>
+              <Text
+                style={
+                  {
+                    "color": "#7A7A7A",
+                    "fontSize": 14,
+                    "marginVertical": 8,
+                  }
+                }
+              >
+                Karachi
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+              {
+                "alignItems": "flex-end",
+                "flex": 1,
+                "marginRight": 10,
+              }
+            }
+          >
+            <Text
+              style={
+                {
+                  "color": "#888",
+                  "fontSize": 12,
+                }
+              }
+            >
+              Starting From
+            </Text>
+            <Text
+              style={
+                {
+                  "color": "#000",
+                  "fontSize": 14,
+                  "fontWeight": "bold",
+                }
+              }
+            >
+              2000
+              /-
+            </Text>
+          </View>
+          <View
+            accessibilityState={
+              {
+                "busy": undefined,
+                "checked": undefined,
+                "disabled": undefined,
+                "expanded": undefined,
+                "selected": undefined,
+              }
+            }
+            accessibilityValue={
+              {
+                "max": undefined,
+                "min": undefined,
+                "now": undefined,
+                "text": undefined,
+              }
+            }
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "backgroundColor": "#780C60",
+                "borderRadius": 20,
+                "opacity": 1,
+                "paddingHorizontal": 16,
+                "paddingVertical": 8,
+              }
+            }
+          >
+            <Text
+              style={
+                {
+                  "color": "white",
+                  "fontSize": 14,
+                  "fontWeight": "bold",
+                }
+              }
+            >
+              View
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        onFocusCapture={[Function]}
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          style={
+            {
+              "alignItems": "center",
+              "backgroundColor": "white",
+              "borderRadius": 15,
+              "elevation": 1,
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+              "marginBottom": 16,
+              "padding": 15,
+            }
+          }
+        >
+          <Image
+            source={
+              {
+                "uri": "https://t3.ftcdn.net/jpg/05/28/01/42/360_F_528014283_FMTbnoxTAtLJkVzuYiRT9gI94EAXUoJY.jpg",
+              }
+            }
+            style={
+              {
+                "borderRadius": 10,
+                "height": 70,
+                "marginRight": 10,
+                "width": 70,
+              }
+            }
+          />
+          <View
+            style={
+              {
+                "flex": 2,
+              }
+            }
+          >
+            <Text
+              style={
+                {
+                  "color": "#000",
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "marginBottom": 5,
+                }
+              }
+            >
+              Salon B
+            </Text>
+            <Text
+              style={
+                {
+                  "color": "#777",
+                  "fontSize": 14,
+                  "marginBottom": 5,
+                }
+              }
+            >
+              Pakistan
+            </Text>
+            <View
+              style={
+                {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                }
+              }
+            >
+              <Text
+                color="#FF8C00"
+                name="location-outline"
+                size={14}
+                testID="icon-location-outline"
+              >
+                Ionicons: 
+                location-outline
+              </Text>
+              <Text
+                style={
+                  {
+                    "color": "#7A7A7A",
+                    "fontSize": 14,
+                    "marginVertical": 8,
+                  }
+                }
+              >
+                Lahore
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+              {
+                "alignItems": "flex-end",
+                "flex": 1,
+                "marginRight": 10,
+              }
+            }
+          >
+            <Text
+              style={
+                {
+                  "color": "#888",
+                  "fontSize": 12,
+                }
+              }
+            >
+              Starting From
+            </Text>
+            <Text
+              style={
+                {
+                  "color": "#000",
+                  "fontSize": 14,
+                  "fontWeight": "bold",
+                }
+              }
+            >
+              2500
+              /-
+            </Text>
+          </View>
+          <View
+            accessibilityState={
+              {
+                "busy": undefined,
+                "checked": undefined,
+                "disabled": undefined,
+                "expanded": undefined,
+                "selected": undefined,
+              }
+            }
+            accessibilityValue={
+              {
+                "max": undefined,
+                "min": undefined,
+                "now": undefined,
+                "text": undefined,
+              }
+            }
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "backgroundColor": "#780C60",
+                "borderRadius": 20,
+                "opacity": 1,
+                "paddingHorizontal": 16,
+                "paddingVertical": 8,
+              }
+            }
+          >
+            <Text
+              style={
+                {
+                  "color": "white",
+                  "fontSize": 14,
+                  "fontWeight": "bold",
+                }
+              }
+            >
+              View
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;
+
+exports[`CategoryVendorListing Component Tests Snapshot Tests — CategoryVendorListing 6. Matches snapshot with empty city and missing BusinessDetails 1`] = `
+<View
+  style={
+    {
+      "backgroundColor": "#F8E9F0",
+      "flex": 1,
+      "padding": 16,
+      "paddingTop": 70,
+    }
+  }
+>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "marginBottom": 20,
+      }
+    }
+  >
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "opacity": 1,
+        }
+      }
+      testID="back-button"
+    >
+      <Text
+        color="black"
+        name="arrow-back"
+        size={24}
+        testID="icon-arrow-back"
+      >
+        Ionicons: 
+        arrow-back
+      </Text>
+    </View>
+    <Text
+      style={
+        {
+          "fontSize": 18,
+          "fontWeight": "bold",
+          "marginLeft": 12,
+        }
+      }
+    >
+      Salon & Spa
+    </Text>
+  </View>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "backgroundColor": "white",
+        "borderRadius": 25,
+        "elevation": 1,
+        "flexDirection": "row",
+        "marginBottom": 20,
+        "paddingHorizontal": 15,
+        "paddingVertical": 10,
+      }
+    }
+  >
+    <Text
+      color="#C4C4C4"
+      name="search"
+      size={20}
+      style={
+        {
+          "marginRight": 10,
+        }
+      }
+      testID="icon-search"
+    >
+      Ionicons: 
+      search
+    </Text>
+    <TextInput
+      placeholder="Search Salon & Spa"
+      placeholderTextColor="#C4C4C4"
+      style={
+        {
+          "color": "#000",
+          "flex": 1,
+          "fontSize": 14,
+        }
+      }
+    />
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "opacity": 1,
+        }
+      }
+      testID="filter-button"
+    >
+      <Text
+        color="#C4C4C4"
+        name="tune"
+        size={24}
+        testID="icon-tune"
+      >
+        MaterialIcons: 
+        tune
+      </Text>
+    </View>
+  </View>
+  <RCTScrollView
+    contentContainerStyle={
+      {
+        "paddingBottom": 20,
+      }
+    }
+    data={
+      [
+        {
+          "BusinessDetails": {},
+          "_id": "3",
+          "contactDetails": {
+            "city": "",
+          },
+          "name": "Unknown Vendor",
+        },
+      ]
+    }
+    getItem={[Function]}
+    getItemCount={[Function]}
+    keyExtractor={[Function]}
+    onContentSizeChange={[Function]}
+    onLayout={[Function]}
+    onMomentumScrollBegin={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={0.0001}
+    stickyHeaderIndices={[]}
+    viewabilityConfigCallbackPairs={[]}
+  >
+    <View>
+      <View
+        onFocusCapture={[Function]}
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          style={
+            {
+              "alignItems": "center",
+              "backgroundColor": "white",
+              "borderRadius": 15,
+              "elevation": 1,
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+              "marginBottom": 16,
+              "padding": 15,
+            }
+          }
+        >
+          <Image
+            source={
+              {
+                "uri": "https://t3.ftcdn.net/jpg/05/28/01/42/360_F_528014283_FMTbnoxTAtLJkVzuYiRT9gI94EAXUoJY.jpg",
+              }
+            }
+            style={
+              {
+                "borderRadius": 10,
+                "height": 70,
+                "marginRight": 10,
+                "width": 70,
+              }
+            }
+          />
+          <View
+            style={
+              {
+                "flex": 2,
+              }
+            }
+          >
+            <Text
+              style={
+                {
+                  "color": "#000",
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "marginBottom": 5,
+                }
+              }
+            >
+              Unknown Vendor
+            </Text>
+            <Text
+              style={
+                {
+                  "color": "#777",
+                  "fontSize": 14,
+                  "marginBottom": 5,
+                }
+              }
+            >
+              Pakistan
+            </Text>
+            <View
+              style={
+                {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                }
+              }
+            >
+              <Text
+                color="#FF8C00"
+                name="location-outline"
+                size={14}
+                testID="icon-location-outline"
+              >
+                Ionicons: 
+                location-outline
+              </Text>
+              <Text
+                style={
+                  {
+                    "color": "#7A7A7A",
+                    "fontSize": 14,
+                    "marginVertical": 8,
+                  }
+                }
+              />
+            </View>
+          </View>
+          <View
+            style={
+              {
+                "alignItems": "flex-end",
+                "flex": 1,
+                "marginRight": 10,
+              }
+            }
+          >
+            <Text
+              style={
+                {
+                  "color": "#888",
+                  "fontSize": 12,
+                }
+              }
+            >
+              Starting From
+            </Text>
+            <Text
+              style={
+                {
+                  "color": "#000",
+                  "fontSize": 14,
+                  "fontWeight": "bold",
+                }
+              }
+            >
+              N/A
+              /-
+            </Text>
+          </View>
+          <View
+            accessibilityState={
+              {
+                "busy": undefined,
+                "checked": undefined,
+                "disabled": undefined,
+                "expanded": undefined,
+                "selected": undefined,
+              }
+            }
+            accessibilityValue={
+              {
+                "max": undefined,
+                "min": undefined,
+                "now": undefined,
+                "text": undefined,
+              }
+            }
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "backgroundColor": "#780C60",
+                "borderRadius": 20,
+                "opacity": 1,
+                "paddingHorizontal": 16,
+                "paddingVertical": 8,
+              }
+            }
+          >
+            <Text
+              style={
+                {
+                  "color": "white",
+                  "fontSize": 14,
+                  "fontWeight": "bold",
+                }
+              }
+            >
+              View
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;
+
+exports[`CategoryVendorListing Component Tests Snapshot Tests — CategoryVendorListing 7. Renders correctly with long vendor name 1`] = `
+<View
+  style={
+    {
+      "backgroundColor": "#F8E9F0",
+      "flex": 1,
+      "padding": 16,
+      "paddingTop": 70,
+    }
+  }
+>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "marginBottom": 20,
+      }
+    }
+  >
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "opacity": 1,
+        }
+      }
+      testID="back-button"
+    >
+      <Text
+        color="black"
+        name="arrow-back"
+        size={24}
+        testID="icon-arrow-back"
+      >
+        Ionicons: 
+        arrow-back
+      </Text>
+    </View>
+    <Text
+      style={
+        {
+          "fontSize": 18,
+          "fontWeight": "bold",
+          "marginLeft": 12,
+        }
+      }
+    >
+      Salon & Spa
+    </Text>
+  </View>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "backgroundColor": "white",
+        "borderRadius": 25,
+        "elevation": 1,
+        "flexDirection": "row",
+        "marginBottom": 20,
+        "paddingHorizontal": 15,
+        "paddingVertical": 10,
+      }
+    }
+  >
+    <Text
+      color="#C4C4C4"
+      name="search"
+      size={20}
+      style={
+        {
+          "marginRight": 10,
+        }
+      }
+      testID="icon-search"
+    >
+      Ionicons: 
+      search
+    </Text>
+    <TextInput
+      placeholder="Search Salon & Spa"
+      placeholderTextColor="#C4C4C4"
+      style={
+        {
+          "color": "#000",
+          "flex": 1,
+          "fontSize": 14,
+        }
+      }
+    />
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "opacity": 1,
+        }
+      }
+      testID="filter-button"
+    >
+      <Text
+        color="#C4C4C4"
+        name="tune"
+        size={24}
+        testID="icon-tune"
+      >
+        MaterialIcons: 
+        tune
+      </Text>
+    </View>
+  </View>
+  <RCTScrollView
+    contentContainerStyle={
+      {
+        "paddingBottom": 20,
+      }
+    }
+    data={
+      [
+        {
+          "BusinessDetails": {
+            "minimumPrice": "9999",
+          },
+          "_id": "4",
+          "contactDetails": {
+            "city": "Karachi",
+          },
+          "name": "This is a very long vendor name to test UI wrapping and layout handling gracefully",
+        },
+      ]
+    }
+    getItem={[Function]}
+    getItemCount={[Function]}
+    keyExtractor={[Function]}
+    onContentSizeChange={[Function]}
+    onLayout={[Function]}
+    onMomentumScrollBegin={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={0.0001}
+    stickyHeaderIndices={[]}
+    viewabilityConfigCallbackPairs={[]}
+  >
+    <View>
+      <View
+        onFocusCapture={[Function]}
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          style={
+            {
+              "alignItems": "center",
+              "backgroundColor": "white",
+              "borderRadius": 15,
+              "elevation": 1,
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+              "marginBottom": 16,
+              "padding": 15,
+            }
+          }
+        >
+          <Image
+            source={
+              {
+                "uri": "https://t3.ftcdn.net/jpg/05/28/01/42/360_F_528014283_FMTbnoxTAtLJkVzuYiRT9gI94EAXUoJY.jpg",
+              }
+            }
+            style={
+              {
+                "borderRadius": 10,
+                "height": 70,
+                "marginRight": 10,
+                "width": 70,
+              }
+            }
+          />
+          <View
+            style={
+              {
+                "flex": 2,
+              }
+            }
+          >
+            <Text
+              style={
+                {
+                  "color": "#000",
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "marginBottom": 5,
+                }
+              }
+            >
+              This is a very long vendor name to test UI wrapping and layout handling gracefully
+            </Text>
+            <Text
+              style={
+                {
+                  "color": "#777",
+                  "fontSize": 14,
+                  "marginBottom": 5,
+                }
+              }
+            >
+              Pakistan
+            </Text>
+            <View
+              style={
+                {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                }
+              }
+            >
+              <Text
+                color="#FF8C00"
+                name="location-outline"
+                size={14}
+                testID="icon-location-outline"
+              >
+                Ionicons: 
+                location-outline
+              </Text>
+              <Text
+                style={
+                  {
+                    "color": "#7A7A7A",
+                    "fontSize": 14,
+                    "marginVertical": 8,
+                  }
+                }
+              >
+                Karachi
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+              {
+                "alignItems": "flex-end",
+                "flex": 1,
+                "marginRight": 10,
+              }
+            }
+          >
+            <Text
+              style={
+                {
+                  "color": "#888",
+                  "fontSize": 12,
+                }
+              }
+            >
+              Starting From
+            </Text>
+            <Text
+              style={
+                {
+                  "color": "#000",
+                  "fontSize": 14,
+                  "fontWeight": "bold",
+                }
+              }
+            >
+              9999
+              /-
+            </Text>
+          </View>
+          <View
+            accessibilityState={
+              {
+                "busy": undefined,
+                "checked": undefined,
+                "disabled": undefined,
+                "expanded": undefined,
+                "selected": undefined,
+              }
+            }
+            accessibilityValue={
+              {
+                "max": undefined,
+                "min": undefined,
+                "now": undefined,
+                "text": undefined,
+              }
+            }
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "backgroundColor": "#780C60",
+                "borderRadius": 20,
+                "opacity": 1,
+                "paddingHorizontal": 16,
+                "paddingVertical": 8,
+              }
+            }
+          >
+            <Text
+              style={
+                {
+                  "color": "white",
+                  "fontSize": 14,
+                  "fontWeight": "bold",
+                }
+              }
+            >
+              View
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;
+
+exports[`CategoryVendorListing Component Tests Snapshot Tests — CategoryVendorListing 8. Matches snapshot when categoryName is missing 1`] = `
+<View
+  style={
+    {
+      "backgroundColor": "#F8E9F0",
+      "flex": 1,
+      "padding": 16,
+      "paddingTop": 70,
+    }
+  }
+>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "marginBottom": 20,
+      }
+    }
+  >
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "opacity": 1,
+        }
+      }
+      testID="back-button"
+    >
+      <Text
+        color="black"
+        name="arrow-back"
+        size={24}
+        testID="icon-arrow-back"
+      >
+        Ionicons: 
+        arrow-back
+      </Text>
+    </View>
+    <Text
+      style={
+        {
+          "fontSize": 18,
+          "fontWeight": "bold",
+          "marginLeft": 12,
+        }
+      }
+    >
+      Category
+    </Text>
+  </View>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "backgroundColor": "white",
+        "borderRadius": 25,
+        "elevation": 1,
+        "flexDirection": "row",
+        "marginBottom": 20,
+        "paddingHorizontal": 15,
+        "paddingVertical": 10,
+      }
+    }
+  >
+    <Text
+      color="#C4C4C4"
+      name="search"
+      size={20}
+      style={
+        {
+          "marginRight": 10,
+        }
+      }
+      testID="icon-search"
+    >
+      Ionicons: 
+      search
+    </Text>
+    <TextInput
+      placeholder="Search Salon & Spa"
+      placeholderTextColor="#C4C4C4"
+      style={
+        {
+          "color": "#000",
+          "flex": 1,
+          "fontSize": 14,
+        }
+      }
+    />
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "opacity": 1,
+        }
+      }
+      testID="filter-button"
+    >
+      <Text
+        color="#C4C4C4"
+        name="tune"
+        size={24}
+        testID="icon-tune"
+      >
+        MaterialIcons: 
+        tune
+      </Text>
+    </View>
+  </View>
+  <RCTScrollView
+    contentContainerStyle={
+      {
+        "paddingBottom": 20,
+      }
+    }
+    data={
+      [
+        {
+          "BusinessDetails": {
+            "minimumPrice": "1000",
+          },
+          "_id": "default",
+          "contactDetails": {
+            "city": "Default City",
+          },
+          "name": "Default Vendor",
+        },
+      ]
+    }
+    getItem={[Function]}
+    getItemCount={[Function]}
+    keyExtractor={[Function]}
+    onContentSizeChange={[Function]}
+    onLayout={[Function]}
+    onMomentumScrollBegin={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={0.0001}
+    stickyHeaderIndices={[]}
+    viewabilityConfigCallbackPairs={[]}
+  >
+    <View>
+      <View
+        onFocusCapture={[Function]}
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          style={
+            {
+              "alignItems": "center",
+              "backgroundColor": "white",
+              "borderRadius": 15,
+              "elevation": 1,
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+              "marginBottom": 16,
+              "padding": 15,
+            }
+          }
+        >
+          <Image
+            source={
+              {
+                "uri": "https://t3.ftcdn.net/jpg/05/28/01/42/360_F_528014283_FMTbnoxTAtLJkVzuYiRT9gI94EAXUoJY.jpg",
+              }
+            }
+            style={
+              {
+                "borderRadius": 10,
+                "height": 70,
+                "marginRight": 10,
+                "width": 70,
+              }
+            }
+          />
+          <View
+            style={
+              {
+                "flex": 2,
+              }
+            }
+          >
+            <Text
+              style={
+                {
+                  "color": "#000",
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "marginBottom": 5,
+                }
+              }
+            >
+              Default Vendor
+            </Text>
+            <Text
+              style={
+                {
+                  "color": "#777",
+                  "fontSize": 14,
+                  "marginBottom": 5,
+                }
+              }
+            >
+              Pakistan
+            </Text>
+            <View
+              style={
+                {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                }
+              }
+            >
+              <Text
+                color="#FF8C00"
+                name="location-outline"
+                size={14}
+                testID="icon-location-outline"
+              >
+                Ionicons: 
+                location-outline
+              </Text>
+              <Text
+                style={
+                  {
+                    "color": "#7A7A7A",
+                    "fontSize": 14,
+                    "marginVertical": 8,
+                  }
+                }
+              >
+                Default City
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+              {
+                "alignItems": "flex-end",
+                "flex": 1,
+                "marginRight": 10,
+              }
+            }
+          >
+            <Text
+              style={
+                {
+                  "color": "#888",
+                  "fontSize": 12,
+                }
+              }
+            >
+              Starting From
+            </Text>
+            <Text
+              style={
+                {
+                  "color": "#000",
+                  "fontSize": 14,
+                  "fontWeight": "bold",
+                }
+              }
+            >
+              1000
+              /-
+            </Text>
+          </View>
+          <View
+            accessibilityState={
+              {
+                "busy": undefined,
+                "checked": undefined,
+                "disabled": undefined,
+                "expanded": undefined,
+                "selected": undefined,
+              }
+            }
+            accessibilityValue={
+              {
+                "max": undefined,
+                "min": undefined,
+                "now": undefined,
+                "text": undefined,
+              }
+            }
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "backgroundColor": "#780C60",
+                "borderRadius": 20,
+                "opacity": 1,
+                "paddingHorizontal": 16,
+                "paddingVertical": 8,
+              }
+            }
+          >
+            <Text
+              style={
+                {
+                  "color": "white",
+                  "fontSize": 14,
+                  "fontWeight": "bold",
+                }
+              }
+            >
+              View
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;
+
+exports[`CategoryVendorListing Component Tests Snapshot Tests — CategoryVendorListing 9. Snapshot for layout when price is non-numeric 1`] = `
+<View
+  style={
+    {
+      "backgroundColor": "#F8E9F0",
+      "flex": 1,
+      "padding": 16,
+      "paddingTop": 70,
+    }
+  }
+>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "marginBottom": 20,
+      }
+    }
+  >
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "opacity": 1,
+        }
+      }
+      testID="back-button"
+    >
+      <Text
+        color="black"
+        name="arrow-back"
+        size={24}
+        testID="icon-arrow-back"
+      >
+        Ionicons: 
+        arrow-back
+      </Text>
+    </View>
+    <Text
+      style={
+        {
+          "fontSize": 18,
+          "fontWeight": "bold",
+          "marginLeft": 12,
+        }
+      }
+    >
+      Salon & Spa
+    </Text>
+  </View>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "backgroundColor": "white",
+        "borderRadius": 25,
+        "elevation": 1,
+        "flexDirection": "row",
+        "marginBottom": 20,
+        "paddingHorizontal": 15,
+        "paddingVertical": 10,
+      }
+    }
+  >
+    <Text
+      color="#C4C4C4"
+      name="search"
+      size={20}
+      style={
+        {
+          "marginRight": 10,
+        }
+      }
+      testID="icon-search"
+    >
+      Ionicons: 
+      search
+    </Text>
+    <TextInput
+      placeholder="Search Salon & Spa"
+      placeholderTextColor="#C4C4C4"
+      style={
+        {
+          "color": "#000",
+          "flex": 1,
+          "fontSize": 14,
+        }
+      }
+    />
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "opacity": 1,
+        }
+      }
+      testID="filter-button"
+    >
+      <Text
+        color="#C4C4C4"
+        name="tune"
+        size={24}
+        testID="icon-tune"
+      >
+        MaterialIcons: 
+        tune
+      </Text>
+    </View>
+  </View>
+  <RCTScrollView
+    contentContainerStyle={
+      {
+        "paddingBottom": 20,
+      }
+    }
+    data={
+      [
+        {
+          "BusinessDetails": {
+            "minimumPrice": "negotiable",
+          },
+          "_id": "5",
+          "contactDetails": {
+            "city": "Lahore",
+          },
+          "name": "Negotiable Price Salon",
+        },
+      ]
+    }
+    getItem={[Function]}
+    getItemCount={[Function]}
+    keyExtractor={[Function]}
+    onContentSizeChange={[Function]}
+    onLayout={[Function]}
+    onMomentumScrollBegin={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={0.0001}
+    stickyHeaderIndices={[]}
+    viewabilityConfigCallbackPairs={[]}
+  >
+    <View>
+      <View
+        onFocusCapture={[Function]}
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          style={
+            {
+              "alignItems": "center",
+              "backgroundColor": "white",
+              "borderRadius": 15,
+              "elevation": 1,
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+              "marginBottom": 16,
+              "padding": 15,
+            }
+          }
+        >
+          <Image
+            source={
+              {
+                "uri": "https://t3.ftcdn.net/jpg/05/28/01/42/360_F_528014283_FMTbnoxTAtLJkVzuYiRT9gI94EAXUoJY.jpg",
+              }
+            }
+            style={
+              {
+                "borderRadius": 10,
+                "height": 70,
+                "marginRight": 10,
+                "width": 70,
+              }
+            }
+          />
+          <View
+            style={
+              {
+                "flex": 2,
+              }
+            }
+          >
+            <Text
+              style={
+                {
+                  "color": "#000",
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "marginBottom": 5,
+                }
+              }
+            >
+              Negotiable Price Salon
+            </Text>
+            <Text
+              style={
+                {
+                  "color": "#777",
+                  "fontSize": 14,
+                  "marginBottom": 5,
+                }
+              }
+            >
+              Pakistan
+            </Text>
+            <View
+              style={
+                {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                }
+              }
+            >
+              <Text
+                color="#FF8C00"
+                name="location-outline"
+                size={14}
+                testID="icon-location-outline"
+              >
+                Ionicons: 
+                location-outline
+              </Text>
+              <Text
+                style={
+                  {
+                    "color": "#7A7A7A",
+                    "fontSize": 14,
+                    "marginVertical": 8,
+                  }
+                }
+              >
+                Lahore
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+              {
+                "alignItems": "flex-end",
+                "flex": 1,
+                "marginRight": 10,
+              }
+            }
+          >
+            <Text
+              style={
+                {
+                  "color": "#888",
+                  "fontSize": 12,
+                }
+              }
+            >
+              Starting From
+            </Text>
+            <Text
+              style={
+                {
+                  "color": "#000",
+                  "fontSize": 14,
+                  "fontWeight": "bold",
+                }
+              }
+            >
+              negotiable
+              /-
+            </Text>
+          </View>
+          <View
+            accessibilityState={
+              {
+                "busy": undefined,
+                "checked": undefined,
+                "disabled": undefined,
+                "expanded": undefined,
+                "selected": undefined,
+              }
+            }
+            accessibilityValue={
+              {
+                "max": undefined,
+                "min": undefined,
+                "now": undefined,
+                "text": undefined,
+              }
+            }
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "backgroundColor": "#780C60",
+                "borderRadius": 20,
+                "opacity": 1,
+                "paddingHorizontal": 16,
+                "paddingVertical": 8,
+              }
+            }
+          >
+            <Text
+              style={
+                {
+                  "color": "white",
+                  "fontSize": 14,
+                  "fontWeight": "bold",
+                }
+              }
+            >
+              View
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;
+
+exports[`CategoryVendorListing Component Tests Snapshot Tests — CategoryVendorListing 11. Snapshot with multiple vendors displayed 1`] = `
+<View
+  style={
+    {
+      "backgroundColor": "#F8E9F0",
+      "flex": 1,
+      "padding": 16,
+      "paddingTop": 70,
+    }
+  }
+>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "marginBottom": 20,
+      }
+    }
+  >
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "opacity": 1,
+        }
+      }
+      testID="back-button"
+    >
+      <Text
+        color="black"
+        name="arrow-back"
+        size={24}
+        testID="icon-arrow-back"
+      >
+        Ionicons: 
+        arrow-back
+      </Text>
+    </View>
+    <Text
+      style={
+        {
+          "fontSize": 18,
+          "fontWeight": "bold",
+          "marginLeft": 12,
+        }
+      }
+    >
+      Salon & Spa
+    </Text>
+  </View>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "backgroundColor": "white",
+        "borderRadius": 25,
+        "elevation": 1,
+        "flexDirection": "row",
+        "marginBottom": 20,
+        "paddingHorizontal": 15,
+        "paddingVertical": 10,
+      }
+    }
+  >
+    <Text
+      color="#C4C4C4"
+      name="search"
+      size={20}
+      style={
+        {
+          "marginRight": 10,
+        }
+      }
+      testID="icon-search"
+    >
+      Ionicons: 
+      search
+    </Text>
+    <TextInput
+      placeholder="Search Salon & Spa"
+      placeholderTextColor="#C4C4C4"
+      style={
+        {
+          "color": "#000",
+          "flex": 1,
+          "fontSize": 14,
+        }
+      }
+    />
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "opacity": 1,
+        }
+      }
+      testID="filter-button"
+    >
+      <Text
+        color="#C4C4C4"
+        name="tune"
+        size={24}
+        testID="icon-tune"
+      >
+        MaterialIcons: 
+        tune
+      </Text>
+    </View>
+  </View>
+  <RCTScrollView
+    contentContainerStyle={
+      {
+        "paddingBottom": 20,
+      }
+    }
+    data={
+      [
+        {
+          "BusinessDetails": {
+            "minimumPrice": "2500",
+          },
+          "_id": "1",
+          "contactDetails": {
+            "city": "Karachi",
+          },
+          "name": "Salon One",
+        },
+        {
+          "BusinessDetails": {
+            "minimumPrice": "3000",
+          },
+          "_id": "2",
+          "contactDetails": {
+            "city": "Lahore",
+          },
+          "name": "Salon Two",
+        },
+      ]
+    }
+    getItem={[Function]}
+    getItemCount={[Function]}
+    keyExtractor={[Function]}
+    onContentSizeChange={[Function]}
+    onLayout={[Function]}
+    onMomentumScrollBegin={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={0.0001}
+    stickyHeaderIndices={[]}
+    viewabilityConfigCallbackPairs={[]}
+  >
+    <View>
+      <View
+        onFocusCapture={[Function]}
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          style={
+            {
+              "alignItems": "center",
+              "backgroundColor": "white",
+              "borderRadius": 15,
+              "elevation": 1,
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+              "marginBottom": 16,
+              "padding": 15,
+            }
+          }
+        >
+          <Image
+            source={
+              {
+                "uri": "https://t3.ftcdn.net/jpg/05/28/01/42/360_F_528014283_FMTbnoxTAtLJkVzuYiRT9gI94EAXUoJY.jpg",
+              }
+            }
+            style={
+              {
+                "borderRadius": 10,
+                "height": 70,
+                "marginRight": 10,
+                "width": 70,
+              }
+            }
+          />
+          <View
+            style={
+              {
+                "flex": 2,
+              }
+            }
+          >
+            <Text
+              style={
+                {
+                  "color": "#000",
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "marginBottom": 5,
+                }
+              }
+            >
+              Salon One
+            </Text>
+            <Text
+              style={
+                {
+                  "color": "#777",
+                  "fontSize": 14,
+                  "marginBottom": 5,
+                }
+              }
+            >
+              Pakistan
+            </Text>
+            <View
+              style={
+                {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                }
+              }
+            >
+              <Text
+                color="#FF8C00"
+                name="location-outline"
+                size={14}
+                testID="icon-location-outline"
+              >
+                Ionicons: 
+                location-outline
+              </Text>
+              <Text
+                style={
+                  {
+                    "color": "#7A7A7A",
+                    "fontSize": 14,
+                    "marginVertical": 8,
+                  }
+                }
+              >
+                Karachi
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+              {
+                "alignItems": "flex-end",
+                "flex": 1,
+                "marginRight": 10,
+              }
+            }
+          >
+            <Text
+              style={
+                {
+                  "color": "#888",
+                  "fontSize": 12,
+                }
+              }
+            >
+              Starting From
+            </Text>
+            <Text
+              style={
+                {
+                  "color": "#000",
+                  "fontSize": 14,
+                  "fontWeight": "bold",
+                }
+              }
+            >
+              2500
+              /-
+            </Text>
+          </View>
+          <View
+            accessibilityState={
+              {
+                "busy": undefined,
+                "checked": undefined,
+                "disabled": undefined,
+                "expanded": undefined,
+                "selected": undefined,
+              }
+            }
+            accessibilityValue={
+              {
+                "max": undefined,
+                "min": undefined,
+                "now": undefined,
+                "text": undefined,
+              }
+            }
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "backgroundColor": "#780C60",
+                "borderRadius": 20,
+                "opacity": 1,
+                "paddingHorizontal": 16,
+                "paddingVertical": 8,
+              }
+            }
+          >
+            <Text
+              style={
+                {
+                  "color": "white",
+                  "fontSize": 14,
+                  "fontWeight": "bold",
+                }
+              }
+            >
+              View
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        onFocusCapture={[Function]}
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          style={
+            {
+              "alignItems": "center",
+              "backgroundColor": "white",
+              "borderRadius": 15,
+              "elevation": 1,
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+              "marginBottom": 16,
+              "padding": 15,
+            }
+          }
+        >
+          <Image
+            source={
+              {
+                "uri": "https://t3.ftcdn.net/jpg/05/28/01/42/360_F_528014283_FMTbnoxTAtLJkVzuYiRT9gI94EAXUoJY.jpg",
+              }
+            }
+            style={
+              {
+                "borderRadius": 10,
+                "height": 70,
+                "marginRight": 10,
+                "width": 70,
+              }
+            }
+          />
+          <View
+            style={
+              {
+                "flex": 2,
+              }
+            }
+          >
+            <Text
+              style={
+                {
+                  "color": "#000",
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "marginBottom": 5,
+                }
+              }
+            >
+              Salon Two
+            </Text>
+            <Text
+              style={
+                {
+                  "color": "#777",
+                  "fontSize": 14,
+                  "marginBottom": 5,
+                }
+              }
+            >
+              Pakistan
+            </Text>
+            <View
+              style={
+                {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                }
+              }
+            >
+              <Text
+                color="#FF8C00"
+                name="location-outline"
+                size={14}
+                testID="icon-location-outline"
+              >
+                Ionicons: 
+                location-outline
+              </Text>
+              <Text
+                style={
+                  {
+                    "color": "#7A7A7A",
+                    "fontSize": 14,
+                    "marginVertical": 8,
+                  }
+                }
+              >
+                Lahore
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+              {
+                "alignItems": "flex-end",
+                "flex": 1,
+                "marginRight": 10,
+              }
+            }
+          >
+            <Text
+              style={
+                {
+                  "color": "#888",
+                  "fontSize": 12,
+                }
+              }
+            >
+              Starting From
+            </Text>
+            <Text
+              style={
+                {
+                  "color": "#000",
+                  "fontSize": 14,
+                  "fontWeight": "bold",
+                }
+              }
+            >
+              3000
+              /-
+            </Text>
+          </View>
+          <View
+            accessibilityState={
+              {
+                "busy": undefined,
+                "checked": undefined,
+                "disabled": undefined,
+                "expanded": undefined,
+                "selected": undefined,
+              }
+            }
+            accessibilityValue={
+              {
+                "max": undefined,
+                "min": undefined,
+                "now": undefined,
+                "text": undefined,
+              }
+            }
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "backgroundColor": "#780C60",
+                "borderRadius": 20,
+                "opacity": 1,
+                "paddingHorizontal": 16,
+                "paddingVertical": 8,
+              }
+            }
+          >
+            <Text
+              style={
+                {
+                  "color": "white",
+                  "fontSize": 14,
+                  "fontWeight": "bold",
+                }
+              }
+            >
+              View
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;
+
+exports[`CategoryVendorListing Component Tests Snapshot Tests — CategoryVendorListing 12. Snapshot with long vendor and city names 1`] = `
+<View
+  style={
+    {
+      "backgroundColor": "#F8E9F0",
+      "flex": 1,
+      "padding": 16,
+      "paddingTop": 70,
+    }
+  }
+>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "marginBottom": 20,
+      }
+    }
+  >
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "opacity": 1,
+        }
+      }
+      testID="back-button"
+    >
+      <Text
+        color="black"
+        name="arrow-back"
+        size={24}
+        testID="icon-arrow-back"
+      >
+        Ionicons: 
+        arrow-back
+      </Text>
+    </View>
+    <Text
+      style={
+        {
+          "fontSize": 18,
+          "fontWeight": "bold",
+          "marginLeft": 12,
+        }
+      }
+    >
+      Salon & Spa
+    </Text>
+  </View>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "backgroundColor": "white",
+        "borderRadius": 25,
+        "elevation": 1,
+        "flexDirection": "row",
+        "marginBottom": 20,
+        "paddingHorizontal": 15,
+        "paddingVertical": 10,
+      }
+    }
+  >
+    <Text
+      color="#C4C4C4"
+      name="search"
+      size={20}
+      style={
+        {
+          "marginRight": 10,
+        }
+      }
+      testID="icon-search"
+    >
+      Ionicons: 
+      search
+    </Text>
+    <TextInput
+      placeholder="Search Salon & Spa"
+      placeholderTextColor="#C4C4C4"
+      style={
+        {
+          "color": "#000",
+          "flex": 1,
+          "fontSize": 14,
+        }
+      }
+    />
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "opacity": 1,
+        }
+      }
+      testID="filter-button"
+    >
+      <Text
+        color="#C4C4C4"
+        name="tune"
+        size={24}
+        testID="icon-tune"
+      >
+        MaterialIcons: 
+        tune
+      </Text>
+    </View>
+  </View>
+  <RCTScrollView
+    contentContainerStyle={
+      {
+        "paddingBottom": 20,
+      }
+    }
+    data={
+      [
+        {
+          "BusinessDetails": {
+            "minimumPrice": "99999",
+          },
+          "_id": "long1",
+          "contactDetails": {
+            "city": "Some very long city name that is unusual but still needs to be displayed properly",
+          },
+          "name": "This is a super long vendor name that might wrap into multiple lines and test UI stability",
+        },
+      ]
+    }
+    getItem={[Function]}
+    getItemCount={[Function]}
+    keyExtractor={[Function]}
+    onContentSizeChange={[Function]}
+    onLayout={[Function]}
+    onMomentumScrollBegin={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={0.0001}
+    stickyHeaderIndices={[]}
+    viewabilityConfigCallbackPairs={[]}
+  >
+    <View>
+      <View
+        onFocusCapture={[Function]}
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          style={
+            {
+              "alignItems": "center",
+              "backgroundColor": "white",
+              "borderRadius": 15,
+              "elevation": 1,
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+              "marginBottom": 16,
+              "padding": 15,
+            }
+          }
+        >
+          <Image
+            source={
+              {
+                "uri": "https://t3.ftcdn.net/jpg/05/28/01/42/360_F_528014283_FMTbnoxTAtLJkVzuYiRT9gI94EAXUoJY.jpg",
+              }
+            }
+            style={
+              {
+                "borderRadius": 10,
+                "height": 70,
+                "marginRight": 10,
+                "width": 70,
+              }
+            }
+          />
+          <View
+            style={
+              {
+                "flex": 2,
+              }
+            }
+          >
+            <Text
+              style={
+                {
+                  "color": "#000",
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "marginBottom": 5,
+                }
+              }
+            >
+              This is a super long vendor name that might wrap into multiple lines and test UI stability
+            </Text>
+            <Text
+              style={
+                {
+                  "color": "#777",
+                  "fontSize": 14,
+                  "marginBottom": 5,
+                }
+              }
+            >
+              Pakistan
+            </Text>
+            <View
+              style={
+                {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                }
+              }
+            >
+              <Text
+                color="#FF8C00"
+                name="location-outline"
+                size={14}
+                testID="icon-location-outline"
+              >
+                Ionicons: 
+                location-outline
+              </Text>
+              <Text
+                style={
+                  {
+                    "color": "#7A7A7A",
+                    "fontSize": 14,
+                    "marginVertical": 8,
+                  }
+                }
+              >
+                Some very long city name that is unusual but still needs to be displayed properly
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+              {
+                "alignItems": "flex-end",
+                "flex": 1,
+                "marginRight": 10,
+              }
+            }
+          >
+            <Text
+              style={
+                {
+                  "color": "#888",
+                  "fontSize": 12,
+                }
+              }
+            >
+              Starting From
+            </Text>
+            <Text
+              style={
+                {
+                  "color": "#000",
+                  "fontSize": 14,
+                  "fontWeight": "bold",
+                }
+              }
+            >
+              99999
+              /-
+            </Text>
+          </View>
+          <View
+            accessibilityState={
+              {
+                "busy": undefined,
+                "checked": undefined,
+                "disabled": undefined,
+                "expanded": undefined,
+                "selected": undefined,
+              }
+            }
+            accessibilityValue={
+              {
+                "max": undefined,
+                "min": undefined,
+                "now": undefined,
+                "text": undefined,
+              }
+            }
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "backgroundColor": "#780C60",
+                "borderRadius": 20,
+                "opacity": 1,
+                "paddingHorizontal": 16,
+                "paddingVertical": 8,
+              }
+            }
+          >
+            <Text
+              style={
+                {
+                  "color": "white",
+                  "fontSize": 14,
+                  "fontWeight": "bold",
+                }
+              }
+            >
+              View
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;
