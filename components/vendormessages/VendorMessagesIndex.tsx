@@ -5,6 +5,7 @@ import { router } from 'expo-router';
 import React, { useEffect, useState } from 'react';
 import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { io } from 'socket.io-client';
+import BottomNavigationFinal from '../dashboard/BottomNavigationFinal';
 
 const MessagesScreen: React.FC = () => {
     const [conversations, setConversations] = useState<any[]>([]);
@@ -102,10 +103,7 @@ const MessagesScreen: React.FC = () => {
                 contentContainerStyle={styles.list}
             />
 
-            {/* Bottom Navigation */}
-            <View style={styles.bottomNavigation}>
-                {/* Your bottom navigation buttons */}
-            </View>
+            <BottomNavigationFinal />
         </View>
     );
 };

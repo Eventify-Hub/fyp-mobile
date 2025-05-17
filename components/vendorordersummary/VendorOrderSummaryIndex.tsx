@@ -7,6 +7,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { router, useLocalSearchParams } from "expo-router";
 import React, { useEffect, useState } from "react";
 import { Dimensions, FlatList, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import BottomNavigationFinal from "../dashboard/BottomNavigationFinal";
 
 // Order interface
 interface Order {
@@ -204,6 +205,7 @@ const OrderSummary = () => {
                     )}
                 />
             </View>
+            <BottomNavigationFinal />
         </SafeAreaView>
     );
 };

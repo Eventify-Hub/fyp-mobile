@@ -15,13 +15,14 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
+import BottomNavigationFinal from '../dashboard/BottomNavigationFinal';
 
 const AccountScreen: React.FC = () => {
   const router = useRouter();
   const [isModalVisible, setModalVisible] = useState(false);
 
   const [username, setUsername] = useState(""); // State for username
-  const [email, setEmail] = useState(""); 
+  const [email, setEmail] = useState("");
 
   useEffect(() => {
     fetchUserDetails(); // Fetch username and email on component mount
@@ -91,7 +92,7 @@ const AccountScreen: React.FC = () => {
     }
     router.push('/intro'); // Navigate to login/intro page
   };
-  
+
 
   const cancelLogout = () => {
     setModalVisible(false);
@@ -106,7 +107,7 @@ const AccountScreen: React.FC = () => {
   ];
 
   // Get the first letter of the username for the avatar
-  const avatarInitial = username ? username.charAt(0).toUpperCase() : "N/A"; 
+  const avatarInitial = username ? username.charAt(0).toUpperCase() : "N/A";
 
   return (
     <View style={styles.container}>
@@ -148,93 +149,7 @@ const AccountScreen: React.FC = () => {
         </View>
       </ScrollView>
 
-      {/* Bottom Navigation */}
-      <View style={styles.bottomNavigation}>
-        <TouchableOpacity
-          style={styles.navItem}
-          onPress={() => router.push("/vendormyevents")}
-        >
-          <View style={styles.iconContainer}>
-                        <Image
-                            source={require('@/assets/images/myevent.png')}
-                            style={styles.iconImage}
-                        />
-                    </View>
-          <Text style={styles.navText}>My Events</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={styles.navItem}
-          onPress={() => router.push("/bottommessages")}
-        >
-          <View style={styles.iconContainer}>
-            <Image
-              source={{
-                uri: "https://cdn.builder.io/api/v1/image/assets/TEMP/549e73c4-da91-40a5-a5c8-fd173b0e2a62?placeholderIfAbsent=true&apiKey=0a92af3bc6e24da3a9ef8b1ae693931a",
-              }}
-              style={styles.iconImage}
-            />
-          </View>
-          <Text style={styles.navText}>Messages</Text>
-        </TouchableOpacity>
-
-        {/* Home Button */}
-        {/* <TouchableOpacity
-  style={[styles.navItem, styles.homeButton]}
-  onPress={() => router.push('/dashboard')}
->
-  <View style={styles.homeButtonIconContainer}>
-    <Image
-      source={{
-        uri: "https://cdn.builder.io/api/v1/image/assets/TEMP/037c15c0-3bc9-4416-8c18-69934587461a?placeholderIfAbsent=true",
-      }}
-      style={styles.homeButtonIconImage}
-    />
-  </View>
-  <Text style={styles.navText}>Home</Text>
-</TouchableOpacity> */}
-<TouchableOpacity
-  style={[styles.navItem, styles.homeButton]}
-  onPress={() => router.push('/vendordashboard')}
->
-  <View style={styles.homeButtonIconContainer}>
-    <Ionicons name="home" size={40} color="#fff" />
-  </View>
-  <Text style={styles.navText}>Home</Text>
-</TouchableOpacity>
-
-
-
-        <TouchableOpacity
-          style={styles.navItem}
-          onPress={() => router.push("/vendorordersummary")}
-        >
-          <View style={styles.iconContainer}>
-            <Image
-              source={{
-                uri: "https://cdn.builder.io/api/v1/image/assets/TEMP/198f4cc8-49ff-4ccc-b97b-619e572143d4?placeholderIfAbsent=true&apiKey=0a92af3bc6e24da3a9ef8b1ae693931a",
-              }}
-              style={styles.iconImage}
-            />
-          </View>
-          <Text style={styles.navText}>My Orders</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={styles.navItem}
-          onPress={() => router.push("/vendoraccount")}
-        >
-          <View style={styles.iconContainer}>
-            <Image
-              source={{
-                uri: "https://cdn.builder.io/api/v1/image/assets/TEMP/73089a6f-a9a6-4c94-9fd1-4cdd5923a137?placeholderIfAbsent=true&apiKey=0a92af3bc6e24da3a9ef8b1ae693931a",
-              }}
-              style={styles.iconImage}
-            />
-          </View>
-          <Text style={styles.navText}>Account</Text>
-        </TouchableOpacity>
-      </View>
+      <BottomNavigationFinal />
 
       {/* Logout Confirmation Modal */}
       <Modal
@@ -257,7 +172,7 @@ const AccountScreen: React.FC = () => {
               >
                 <Text style={styles.cancelButtonText}>Cancel</Text>
               </TouchableOpacity>
-              
+
               {/* <TouchableOpacity
                 style={styles.confirmButton}
                 onPress={() => {
@@ -268,11 +183,11 @@ const AccountScreen: React.FC = () => {
                 <Text style={styles.confirmButtonText}>Log Out</Text>
               </TouchableOpacity> */}
               <TouchableOpacity
-  style={styles.confirmButton}
-  onPress={confirmLogout}
->
-  <Text style={styles.confirmButtonText}>Log Out</Text>
-</TouchableOpacity>
+                style={styles.confirmButton}
+                onPress={confirmLogout}
+              >
+                <Text style={styles.confirmButtonText}>Log Out</Text>
+              </TouchableOpacity>
 
             </View>
           </View>
@@ -466,8 +381,8 @@ const styles = StyleSheet.create({
 
   homeButton: {
     transform: [{ translateY: -20 }], // move it more upward (from -10 to -15)
-  
-},
+
+  },
 });
 
 export default AccountScreen;

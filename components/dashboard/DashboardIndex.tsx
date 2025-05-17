@@ -4,7 +4,7 @@ import Header from './Header';
 //import SearchBar from './SearchBar';
 import CategoryGrid from './CategoryGrid';
 import VenueList from './VenueList';
-import BottomNavigation from './BottomNavigation';
+import BottomNavigationFinal from './BottomNavigationFinal';
 
 
 const DashboardIndex: React.FC = () => {
@@ -17,7 +17,7 @@ const DashboardIndex: React.FC = () => {
           <VenueList />
         </View>
       </ScrollView>
-      <BottomNavigation />
+      <BottomNavigationFinal />
     </View>
   );
 };

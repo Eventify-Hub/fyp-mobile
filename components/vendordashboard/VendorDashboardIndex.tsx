@@ -7,6 +7,7 @@ import { router } from "expo-router";
 import React, { useEffect, useState } from "react";
 import { Alert, Dimensions, Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { LineChart } from "react-native-chart-kit";
+import BottomNavigationFinal from "../dashboard/BottomNavigationFinal";
 
 const screenWidth = Dimensions.get("window").width;
 
@@ -187,20 +188,20 @@ const DashboardScreen = () => {
                                     <Text style={styles.detailsText}>Details</Text>
                                 </TouchableOpacity> */}
                                 <View style={styles.packageContent}>
-  <Text style={styles.packageValue}>{pkg.packageName}</Text>
-  <Text style={styles.packageLabel}>Package</Text>
-  <TouchableOpacity
-    style={styles.detailsButton}
-    onPress={() => {
-      router.push({
-        pathname: '/vendorpackages',
-        params: { packageId: pkg._id },
-      });
-    }}
-  >
-    <Text style={styles.detailsText}>Details</Text>
-  </TouchableOpacity>
-</View>
+                                    <Text style={styles.packageValue}>{pkg.packageName}</Text>
+                                    <Text style={styles.packageLabel}>Package</Text>
+                                    <TouchableOpacity
+                                        style={styles.detailsButton}
+                                        onPress={() => {
+                                            router.push({
+                                                pathname: '/vendorpackages',
+                                                params: { packageId: pkg._id },
+                                            });
+                                        }}
+                                    >
+                                        <Text style={styles.detailsText}>Details</Text>
+                                    </TouchableOpacity>
+                                </View>
 
                             </TouchableOpacity>
                         ))}
@@ -223,76 +224,7 @@ const DashboardScreen = () => {
                     <Text style={styles.vendorProfileButtonText}>View Vendor Profile</Text>
                 </TouchableOpacity>
             </ScrollView>
-
-            <View style={styles.bottomNavigation}>
-                <TouchableOpacity
-                    style={styles.navItem}
-                    onPress={() => router.push("/vendormyevents")}
-                >
-                    <View style={styles.iconContainer}>
-                        <Image
-                            source={require('@/assets/images/myevent.png')}
-                            style={styles.iconImage}
-                        />
-                    </View>
-                    <Text style={styles.navText}>My Events</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity
-                    style={styles.navItem}
-                    onPress={() => router.push("/vendormessages")}
-                >
-                    <View style={styles.iconContainer}>
-                        <Image
-                            source={{
-                                uri: "https://cdn.builder.io/api/v1/image/assets/TEMP/549e73c4-da91-40a5-a5c8-fd173b0e2a62?placeholderIfAbsent=true&apiKey=0a92af3bc6e24da3a9ef8b1ae693931a",
-                            }}
-                            style={styles.iconImage}
-                        />
-                    </View>
-                    <Text style={styles.navText}>Messages</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity
-                    style={[styles.navItem, styles.homeButton]}
-                    onPress={() => router.push('/vendordashboard')}
-                >
-                    <View style={styles.homeButtonIconContainer}>
-                        <Ionicons name="home" size={40} color="#fff" />
-                    </View>
-                    <Text style={styles.navText}>Home</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity
-                    style={styles.navItem}
-                    onPress={() => router.push("/vendorordersummary")}
-                >
-                    <View style={styles.iconContainer}>
-                        <Image
-                            source={{
-                                uri: "https://cdn.builder.io/api/v1/image/assets/TEMP/198f4cc8-49ff-4ccc-b97b-619e572143d4?placeholderIfAbsent=true&apiKey=0a92af3bc6e24da3a9ef8b1ae693931a",
-                            }}
-                            style={styles.iconImage}
-                        />
-                    </View>
-                    <Text style={styles.navText}>My Orders</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity
-                    style={styles.navItem}
-                    onPress={() => router.push("/account")}
-                >
-                    <View style={styles.iconContainer}>
-                        <Image
-                            source={{
-                                uri: "https://cdn.builder.io/api/v1/image/assets/TEMP/73089a6f-a9a6-4c94-9fd1-4cdd5923a137?placeholderIfAbsent=true&apiKey=0a92af3bc6e24da3a9ef8b1ae693931a",
-                            }}
-                            style={styles.iconImage}
-                        />
-                    </View>
-                    <Text style={styles.navText}>Account</Text>
-                </TouchableOpacity>
-            </View>
+            <BottomNavigationFinal />
         </View>
     );
 };
@@ -455,8 +387,8 @@ const styles = StyleSheet.create({
     packageContent: {
         alignItems: 'center',
         justifyContent: 'center',
-      },
-      
+    },
+
 
 });
 

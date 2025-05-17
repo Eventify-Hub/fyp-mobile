@@ -12,6 +12,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
+import BottomNavigationFinal from '../dashboard/BottomNavigationFinal';
 
 const MyEventsScreen = () => {
   const [events, setEvents] = useState<any[]>([]);  // Adjust the type to your data
@@ -119,48 +120,7 @@ const MyEventsScreen = () => {
         })}
       </ScrollView>
 
-      {/* Bottom Navigation */}
-      <View style={styles.bottomNavigation}>
-        <TouchableOpacity style={styles.navItem} onPress={() => router.push("/dashboard")}>
-          <View style={styles.iconContainer}>
-            <Image
-              source={{ uri: "https://cdn.builder.io/api/v1/image/assets/TEMP/037c15c0-3bc9-4416-8c18-69934587461a" }}
-              style={styles.iconImage}
-            />
-          </View>
-          <Text style={styles.navText}>Dashboard</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity style={styles.navItem} onPress={() => router.push("/bottommessages")}>
-          <View style={styles.iconContainer}>
-            <Image
-              source={{ uri: "https://cdn.builder.io/api/v1/image/assets/TEMP/549e73c4-da91-40a5-a5c8-fd173b0e2a62" }}
-              style={styles.iconImage}
-            />
-          </View>
-          <Text style={styles.navText}>Messages</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity style={styles.navItem} onPress={() => router.push("/bottomnotification")}>
-          <View style={styles.iconContainer}>
-            <Image
-              source={{ uri: "https://cdn.builder.io/api/v1/image/assets/TEMP/198f4cc8-49ff-4ccc-b97b-619e572143d4" }}
-              style={styles.iconImage}
-            />
-          </View>
-          <Text style={styles.navText}>Notifications</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity style={styles.navItem} onPress={() => router.push("/account")}>
-          <View style={styles.iconContainer}>
-            <Image
-              source={{ uri: "https://cdn.builder.io/api/v1/image/assets/TEMP/73089a6f-a9a6-4c94-9fd1-4cdd5923a137" }}
-              style={styles.iconImage}
-            />
-          </View>
-          <Text style={styles.navText}>Account</Text>
-        </TouchableOpacity>
-      </View>
+      <BottomNavigationFinal />
     </View>
   );
 };

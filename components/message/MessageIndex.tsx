@@ -68,7 +68,7 @@ const ChatScreen: React.FC = () => {
             });
 
             // Optionally, add the sent message to the local state immediately for instant feedback
-            setMessages((prevMessages) => [...prevMessages, { message, senderId: userId }]);
+            // setMessages((prevMessages) => [...prevMessages, { message, senderId: userId }]);
 
             setMessage(""); // Clear the input field
         }
