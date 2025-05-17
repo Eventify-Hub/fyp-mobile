@@ -140,14 +140,14 @@ const PhotographerDetailsScreen: React.FC = () => {
 
             {/* Cover Image */}
             <Image
-  testID="vendor-cover-image"
-  source={{
-    uri: vendorData?.contactDetails?.brandLogo
-      ? `${vendorData.contactDetails.brandLogo}`
-      : "https://via.placeholder.com/600x300",
-  }}
-  style={styles.coverImage}
-/>
+                testID="vendor-cover-image"
+                source={{
+                    uri: vendorData?.contactDetails?.brandLogo
+                        ? `${vendorData.contactDetails.brandLogo}`
+                        : "https://via.placeholder.com/600x300",
+                }}
+                style={styles.coverImage}
+            />
 
 
 
@@ -179,33 +179,6 @@ const PhotographerDetailsScreen: React.FC = () => {
                     </TouchableOpacity>
                 ))}
             </View>
-
-            {/* Tab Content*/}
-
-            {/* {activeTab === 'Details' && (
-                <View style={styles.detailsContainer}>
-                    <Text style={styles.name}>{vendorData.name}</Text>
-                    <Text style={styles.address}>{vendorData.contactDetails.officialAddress}</Text>
-                    <Text style={styles.price}>Starting Price: Rs.{vendorData.photographerBusinessDetails.minimumPrice}/-</Text>
-
-
-                    <Text style={styles.perHead}>Per head</Text>
-
-                    <Text style={styles.sectionTitle}>Details</Text>
-
-                    <Text style={styles.detailLabel}>Staff</Text>
-                    <Text style={styles.detailValue}>{vendorData.photographerBusinessDetails.staff}</Text>
-
-                    <Text style={styles.detailLabel}>Cancellation Policy</Text>
-                    <Text style={styles.detailValue}>{vendorData.photographerBusinessDetails.covidRefundPolicy}</Text>
-
-                    <Text style={styles.detailLabel}>Cities Covered</Text>
-                    <Text style={styles.detailValue}>{vendorData.photographerBusinessDetails.cityCovered}</Text>
-
-                    <Text style={styles.detailLabel}>Description</Text>
-                    <Text style={styles.detailValue}>{vendorData.photographerBusinessDetails.description}</Text>
-                </View>
-            )} */}
             {activeTab === "Details" && (
                 <View style={styles.detailsContainer}>
                     {/* Top Row: Name and Price 
@@ -229,49 +202,21 @@ const PhotographerDetailsScreen: React.FC = () => {
 
                     {/* Photos Section */}
                     <View style={styles.photosSection}>
-                    {/* <Text style={styles.sectionTitle}>Photos</Text>
-                        {/* <TouchableOpacity
-                            onPress={() => router.push("/vendorprofileimages")}
-                        >
+                        <View style={styles.sectionTitleRow}>
                             <Text style={styles.sectionTitle}>Photos</Text>
-                        </TouchableOpacity> 
-                        <TouchableOpacity
-    testID="see-all-photos"
-    onPress={() => router.push('/vendorprofileimages')}
-  >
-    <Text style={styles.editLink}>See All</Text>
-  </TouchableOpacity> */}
-  <View style={styles.sectionTitleRow}>
-  <Text style={styles.sectionTitle}>Photos</Text>
-  {/* <TouchableOpacity
-    testID="see-all-photos"
-    onPress={() => 
-        //router.push('/vendorprofileimages')}
-        router.push({
-            pathname: '/vendorprofileimages',
-            params: { vendorId: vendorData._id },
-          });
-          
-  >
-    <Text style={styles.seeAllLink}>See All</Text>
-  </TouchableOpacity> */}
-  <TouchableOpacity
-  testID="see-all-photos"
-  onPress={() =>
-    router.push({
-      pathname: '/vendorprofileimages',
-      params: { vendorId: vendorData._id },
-    })
-  }
->
-  <Text style={styles.seeAllLink}>See All</Text>
-</TouchableOpacity>
+                            <TouchableOpacity
+                                testID="see-all-photos"
+                                onPress={() =>
+                                    router.push({
+                                        pathname: '/vendorprofileimages',
+                                        params: { vendorId: vendorData._id },
+                                    })
+                                }
+                            >
+                                <Text style={styles.seeAllLink}>See All</Text>
+                            </TouchableOpacity>
 
-</View>
-
-
-  
-                        
+                        </View>
                         <ScrollView
                             testID="scroll-view"
                             horizontal
@@ -288,56 +233,28 @@ const PhotographerDetailsScreen: React.FC = () => {
                             ))}
                         </ScrollView>
                     </View>
+                    <View style={styles.detailsHeader}>
+                        <Text style={styles.sectionTitle}>Details</Text>
+                        <TouchableOpacity onPress={() => router.push('/vendoreditprofile')}>
+                            <Text style={styles.editLink}>Edit</Text>
+                        </TouchableOpacity>
+                    </View>
+                    <Text style={styles.detailLabel}>Staff</Text>
 
-                    {/* Additional Details Section */}
-
-                    {/* Details Section */}
-                    {/* <Text style={styles.sectionTitle}>Details
-                    
-                                <TouchableOpacity
-                                  //  testID={`edit-package-${pkg._id}`}
-                                    style={styles.cartButton}
-                                    onPress={() => {
-                                        router.push('/vendoreditprofile');
-                                    }}
-                                >
-                                    <Text style={styles.cartButtonText}>Edit</Text>
-                                </TouchableOpacity>
-                                
-                    </Text> */}
-                   <View style={styles.detailsHeader}>
-  <Text style={styles.sectionTitle}>Details</Text>
-  <TouchableOpacity onPress={() => router.push('/vendoreditprofile')}>
-    <Text style={styles.editLink}>Edit</Text>
-  </TouchableOpacity>
-</View>
-
-
-
-                     <Text style={styles.detailLabel}>Staff</Text>
-                    
                     <Text style={styles.detailValue}>
                         {vendorData?.BusinessDetails?.staff || "N/A"}
                     </Text>
-                   
-
-
-
-
                     <Text style={styles.detailLabel}>Cancellation Policy</Text>
-                    
                     <Text style={styles.detailValue}>
                         {vendorData?.BusinessDetails?.covidRefundPolicy || "N/A"}
                     </Text>
-
                     <Text style={styles.detailLabel}>Cities Covered</Text>
-    
                     <Text style={styles.detailValue}>
                         {vendorData?.BusinessDetails?.cityCovered || "N/A"}
                     </Text>
 
                     <Text style={styles.detailLabel}>Description</Text>
-                    
+
                     <Text style={styles.detailValue}>
                         {vendorData?.BusinessDetails?.description || "N/A"}
                     </Text>
@@ -921,68 +838,68 @@ const styles = StyleSheet.create({
     cartIconButton: {
         padding: 4,
     },
-labelWithIcon: {
-  flexDirection: 'row',
-  alignItems: 'center',
-  justifyContent: 'space-between',
-  gap: 0
-},
-editIcon: {
-  fontSize: 16,
-  marginLeft: 8,
-  color: '#7B2869',
-},
-sectionTitleRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginTop: 12,
-    marginBottom: 8,
-  },
-  
-  editButton: {
-    backgroundColor: '#7B2869',
-    paddingVertical: 6,
-    paddingHorizontal: 12,
-    borderRadius: 12,
-  },
-  
-  editButtonText: {
-    color: '#FFFFFF',
-    fontSize: 14,
-    fontWeight: 'bold',
-  },
-  detailsHeader: {
-  flexDirection: 'row',
-  alignItems: 'baseline', // 🔥 aligns "Edit" with text baseline
-  marginTop: 12,
-  marginBottom: 8,
-  gap: 8,
-},
+    labelWithIcon: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        gap: 0
+    },
+    editIcon: {
+        fontSize: 16,
+        marginLeft: 8,
+        color: '#7B2869',
+    },
+    sectionTitleRow: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        marginTop: 12,
+        marginBottom: 8,
+    },
 
-editLink: {
-  fontSize: 11, // Slightly smaller than sectionTitle
-  color: '#000',
-  textDecorationLine: 'underline',
-  paddingBottom: 2, // Fine-tuning vertical position if needed
-},
-coverImage: {
-    width: '100%',
-    height: 230,
-    resizeMode: 'cover', // Makes it behave like a banner
-    backgroundColor: '#fff', // Optional: fallback background
-  },
-  
+    editButton: {
+        backgroundColor: '#7B2869',
+        paddingVertical: 6,
+        paddingHorizontal: 12,
+        borderRadius: 12,
+    },
 
-  
-  seeAllLink: {
-    fontSize: 12,
-    color: '#000',
-    textDecorationLine: 'underline',
-    fontWeight: '600',
-    alignItems: 'baseline',
-  },
-  
+    editButtonText: {
+        color: '#FFFFFF',
+        fontSize: 14,
+        fontWeight: 'bold',
+    },
+    detailsHeader: {
+        flexDirection: 'row',
+        alignItems: 'baseline', // 🔥 aligns "Edit" with text baseline
+        marginTop: 12,
+        marginBottom: 8,
+        gap: 8,
+    },
+
+    editLink: {
+        fontSize: 11, // Slightly smaller than sectionTitle
+        color: '#000',
+        textDecorationLine: 'underline',
+        paddingBottom: 2, // Fine-tuning vertical position if needed
+    },
+    coverImage: {
+        width: '100%',
+        height: 230,
+        resizeMode: 'cover', // Makes it behave like a banner
+        backgroundColor: '#fff', // Optional: fallback background
+    },
+
+
+
+    seeAllLink: {
+        fontSize: 12,
+        color: '#000',
+        textDecorationLine: 'underline',
+        fontWeight: '600',
+        alignItems: 'baseline',
+    },
+
 
 
 });

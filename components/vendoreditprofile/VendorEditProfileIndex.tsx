@@ -1,3 +1,4 @@
+import getAllCategories from '@/services/getAllCategories';
 import patchUpdateProfile from '@/services/patchUpdateProfile'; // import your API function
 import { getSecureData, saveSecureData } from '@/store';
 //import Ionicons from '@expo/vector-icons';
@@ -38,40 +39,42 @@ const EditProfileScreen: React.FC = () => {
     fetchUserDetails();
   }, []);
 
-  useEffect(() => {
-    const fetchVendorDetails = async () => {
-        try {
-            const response = await axios.get(`http://13.233.214.252:3000/vendor?userId=${id}`);
-            setVendorData(response.data);
-           
-            //setActivePackage(response.data.packages?.[0]?._id || null); // Set the first package as active by default
-        } catch (error) {
-            console.error('Error fetching vendor data:', error);
-        } finally {
-            setLoading(false);
-        }
-    };
-    console.log("id", id);
-    if (id) {
-        fetchVendorDetails();
-    }
-
-}, [id]);
-
-
   const fetchUserDetails = async () => {
     try {
       const userStr = await getSecureData('user');
+      // const categories = JSON.parse(await getSecureData(""))
+      const categories = await getAllCategories();
+
       if (userStr) {
         const user = JSON.parse(userStr);
+        const category = categories.find((x: any) => x._id === user.buisnessCategory);
+        let objectLiteral = "";
+        if (category) {
+          if (category.name === "Venues") {
+            objectLiteral = "venueBusinessDetails";
+          } else if (category.name === "Caterings") {
+            objectLiteral = "cateringBusinessDetails";
+          } else if (category.name === "Photography") {
+            objectLiteral = "photographerBusinessDetails";
+          } else if (category.name === "Makeup") {
+
+          } else if (category.name === "Mehndi") {
+
+          } else if (category.name === "DJ & Sound") {
+
+          } else if (category.name === "Cakes") {
+
+          }
+        }
+
         setName(user.name || '');
         setEmail(user.email || '');
         setPhoneNumber(user.phoneNumber || user.phone || user.phone_number || '');
-        setAddress(user.address || '');
-        setSelectedStaff(user.BusinessDetails?.staff || '');
-        setRefundPolicy(user.BusinessDetails?.refundPolicy || '');
-        setDescription(user.BusinessDetails?.description || '');
-        setCitiesCovered(user.BusinessDetails?.citiesCovered || '');
+        setAddress(user.contactDetails.address || '');
+        setSelectedStaff(user[objectLiteral]?.staff || '');
+        setRefundPolicy(user[objectLiteral]?.refundPolicy || '');
+        setDescription(user[objectLiteral]?.description || '');
+        setCitiesCovered(user[objectLiteral]?.cityCovered || '');
 
       }
     } catch (error) {
@@ -209,26 +212,17 @@ const EditProfileScreen: React.FC = () => {
             />
           </View>
 
-          <Text style={styles.label}>Description</Text>
-<TextInput
-  style={styles.input}
-  placeholder="Enter description"
-  value={description}
-  onChangeText={setDescription}
-/>
-
-<Text style={styles.label}>Cities Covered</Text>
-<TextInput
-  style={styles.input}
-  placeholder="Enter cities you cover"
-  value={citiesCovered}
-  onChangeText={setCitiesCovered}
-/>
-
-          
+          {/* <Text style={styles.label}>Cities Covered</Text>
+          <TextInput
+            style={styles.input}
+            placeholder="Enter cities you cover"
+            value={citiesCovered}
+            onChangeText={setCitiesCovered}
+          />
 
 
-          {/* Staff */}
+
+
           <Text style={styles.label}>Staff</Text>
           <View style={styles.staffContainer}>
             {[
@@ -250,15 +244,6 @@ const EditProfileScreen: React.FC = () => {
                     styles.staffIcon,
                     selectedStaff === staff.label && styles.staffSelectedIcon,
                   ]} />
-
-                {/* <Icon
-                            name={staff.icon}
-                            size={20}
-                            style={[
-                                styles.staffIcon,
-                                selectedStaff === staff.label && styles.staffSelectedIcon,
-                            ]}
-                        /> */}
                 <Text
                   style={[
                     styles.staffText,
@@ -271,7 +256,6 @@ const EditProfileScreen: React.FC = () => {
             ))}
           </View>
 
-          {/* Refund Policy */}
           <Text style={styles.label}>Refund Policy*</Text>
           <View style={styles.covidContainer}>
             {['REFUNDABLE', 'NON-REFUNDABLE', 'PARTIALLY REFUNDABLE'].map(
@@ -295,7 +279,7 @@ const EditProfileScreen: React.FC = () => {
                 </TouchableOpacity>
               )
             )}
-          </View>
+          </View>  */}
 
         </View>
       </ScrollView>
