@@ -3,6 +3,11 @@
     "name": "fyp-frontend-v3",
     "slug": "fyp-frontend-v3",
     "version": "1.0.0",
+    "extra": {
+      "eas": {
+        "projectId": "7195391d-d0c2-4b15-a7c4-29ebb43aa380"
+      }
+    },
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "fypfrontendv3",
