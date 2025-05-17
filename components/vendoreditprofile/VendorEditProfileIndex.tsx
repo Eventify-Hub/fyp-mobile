@@ -2,8 +2,9 @@ import patchUpdateProfile from '@/services/patchUpdateProfile'; // import your A
 import { getSecureData, saveSecureData } from '@/store';
 //import Ionicons from '@expo/vector-icons';
 import { FontAwesome5, Ionicons } from '@expo/vector-icons';
+import axios from 'axios';
 
-import { useRouter } from 'expo-router';
+import { useGlobalSearchParams, useRouter } from 'expo-router';
 import React, { useEffect, useState } from 'react';
 import {
   Image,
@@ -26,10 +27,37 @@ const EditProfileScreen: React.FC = () => {
   const [address, setAddress] = useState('');
   const [selectedStaff, setSelectedStaff] = useState<string>("");
   const [refundPolicy, setRefundPolicy] = useState<string>("");
+  const [description, setDescription] = useState('');
+  const [citiesCovered, setCitiesCovered] = useState('');
+  const { id } = useGlobalSearchParams();
+  const [vendorData, setVendorData] = useState<any>(null);
+  const [loading, setLoading] = useState<boolean>(true);
+
 
   useEffect(() => {
     fetchUserDetails();
   }, []);
+
+  useEffect(() => {
+    const fetchVendorDetails = async () => {
+        try {
+            const response = await axios.get(`http://13.233.214.252:3000/vendor?userId=${id}`);
+            setVendorData(response.data);
+           
+            //setActivePackage(response.data.packages?.[0]?._id || null); // Set the first package as active by default
+        } catch (error) {
+            console.error('Error fetching vendor data:', error);
+        } finally {
+            setLoading(false);
+        }
+    };
+    console.log("id", id);
+    if (id) {
+        fetchVendorDetails();
+    }
+
+}, [id]);
+
 
   const fetchUserDetails = async () => {
     try {
@@ -40,6 +68,11 @@ const EditProfileScreen: React.FC = () => {
         setEmail(user.email || '');
         setPhoneNumber(user.phoneNumber || user.phone || user.phone_number || '');
         setAddress(user.address || '');
+        setSelectedStaff(user.BusinessDetails?.staff || '');
+        setRefundPolicy(user.BusinessDetails?.refundPolicy || '');
+        setDescription(user.BusinessDetails?.description || '');
+        setCitiesCovered(user.BusinessDetails?.citiesCovered || '');
+
       }
     } catch (error) {
       console.error('Failed to fetch user data:', error);
@@ -67,6 +100,12 @@ const EditProfileScreen: React.FC = () => {
         phoneNumber,
         address,
         userId,
+        // photographerBusinessDetails: {
+        //   staff: selectedStaff,
+        //   refundPolicy,
+        //   description,
+        //   citiesCovered,
+        // }
       };
 
       const updatedUser = await patchUpdateProfile(userId, updateData);
@@ -170,25 +209,24 @@ const EditProfileScreen: React.FC = () => {
             />
           </View>
 
-          <View style={styles.inputContainer}>
-            <Text style={styles.label}>Description</Text>
-            <TextInput
-              style={styles.input}
-              placeholder="Enter your address"
-              value={address}
-              onChangeText={setAddress}
-            />
-          </View>
+          <Text style={styles.label}>Description</Text>
+<TextInput
+  style={styles.input}
+  placeholder="Enter description"
+  value={description}
+  onChangeText={setDescription}
+/>
 
-          <View style={styles.inputContainer}>
-            <Text style={styles.label}>Cities Covered</Text>
-            <TextInput
-              style={styles.input}
-              placeholder="Enter your address"
-              value={address}
-              onChangeText={setAddress}
-            />
-          </View>
+<Text style={styles.label}>Cities Covered</Text>
+<TextInput
+  style={styles.input}
+  placeholder="Enter cities you cover"
+  value={citiesCovered}
+  onChangeText={setCitiesCovered}
+/>
+
+          
+
 
           {/* Staff */}
           <Text style={styles.label}>Staff</Text>
