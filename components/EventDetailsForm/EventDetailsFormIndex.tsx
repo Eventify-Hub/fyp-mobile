@@ -120,7 +120,7 @@ const PersonalizedExperienceScreen: React.FC = () => {
         />
       )}
 
-      <Text style={styles.label}>Total Guests</Text>
+      {/* <Text style={styles.label}>Total Guests</Text>
       <TextInput
         style={styles.input}
         placeholder="Enter guests"
@@ -134,9 +134,9 @@ const PersonalizedExperienceScreen: React.FC = () => {
         <Text style={styles.errorText} testID="guests-error">
           {errors.guests}
         </Text> // testID for guests error message
-      ) : null}
+      ) : null} */}
 
-      <Text style={styles.label} testID="services-label">
+      {/* <Text style={styles.label} testID="services-label">
         Desired Services
       </Text>
       <View style={styles.checkboxContainer} testID="checkbox-container">
@@ -161,7 +161,7 @@ const PersonalizedExperienceScreen: React.FC = () => {
         <Text style={styles.errorText} testID="services-error">
           {errors.selectedServices}
         </Text>
-      ) : null}
+      ) : null} */}
 
       <Text style={styles.label}>Total Guests</Text>
       <TextInput

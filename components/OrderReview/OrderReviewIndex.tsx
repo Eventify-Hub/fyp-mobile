@@ -96,6 +96,7 @@ const MyOrdersScreen = () => {
                     price: pkg.price,
                 }))
             );
+            console.log({ organizerId, eventDate, eventTime, services, guests, eventName });
             const response = await postPlaceOrder({ organizerId, eventDate, eventTime, services, guests, eventName });
             if (response) {
                 Toast.show({

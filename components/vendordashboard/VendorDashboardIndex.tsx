@@ -124,9 +124,9 @@ const DashboardScreen = () => {
                 <View style={styles.sectionContainer}>
                     <View style={styles.statisticsHeader}>
                         <Text style={styles.sectionTitle}>Sales Statistics</Text>
-                        <TouchableOpacity style={styles.dropdownButton}>
+                        {/* <TouchableOpacity style={styles.dropdownButton}>
                             <Text style={styles.dropdownText}>This Week</Text>
-                        </TouchableOpacity>
+                        </TouchableOpacity> */}
                     </View>
                     {
                         monthNameArray.length > 0 && orderAmountArray.length > 0 && orderCountArray.length > 0
