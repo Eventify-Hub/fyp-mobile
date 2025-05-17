@@ -57,7 +57,7 @@ const EditProfileScreen: React.FC = () => {
           } else if (category.name === "Photography") {
             objectLiteral = "photographerBusinessDetails";
           } else if (category.name === "Makeup") {
-
+            objectLiteral = "salonBusinessDetails";
           } else if (category.name === "Mehndi") {
 
           } else if (category.name === "DJ & Sound") {
