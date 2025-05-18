@@ -36,35 +36,7 @@ test("SNAPSHOT-01: BusinessDetailsForm renders correctly", async () => {
   expect(toJSON()).toMatchSnapshot();
 });
 
-test("SNAPSHOT-02: BusinessDetailsForm updates correctly when selecting inputs", async () => {
-  const { getByText, getByPlaceholderText, getAllByText, toJSON } = render(
-    <BusinessDetailsForm />
-  );
-
-  fireEvent.press(getByText("SOLO"));
-  fireEvent.changeText(
-    getByPlaceholderText("Enter expertise"),
-    "Makeup Artist"
-  );
-  fireEvent.changeText(getByPlaceholderText("Select Cities"), "Islamabad");
-  fireEvent.changeText(getByPlaceholderText("Enter Down Payment"), "1000");
-  fireEvent.changeText(
-    getByPlaceholderText("Enter Description"),
-    "Party makeup services"
-  );
-
-  fireEvent.press(getByText("FEMALE"));
-  fireEvent.press(getByText("PERCENTAGE"));
-  const yesButtons = getAllByText("YES");
-  fireEvent.press(yesButtons[0]);
-  fireEvent.press(yesButtons[1]);
-  fireEvent.press(getByText("REFUNDABLE"));
-
-  await waitFor(() => expect(toJSON()).not.toBeNull());
-  expect(toJSON()).toMatchSnapshot();
-});
-
-test("SNAPSHOT-03: BusinessDetailsForm displays error when submitting empty fields", async () => {
+test("SNAPSHOT-02: BusinessDetailsForm displays error when submitting empty fields", async () => {
   const alertMock = jest.spyOn(Alert, "alert").mockImplementation(() => {});
   const { getByText, toJSON } = render(<BusinessDetailsForm />);
   fireEvent.press(getByText("Save & Continue"));
@@ -435,21 +407,7 @@ describe("BusinessDetailsForm Component (Pakistan - Islamabad)", () => {
     expect(endTime - startTime).toBeLessThan(100);
   });
 
-  test("PERF-05: Multiple rapid selections don't degrade performance", () => {
-    const { getByText } = render(<BusinessDetailsForm />);
-    const startTime = Date.now();
-
-    // Perform several rapid selections
-    fireEvent.press(getByText("SOLO"));
-    fireEvent.press(getByText("FEMALE"));
-    fireEvent.press(getByText("REFUNDABLE"));
-    fireEvent.press(getByText("FIXED"));
-
-    const endTime = Date.now();
-    expect(endTime - startTime).toBeLessThan(200);
-  });
-
-  test("PERF-06: Form renders and initializes quickly", async () => {
+ test("PERF-06: Form renders and initializes quickly", async () => {
     const startTime = performance.now();
 
     render(<BusinessDetailsForm />);

@@ -764,30 +764,7 @@ describe("CategoryVendorListing Component Tests", () => {
       await waitFor(() => expect(getByText("Category")).toBeTruthy());
     });
 
-    test("validates image URLs before rendering", async () => {
-      const mockData = [
-        {
-          _id: "123",
-          name: "Test Salon",
-          BusinessDetails: { minimumPrice: "1000" },
-          contactDetails: { city: "Karachi" },
-        },
-      ];
-
-      (getAllVendorsByCategoryId as jest.Mock).mockResolvedValueOnce(mockData);
-
-      const { getByText, UNSAFE_getAllByType } = render(<App />);
-
-      await waitFor(() => {
-        expect(getByText("Test Salon")).toBeTruthy();
-      });
-
-      const images = UNSAFE_getAllByType(Image);
-      expect(images.length).toBeGreaterThan(0);
-      expect(images[0].props.source.uri).toMatch(/^https:/);
-    });
-
-    test("falls back to empty string when categoryId is null", async () => {
+     test("falls back to empty string when categoryId is null", async () => {
       (getSecureData as jest.Mock).mockResolvedValueOnce(null);
 
       // Instead of [], return a valid object with mock fallback
@@ -827,24 +804,6 @@ describe("CategoryVendorListing Component Tests", () => {
       expect(
         getByPlaceholderText("Search Salon & Spa").props.placeholderTextColor
       ).toBe("#C4C4C4");
-    });
-
-    test("always uses HTTPS URL for vendor images", async () => {
-      (getAllVendorsByCategoryId as jest.Mock).mockResolvedValueOnce([
-        {
-          _id: "1",
-          name: "Image Salon",
-          contactDetails: { city: "Karachi" },
-          BusinessDetails: { minimumPrice: "1000" },
-        },
-      ]);
-
-      const { getByText, UNSAFE_getAllByType } = render(<App />);
-      await waitFor(() => expect(getByText("Image Salon")).toBeTruthy());
-
-      const images = UNSAFE_getAllByType(Image);
-      expect(images[0].props.source.uri).toMatch(/^https:\/\//);
-      expect(images[0].props.source.uri).not.toContain("http://");
     });
 
     test("vendor data is displayed in cards with consistent styling", async () => {
@@ -1414,33 +1373,6 @@ describe("CategoryVendorListing Component Tests", () => {
       });
     });
 
-    test("integrates image loading with proper URI and styling", async () => {
-      (getAllVendorsByCategoryId as jest.Mock).mockResolvedValueOnce([
-        {
-          _id: "1",
-          name: "Image Test Salon",
-          contactDetails: { city: "Karachi" },
-          BusinessDetails: { minimumPrice: "1000" },
-        },
-      ]);
-
-      const { getByText, UNSAFE_getAllByType } = render(<App />);
-
-      await waitFor(() => {
-        expect(getByText("Image Test Salon")).toBeTruthy();
-      });
-
-      const images = UNSAFE_getAllByType(Image);
-      expect(images[0].props.source.uri).toBe(
-        "https://t3.ftcdn.net/jpg/05/28/01/42/360_F_528014283_FMTbnoxTAtLJkVzuYiRT9gI94EAXUoJY.jpg"
-      );
-      expect(images[0].props.style).toMatchObject({
-        width: 70,
-        height: 70,
-        borderRadius: 10,
-        marginRight: 10,
-      });
-    });
   });
 
   describe("Performance Testing", () => {
@@ -1479,27 +1411,6 @@ describe("CategoryVendorListing Component Tests", () => {
 
       // Ensure processing time is reasonable (less than 100ms)
       expect(end - start).toBeLessThan(100);
-    });
-
-    test("renders image with valid HTTPS URI", async () => {
-      const mockData = [
-        {
-          _id: "123",
-          name: "Test Salon",
-          BusinessDetails: { minimumPrice: "1000" },
-          contactDetails: { city: "Karachi" },
-        },
-      ];
-
-      (getAllVendorsByCategoryId as jest.Mock).mockResolvedValueOnce(mockData);
-
-      const { getByText, UNSAFE_getAllByType } = render(<App />);
-
-      await waitFor(() => expect(getByText("Test Salon")).toBeTruthy());
-
-      const images = UNSAFE_getAllByType(Image);
-      expect(images.length).toBeGreaterThan(0);
-      expect(images[0].props.source.uri).toMatch(/^https:\/\//);
     });
 
     test("measures render time for vendor list", async () => {

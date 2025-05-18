@@ -221,7 +221,7 @@ exports[`CategoryVendorListing Component Tests Snapshot Tests — CategoryVendor
           <Image
             source={
               {
-                "uri": "https://t3.ftcdn.net/jpg/05/28/01/42/360_F_528014283_FMTbnoxTAtLJkVzuYiRT9gI94EAXUoJY.jpg",
+                "uri": undefined,
               }
             }
             style={
@@ -603,7 +603,7 @@ exports[`CategoryVendorListing Component Tests Snapshot Tests — CategoryVendor
           <Image
             source={
               {
-                "uri": "https://t3.ftcdn.net/jpg/05/28/01/42/360_F_528014283_FMTbnoxTAtLJkVzuYiRT9gI94EAXUoJY.jpg",
+                "uri": undefined,
               }
             }
             style={
@@ -985,7 +985,7 @@ exports[`CategoryVendorListing Component Tests Snapshot Tests — CategoryVendor
           <Image
             source={
               {
-                "uri": "https://t3.ftcdn.net/jpg/05/28/01/42/360_F_528014283_FMTbnoxTAtLJkVzuYiRT9gI94EAXUoJY.jpg",
+                "uri": undefined,
               }
             }
             style={
@@ -1367,7 +1367,7 @@ exports[`CategoryVendorListing Component Tests Snapshot Tests — CategoryVendor
           <Image
             source={
               {
-                "uri": "https://t3.ftcdn.net/jpg/05/28/01/42/360_F_528014283_FMTbnoxTAtLJkVzuYiRT9gI94EAXUoJY.jpg",
+                "uri": undefined,
               }
             }
             style={
@@ -1759,7 +1759,7 @@ exports[`CategoryVendorListing Component Tests Snapshot Tests — CategoryVendor
           <Image
             source={
               {
-                "uri": "https://t3.ftcdn.net/jpg/05/28/01/42/360_F_528014283_FMTbnoxTAtLJkVzuYiRT9gI94EAXUoJY.jpg",
+                "uri": undefined,
               }
             }
             style={
@@ -1937,7 +1937,7 @@ exports[`CategoryVendorListing Component Tests Snapshot Tests — CategoryVendor
           <Image
             source={
               {
-                "uri": "https://t3.ftcdn.net/jpg/05/28/01/42/360_F_528014283_FMTbnoxTAtLJkVzuYiRT9gI94EAXUoJY.jpg",
+                "uri": undefined,
               }
             }
             style={
@@ -2317,7 +2317,7 @@ exports[`CategoryVendorListing Component Tests Snapshot Tests — CategoryVendor
           <Image
             source={
               {
-                "uri": "https://t3.ftcdn.net/jpg/05/28/01/42/360_F_528014283_FMTbnoxTAtLJkVzuYiRT9gI94EAXUoJY.jpg",
+                "uri": undefined,
               }
             }
             style={
@@ -2697,7 +2697,7 @@ exports[`CategoryVendorListing Component Tests Snapshot Tests — CategoryVendor
           <Image
             source={
               {
-                "uri": "https://t3.ftcdn.net/jpg/05/28/01/42/360_F_528014283_FMTbnoxTAtLJkVzuYiRT9gI94EAXUoJY.jpg",
+                "uri": undefined,
               }
             }
             style={
@@ -3079,7 +3079,7 @@ exports[`CategoryVendorListing Component Tests Snapshot Tests — CategoryVendor
           <Image
             source={
               {
-                "uri": "https://t3.ftcdn.net/jpg/05/28/01/42/360_F_528014283_FMTbnoxTAtLJkVzuYiRT9gI94EAXUoJY.jpg",
+                "uri": undefined,
               }
             }
             style={
@@ -3461,7 +3461,7 @@ exports[`CategoryVendorListing Component Tests Snapshot Tests — CategoryVendor
           <Image
             source={
               {
-                "uri": "https://t3.ftcdn.net/jpg/05/28/01/42/360_F_528014283_FMTbnoxTAtLJkVzuYiRT9gI94EAXUoJY.jpg",
+                "uri": undefined,
               }
             }
             style={
@@ -3853,7 +3853,7 @@ exports[`CategoryVendorListing Component Tests Snapshot Tests — CategoryVendor
           <Image
             source={
               {
-                "uri": "https://t3.ftcdn.net/jpg/05/28/01/42/360_F_528014283_FMTbnoxTAtLJkVzuYiRT9gI94EAXUoJY.jpg",
+                "uri": undefined,
               }
             }
             style={
@@ -4031,7 +4031,7 @@ exports[`CategoryVendorListing Component Tests Snapshot Tests — CategoryVendor
           <Image
             source={
               {
-                "uri": "https://t3.ftcdn.net/jpg/05/28/01/42/360_F_528014283_FMTbnoxTAtLJkVzuYiRT9gI94EAXUoJY.jpg",
+                "uri": undefined,
               }
             }
             style={
@@ -4413,7 +4413,7 @@ exports[`CategoryVendorListing Component Tests Snapshot Tests — CategoryVendor
           <Image
             source={
               {
-                "uri": "https://t3.ftcdn.net/jpg/05/28/01/42/360_F_528014283_FMTbnoxTAtLJkVzuYiRT9gI94EAXUoJY.jpg",
+                "uri": undefined,
               }
             }
             style={

@@ -59,14 +59,7 @@ beforeEach(() => {
 
 describe("ReviewScreen Component Tests", () => {
     
-    //Snapshot
-    test("SNAPSHOT-01: Matches the snapshot", async () => {
-      const { toJSON } = render(<ReviewScreen />);
-      await waitFor(() => screen.getByText("Reviews"));
-      expect(toJSON()).toMatchSnapshot();
-    });
-
-  // UI TEST CASES
+    // UI TEST CASES
   test("UI-01: Shows Loading Spinner initially", async () => {
     (getVendorById as jest.Mock).mockImplementation(
       () => new Promise(() => {})

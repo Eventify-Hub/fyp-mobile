@@ -137,11 +137,14 @@ const EditProfileScreen: React.FC = () => {
       </View>
 
       {/* Content */}
-      <ScrollView contentContainerStyle={styles.content} keyboardShouldPersistTaps="handled">
+      <ScrollView
+        contentContainerStyle={styles.content}
+        keyboardShouldPersistTaps="handled"
+      >
         <View style={styles.avatarContainer}>
           <View style={styles.avatar}>
             <Text style={styles.avatarText}>
-              {name ? name.charAt(0).toUpperCase() : 'N/A'}
+              {name ? name.charAt(0).toUpperCase() : "N/A"}
             </Text>
           </View>
         </View>
@@ -191,7 +194,9 @@ const EditProfileScreen: React.FC = () => {
                 />
               </View>
             </View>
-            <View style={[styles.inputContainer, { flex: 0.7, marginLeft: 10 }]}>
+            <View
+              style={[styles.inputContainer, { flex: 0.7, marginLeft: 10 }]}
+            >
               <Text style={styles.label}>Phone Number</Text>
               <TextInput
                 style={styles.input}
@@ -206,6 +211,7 @@ const EditProfileScreen: React.FC = () => {
           <View style={styles.inputContainer}>
             <Text style={styles.label}>Address (Optional)</Text>
             <TextInput
+              testID="input-address" //add test id
               style={styles.input}
               placeholder="Enter your address"
               value={address}
@@ -227,9 +233,9 @@ const EditProfileScreen: React.FC = () => {
           <Text style={styles.label}>Staff</Text>
           <View style={styles.staffContainer}>
             {[
-              { label: 'MALE', icon: 'male' },
-              { label: 'FEMALE', icon: 'female' },
-              { label: 'TRANSGENDER', icon: 'transgender-alt' },
+              { label: "MALE", icon: "male" },
+              { label: "FEMALE", icon: "female" },
+              { label: "TRANSGENDER", icon: "transgender-alt" },
             ].map((staff) => (
               <TouchableOpacity
                 key={staff.label}
@@ -239,7 +245,8 @@ const EditProfileScreen: React.FC = () => {
                 ]}
                 onPress={() => setSelectedStaff(staff.label)}
               >
-                <FontAwesome5 name={staff.icon}
+                <FontAwesome5
+                  name={staff.icon}
                   size={20}
                   style={[
                     styles.staffIcon,
@@ -259,7 +266,7 @@ const EditProfileScreen: React.FC = () => {
 
           <Text style={styles.label}>Refund Policy*</Text>
           <View style={styles.covidContainer}>
-            {['REFUNDABLE', 'NON-REFUNDABLE', 'PARTIALLY REFUNDABLE'].map(
+            {["REFUNDABLE", "NON-REFUNDABLE", "PARTIALLY REFUNDABLE"].map(
               (policy) => (
                 <TouchableOpacity
                   key={policy}

@@ -77,9 +77,9 @@ describe("NotificationsAccIndex Component", () => {
     expect(rsvpSwitch.props.value).toBeFalsy();
   });
 
-  it("navigates to Dashboard when Dashboard button is pressed", () => {
+  it("navigates to Dashboard when Home button is pressed", () => {
     const { getByText } = component;
-    fireEvent.press(getByText("Dashboard"));
+    fireEvent.press(getByText("Home")); // ✅ was "Dashboard"
     expect(mockPush).toHaveBeenCalledWith("/dashboard");
   });
 
@@ -97,42 +97,22 @@ describe("NotificationsAccIndex Component", () => {
 
   it("verifies that all navigation buttons are present", () => {
     const { getByText } = component;
-    expect(getByText("Dashboard")).toBeTruthy();
+    expect(getByText("Home")).toBeTruthy(); // ✅ was "Dashboard"
     expect(getByText("Account")).toBeTruthy();
   });
+
   it("handles navigation failure gracefully", () => {
-    // Assume the 'push' method might fail and simulate this scenario
     mockPush.mockImplementation(() => {
       throw new Error("Navigation failed");
     });
 
-    // Setup a spy to ensure error handling is working
-    const errorSpy = jest.spyOn(console, "error").mockImplementation(() => {});
-
     const { getByText } = component;
 
-    // Wrap the fireEvent in a try-catch to handle the thrown error
-    try {
-      fireEvent.press(getByText("Dashboard"));
-    } catch (error) {
-      // Assert that the error is an instance of Error before accessing error.message
-      if (error instanceof Error) {
-        expect(error).toBeDefined();
-        expect(error.message).toContain("Navigation failed");
-      } else {
-        // Fail the test if the error is not an instance of Error
-        fail("Caught error is not an instance of Error");
-      }
-    }
-
-    // Check if the error was handled and not logged (assuming your component catches and handles it)
-    expect(errorSpy).not.toHaveBeenCalledWith(
-      expect.stringContaining("Navigation failed")
-    );
-
-    // Cleanup spy
-    errorSpy.mockRestore();
+    expect(() => {
+      fireEvent.press(getByText("Home")); // ✅ was "Dashboard"
+    }).toThrow("Navigation failed");
   });
+
 
  it("maintains toggle state after re-render", () => {
    const { getByTestId, rerender } = component;

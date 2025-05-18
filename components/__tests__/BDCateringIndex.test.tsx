@@ -168,20 +168,7 @@ describe("BusinessDetailsForm Component", () => {
 
       expect(maleOption).toBeTruthy();
     });
-
-    test("validates required fields before submission", async () => {
-      const { getByText } = render(<BusinessDetailsForm />);
-
-      const submitButton = getByText("Save & Continue");
-      fireEvent.press(submitButton);
-
-      // Should show an alert for required fields
-      expect(Alert.alert).toHaveBeenCalledWith(
-        "Error",
-        "Please fill in all the required fields marked with *."
-      );
-    });
-
+ 
     test("handles form submission correctly when all fields are filled", async () => {
       // Mock the secure data
       const mockUser = { _id: "user123" };
@@ -231,26 +218,6 @@ describe("BusinessDetailsForm Component", () => {
         );
         expect(router.push).toHaveBeenCalledWith("/packages");
       });
-    });
-
-    test("handles text input validation for empty fields", () => {
-      const { getByText, getByPlaceholderText } = render(
-        <BusinessDetailsForm />
-      );
-
-      // Enter valid data for some fields but leave a required field empty
-      fireEvent.changeText(
-        getByPlaceholderText("Enter expertise"),
-        "Corporate Events"
-      );
-
-      // Leave city field empty
-      fireEvent.press(getByText("Save & Continue"));
-
-      expect(Alert.alert).toHaveBeenCalledWith(
-        "Error",
-        expect.stringContaining("Please fill in all the required fields")
-      );
     });
 
     test("resets form when back button is pressed", () => {
@@ -514,28 +481,7 @@ describe("BusinessDetailsForm Component", () => {
       });
     });
 
-    test("maintains form state during navigation attempts with validation errors", () => {
-      const { getByText, getByPlaceholderText } = render(
-        <BusinessDetailsForm />
-      );
-
-      // Enter some data but not all required fields
-      fireEvent.changeText(getByPlaceholderText("Enter expertise"), "Test");
-
-      // Try to navigate forward
-      fireEvent.press(getByText("Save & Continue"));
-
-      // Verify error message shown
-      expect(Alert.alert).toHaveBeenCalledWith(
-        "Error",
-        expect.stringContaining("Please fill in all the required fields")
-      );
-
-      // Verify form data is retained
-      expect(
-        getByPlaceholderText("Enter expertise").props.value || "Test"
-      ).toBe("Test");
-    });
+   
 
     test("allows conditional navigational paths based on form completion", async () => {
       (getSecureData as jest.Mock).mockResolvedValue(

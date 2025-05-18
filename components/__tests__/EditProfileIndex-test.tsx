@@ -8,6 +8,13 @@ jest.mock("expo-router", () => ({
   useRouter: jest.fn(),
 }));
 
+jest.mock("@/services/patchUpdateProfile", () => ({
+  __esModule: true,
+  default: jest.fn(() => {
+    throw new Error("Simulated failure");
+  }),
+}));
+
 describe("EditProfileScreen", () => {
   let router: any;
 
@@ -17,15 +24,15 @@ describe("EditProfileScreen", () => {
   });
 
   test("renders input fields correctly", () => {
-    const { getByText } = render(<EditProfileScreen />);
-
-    // ✅ Find input labels instead of placeholder text
-    expect(getByText("First Name")).toBeTruthy();
-    expect(getByText("Last Name")).toBeTruthy();
+    const { getByText, getByPlaceholderText } = render(<EditProfileScreen />);
+    expect(getByText("Name")).toBeTruthy();
     expect(getByText("E-mail")).toBeTruthy();
     expect(getByText("Country")).toBeTruthy();
+    expect(getByText("Phone Number")).toBeTruthy();
+    expect(getByText("Address (Optional)")).toBeTruthy();
+    expect(getByPlaceholderText("Enter your name")).toBeTruthy();
+    expect(getByPlaceholderText("Enter your email")).toBeTruthy();
   });
-
 
   test("navigates back when 'Back' is pressed", () => {
     const { getByText } = render(<EditProfileScreen />);
@@ -34,36 +41,24 @@ describe("EditProfileScreen", () => {
     // ✅ Ensure the back navigation is triggered
     expect(router.back).toHaveBeenCalled();
   });
-test("renders avatar section with initials (default)", () => {
-  const { getAllByText } = render(<EditProfileScreen />);
 
-  // ✅ Get all elements that match the regex (e.g., MR, SAVE, BACK, etc.)
-  const avatarTexts = getAllByText(/[A-Z]{2}/);
-
-  // ✅ Filter the element that actually contains the initials (e.g., "MR")
-  const initials = avatarTexts.find(
-    (element) => element.props.children === "MR"
-  );
-
-  // ✅ Ensure exactly **one** avatar text element is rendered
-  expect(initials).toBeTruthy();
-});
+  test("renders avatar section with initials (default)", () => {
+    const { getByText } = render(<EditProfileScreen />);
+    expect(getByText("N/A")).toBeTruthy();
+  });
 
   test("renders bottom navigation items", () => {
     const { getByText } = render(<EditProfileScreen />);
-
-    // ✅ Check if navigation items are visible
-    expect(getByText("Dashboard")).toBeTruthy();
+    expect(getByText("My Events")).toBeTruthy();
     expect(getByText("Messages")).toBeTruthy();
     expect(getByText("Notifications")).toBeTruthy();
     expect(getByText("Account")).toBeTruthy();
+    expect(getByText("Home")).toBeTruthy();
   });
 
-  test("navigates to dashboard when 'Dashboard' is pressed", () => {
+  test("navigates to dashboard when 'Home' is pressed", () => {
     const { getByText } = render(<EditProfileScreen />);
-    fireEvent.press(getByText("Dashboard"));
-
-    // ✅ Ensure dashboard navigation is triggered
+    fireEvent.press(getByText("Home"));
     expect(router.push).toHaveBeenCalledWith("/dashboard");
   });
 
@@ -75,147 +70,115 @@ test("renders avatar section with initials (default)", () => {
     expect(router.push).toHaveBeenCalledWith("/account");
   });
 
-test("updates text input when user types", () => {
-  const { getByPlaceholderText, getByDisplayValue } = render(
-    <EditProfileScreen />
-  );
-  const firstNameInput = getByPlaceholderText("Midhat");
+  test("updates text input when user types", () => {
+    const { getByPlaceholderText, getByDisplayValue } = render(
+      <EditProfileScreen />
+    );
+    const nameInput = getByPlaceholderText("Enter your name");
+    fireEvent.changeText(nameInput, "Muniba");
+    expect(getByDisplayValue("Muniba")).toBeTruthy();
+  });
 
-  fireEvent.changeText(firstNameInput, "Muniba");
+  test("displays save button correctly", () => {
+    const { getByText } = render(<EditProfileScreen />);
+    const saveButton = getByText("SAVE");
 
-  expect(getByDisplayValue("Muniba")).toBeTruthy(); 
-});
+    expect(saveButton).toBeTruthy();
+  });
 
-test("displays save button correctly", () => {
-  const { getByText } = render(<EditProfileScreen />);
-  const saveButton = getByText("SAVE");
+  test("clicking save button does not crash", () => {
+    global.alert = jest.fn(); // mock alert
+    const { getByText } = render(<EditProfileScreen />);
+    const saveButton = getByText("SAVE");
+    fireEvent.press(saveButton);
+    expect(saveButton).toBeTruthy();
+  });
 
-  expect(saveButton).toBeTruthy();
-});
+  test("does not navigate when clicking an empty area", () => {
+    const { getByTestId } = render(<EditProfileScreen />);
+    const screenContainer = getByTestId("screen-container");
 
-test("clicking save button does not crash", () => {
-  const { getByText } = render(<EditProfileScreen />);
-  const saveButton = getByText("SAVE");
+    fireEvent.press(screenContainer);
 
-  fireEvent.press(saveButton);
+    expect(router.push).not.toHaveBeenCalled();
+  });
 
-  expect(saveButton).toBeTruthy(); // Ensure the button exists and is clickable
-});
-test("does not navigate when clicking an empty area", () => {
-  const { getByTestId } = render(<EditProfileScreen />);
-  const screenContainer = getByTestId("screen-container");
+  test("renders phone input correctly", () => {
+    const { getByPlaceholderText } = render(<EditProfileScreen />);
+    const phoneInput = getByPlaceholderText("Enter phone number");
 
-  fireEvent.press(screenContainer);
+    expect(phoneInput).toBeTruthy();
+  });
 
-  expect(router.push).not.toHaveBeenCalled();
-});
+  test("renders address input correctly", () => {
+    const { getByPlaceholderText } = render(<EditProfileScreen />);
+    const addressInput = getByPlaceholderText("Enter your address");
+    expect(addressInput).toBeTruthy();
+  });
 
-test("renders phone input correctly", () => {
-  const { getByPlaceholderText } = render(<EditProfileScreen />);
-  const phoneInput = getByPlaceholderText("Enter phone number");
+  test("clicking avatar does not navigate anywhere", () => {
+    const { getByText } = render(<EditProfileScreen />);
+    fireEvent.press(getByText("N/A")); // default avatar text
+    expect(router.push).not.toHaveBeenCalled();
+  });
 
-  expect(phoneInput).toBeTruthy();
-});
+  test("does not allow invalid email format", () => {
+    const { getByPlaceholderText, getByDisplayValue } = render(
+      <EditProfileScreen />
+    );
+    const emailInput = getByPlaceholderText("Enter your email");
 
-test("renders address input correctly", () => {
-  const { getByPlaceholderText } = render(<EditProfileScreen />);
-  const addressInput = getByPlaceholderText("");
+    fireEvent.changeText(emailInput, "invalid-email");
 
-  expect(addressInput).toBeTruthy();
-});
-test("clicking save button triggers expected behavior", () => {
-  const { getByText } = render(<EditProfileScreen />);
-  const saveButton = getByText("SAVE");
+    expect(getByDisplayValue("invalid-email")).toBeTruthy();
+  });
 
-  fireEvent.press(saveButton);
+  test("phone input allows numeric input", () => {
+    const { getByPlaceholderText, getByDisplayValue } = render(
+      <EditProfileScreen />
+    );
+    const phoneInput = getByPlaceholderText("Enter phone number");
 
-  // ✅ If a function is supposed to be called on save, it should be mocked and verified.
-  // Since there's no actual function in this component, we just ensure it exists.
-  expect(saveButton).toBeTruthy();
-});
+    fireEvent.changeText(phoneInput, "123456");
 
-test("clicking avatar does not navigate anywhere", () => {
-  const { getAllByText } = render(<EditProfileScreen />);
+    expect(getByDisplayValue("123456")).toBeTruthy(); // ✅ Ensure numeric input is displayed
+  });
 
-  // ✅ Get all elements that match the initials format (e.g., "MR", "AB", "XYZ")
-  const avatarTexts = getAllByText(/[A-Z]{2,3}/);
+  test("navigates to messages when 'Messages' is pressed", () => {
+    const { getByText } = render(<EditProfileScreen />);
+    fireEvent.press(getByText("Messages"));
+    expect(router.push).toHaveBeenCalledWith("/bottommessages");
+  });
 
-  // ✅ Ensure at least one valid initials element exists
-  expect(avatarTexts.length).toBeGreaterThan(0);
+  test("shows 'Pakistan' as default country and is not editable", () => {
+    const { getByPlaceholderText } = render(<EditProfileScreen />);
+    const countryInput = getByPlaceholderText("Pakistan");
 
-  fireEvent.press(avatarTexts[0]); // Press the first matching initials text
+    expect(countryInput).toBeTruthy();
+    expect(countryInput.props.editable).toBe(false);
+  });
 
-  expect(router.push).not.toHaveBeenCalled();
-});
+  test("navigates to dashboard when 'Home' is pressed", () => {
+    const { getByText } = render(<EditProfileScreen />);
+    fireEvent.press(getByText("Home"));
+    expect(router.push).toHaveBeenCalledWith("/dashboard");
+  });
 
-test("does not allow invalid email format", () => {
-  const { getByPlaceholderText, getByDisplayValue } = render(
-    <EditProfileScreen />
-  );
-  const emailInput = getByPlaceholderText("midhatrizvi@gmail.com");
+  test("navigates to messages when 'Messages' is pressed", () => {
+    const { getByText } = render(<EditProfileScreen />);
+    fireEvent.press(getByText("Messages"));
+    expect(router.push).toHaveBeenCalledWith("/bottommessages");
+  });
 
-  fireEvent.changeText(emailInput, "invalid-email");
+  test("navigates to notifications when 'Notifications' is pressed", () => {
+    const { getByText } = render(<EditProfileScreen />);
+    fireEvent.press(getByText("Notifications"));
+    expect(router.push).toHaveBeenCalledWith("/bottomnotification");
+  });
 
-  expect(getByDisplayValue("invalid-email")).toBeTruthy(); // ✅ This will work
-});
-
-test("phone input allows numeric input", () => {
-  const { getByPlaceholderText, getByDisplayValue } = render(
-    <EditProfileScreen />
-  );
-  const phoneInput = getByPlaceholderText("Enter phone number");
-
-  fireEvent.changeText(phoneInput, "123456");
-
-  expect(getByDisplayValue("123456")).toBeTruthy(); // ✅ Ensure numeric input is displayed
-});
-
-
-test("navigates to messages when 'Messages' is pressed", () => {
-  const { getByText } = render(<EditProfileScreen />);
-  fireEvent.press(getByText("Messages"));
-
-  expect(router.push).toHaveBeenCalledWith("/dashboard"); // Adjust route if needed
-});
-
-test("only allows 'Pakistan' as the country input", () => {
-  const { getByPlaceholderText, getByDisplayValue } = render(
-    <EditProfileScreen />
-  );
-  const countryInput = getByPlaceholderText("Pakistan");
-
-  // ✅ Enter valid value (Pakistan)
-  fireEvent.changeText(countryInput, "Pakistan");
-  expect(getByDisplayValue("Pakistan")).toBeTruthy(); // Should pass ✅
-
-});
-
-test("navigates to dashboard when 'Dashboard' is pressed", () => {
-  const { getByText } = render(<EditProfileScreen />);
-  fireEvent.press(getByText("Dashboard"));
-
-  expect(router.push).toHaveBeenCalledWith("/dashboard");
-});
-
-test("navigates to messages when 'Messages' is pressed", () => {
-  const { getByText } = render(<EditProfileScreen />);
-  fireEvent.press(getByText("Messages"));
-
-  expect(router.push).toHaveBeenCalledWith("/dashboard"); // Adjust route if needed
-});
-
-test("navigates to notifications when 'Notifications' is pressed", () => {
-  const { getByText } = render(<EditProfileScreen />);
-  fireEvent.press(getByText("Notifications"));
-
-  expect(router.push).toHaveBeenCalledWith("/dashboard"); // Adjust route if needed
-});
-
-test("navigates to account when 'Account' is pressed", () => {
-  const { getByText } = render(<EditProfileScreen />);
-  fireEvent.press(getByText("Account"));
-
-  expect(router.push).toHaveBeenCalledWith("/account");
-});
-
+  test("navigates to account when 'Account' is pressed", () => {
+    const { getByText } = render(<EditProfileScreen />);
+    fireEvent.press(getByText("Account"));
+    expect(router.push).toHaveBeenCalledWith("/account");
+  });
 });
