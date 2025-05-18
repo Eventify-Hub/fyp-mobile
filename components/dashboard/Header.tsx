@@ -21,21 +21,24 @@ const Header: React.FC = () => {
     <View style={styles.container}>
       {/* Location and Notification */}
       <View style={styles.header}>
-        <View style={styles.locationContainer}>
+        {/* <View style={styles.locationContainer}>
           <Ionicons name="location-outline" size={18} color="#7B2869" />
           <Text style={styles.locationText}>House 30, ISB</Text>
           <Ionicons name="chevron-down-outline" size={16} color="#7B2869" />
-        </View>
+        </View> */}
         {/* Cart Icon */}
+        
+        
         <TouchableOpacity
           onPress={() => router.push('/cartmanagment')}
           style={styles.cartIconButton}
         >
           <Ionicons name="cart-outline" size={24} color="#7B2869" />
         </TouchableOpacity>
+
         <TouchableOpacity
           style={styles.notificationIcon}
-          onPress={() => router.push('/vendornotifications')}>
+          onPress={() => router.push('/bottomnotification')}>
           <Ionicons name="notifications" size={24} color="#000" />
         </TouchableOpacity>
       </View>

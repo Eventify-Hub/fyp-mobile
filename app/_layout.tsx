@@ -96,6 +96,8 @@ export default function RootLayout() {
         <Stack.Screen name="myevents" options={{ headerShown: false }} />
         <Stack.Screen name="VPD" options={{ headerShown: false }} />
         <Stack.Screen name="vendoreditprofile" options={{ headerShown: false }} />
+        <Stack.Screen name="contactus" options={{ headerShown: false }} />
+
 
 
 

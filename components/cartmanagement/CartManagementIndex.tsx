@@ -103,7 +103,7 @@ const CartManagementIndexScreen: React.FC = () => {
     if (!cartData) {
         return (
             <View style={styles.loadingContainer}>
-                <Text>Loading cart data...</Text>
+                <Text>Cart is Empty...</Text>
             </View>
         );
     }

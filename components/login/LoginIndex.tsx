@@ -68,13 +68,18 @@ export default function LoginScreen() {
   const handleForgotPassword = () => {
     console.log('Forgot Password pressed!');
   };
-
+  const image = Asset.fromModule(require('@/assets/images/GetStarted.png')).uri;
   return (
     <View style={styles.container}>
       <Toast />
       <TouchableOpacity style={styles.backButton} onPress={() => { router.back() }}>
         <Ionicons name="arrow-back" size={24} color="#333" />
       </TouchableOpacity>
+
+      {/* <Image
+        source={{ uri: image }}
+        style={styles.logo}
+      /> */}
 
       <TouchableOpacity style={styles.socialButton1} onPress={handleGoogleLogin}>
         <Image
@@ -220,6 +225,12 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color: '#999',
     paddingHorizontal: 10,
+  },
+  logo: {
+    width: 100,
+    height: 100,
+    resizeMode: 'contain',
+    marginBottom: 20,
   },
   loginButton: {
     backgroundColor: '#780C60', // Dark purple color

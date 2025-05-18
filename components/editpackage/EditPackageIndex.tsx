@@ -5,6 +5,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { router, useLocalSearchParams } from 'expo-router';
 import React, { useEffect, useState } from 'react';
 import { Image, Modal, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import BottomNavigationFinal from "../dashboard/BottomNavigationFinal";
 
 const PackageScreen = () => {
   const [isModalVisible, setModalVisible] = useState(false);
@@ -155,31 +156,7 @@ const PackageScreen = () => {
 
 
       {/* Bottom Navigation */}
-      <View style={styles.bottomNavigation}>
-        {[
-          { label: 'My Events', path: '/vendormyevents', icon: require('@/assets/images/myevent.png') },
-          { label: 'Messages', path: '/bottommessages', icon: 'https://cdn.builder.io/api/v1/image/assets/TEMP/549e73c4-da91-40a5-a5c8-fd173b0e2a62?apiKey=...' },
-          { label: 'My Orders', path: '/vendorordersummary', icon: 'https://cdn.builder.io/api/v1/image/assets/TEMP/198f4cc8-49ff-4ccc-b97b-619e572143d4?apiKey=...' },
-          { label: 'Account', path: '/account', icon: 'https://cdn.builder.io/api/v1/image/assets/TEMP/73089a6f-a9a6-4c94-9fd1-4cdd5923a137?apiKey=...' },
-        ].map(({ label, path, icon }, i) => (
-          <TouchableOpacity key={i} style={styles.navItem} onPress={() => router.push('/vendordashboard')}>
-            <View style={styles.iconContainer}>
-              <Image source={typeof icon === 'string' ? { uri: icon } : icon} style={styles.iconImage} />
-            </View>
-            <Text style={styles.navText}>{label}</Text>
-          </TouchableOpacity>
-        ))}
-
-        <TouchableOpacity
-          style={[styles.navItem, styles.homeButton]}
-          onPress={() => router.push('/vendordashboard')}
-        >
-          <View style={styles.homeButtonIconContainer}>
-            <Ionicons name="home" size={40} color="#fff" />
-          </View>
-          <Text style={styles.navText}>Home</Text>
-        </TouchableOpacity>
-      </View>
+      <BottomNavigationFinal />
 
       {/* Delete Modal */}
       <Modal

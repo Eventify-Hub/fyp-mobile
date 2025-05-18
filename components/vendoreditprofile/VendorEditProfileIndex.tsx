@@ -4,6 +4,7 @@ import { getSecureData, saveSecureData } from '@/store';
 //import Ionicons from '@expo/vector-icons';
 import { FontAwesome5, Ionicons } from '@expo/vector-icons';
 import axios from 'axios';
+import BottomNavigationFinal from "../dashboard/BottomNavigationFinal";
 
 import { useGlobalSearchParams, useRouter } from 'expo-router';
 import React, { useEffect, useState } from 'react';
@@ -285,75 +286,7 @@ const EditProfileScreen: React.FC = () => {
       </ScrollView>
 
       {/* Bottom Navigation */}
-      <View style={styles.bottomNavigation}>
-        <TouchableOpacity
-          style={styles.navItem}
-          onPress={() => router.push("/myevents")}
-        >
-          <View style={styles.iconContainer}>
-            <Image
-              source={require('@/assets/images/myevent.png')}
-              style={styles.iconImage}
-            />
-          </View>
-          <Text style={styles.navText}>My Events</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={styles.navItem}
-          onPress={() => router.push("/bottommessages")}
-        >
-          <View style={styles.iconContainer}>
-            <Image
-              source={{
-                uri: "https://cdn.builder.io/api/v1/image/assets/TEMP/549e73c4-da91-40a5-a5c8-fd173b0e2a62?placeholderIfAbsent=true&apiKey=0a92af3bc6e24da3a9ef8b1ae693931a",
-              }}
-              style={styles.iconImage}
-            />
-          </View>
-          <Text style={styles.navText}>Messages</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={[styles.navItem, styles.homeButton]}
-          onPress={() => router.push('/vendordashboard')}
-        >
-          <View style={styles.homeButtonIconContainer}>
-            <Ionicons name="home" size={40} color="#fff" />
-          </View>
-          <Text style={styles.navText}>Home</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={styles.navItem}
-          onPress={() => router.push("/bottomnotification")}
-        >
-          <View style={styles.iconContainer}>
-            <Image
-              source={{
-                uri: "https://cdn.builder.io/api/v1/image/assets/TEMP/198f4cc8-49ff-4ccc-b97b-619e572143d4?placeholderIfAbsent=true&apiKey=0a92af3bc6e24da3a9ef8b1ae693931a",
-              }}
-              style={styles.iconImage}
-            />
-          </View>
-          <Text style={styles.navText}>Notifications</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={styles.navItem}
-          onPress={() => router.push("/account")}
-        >
-          <View style={styles.iconContainer}>
-            <Image
-              source={{
-                uri: "https://cdn.builder.io/api/v1/image/assets/TEMP/73089a6f-a9a6-4c94-9fd1-4cdd5923a137?placeholderIfAbsent=true&apiKey=0a92af3bc6e24da3a9ef8b1ae693931a",
-              }}
-              style={styles.iconImage}
-            />
-          </View>
-          <Text style={styles.navText}>Account</Text>
-        </TouchableOpacity>
-      </View>
+      <BottomNavigationFinal />
     </View>
   );
 };

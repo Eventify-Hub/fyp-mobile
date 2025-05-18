@@ -406,7 +406,7 @@ const PhotographerDetailsScreen: React.FC = () => {
               </View>
             ))}
 
-          <Calendar
+          {/* <Calendar
             testID="calendar-component"
             onDayPress={(day: { dateString: string }) =>
               console.log("Selected day:", day.dateString)
@@ -419,7 +419,7 @@ const PhotographerDetailsScreen: React.FC = () => {
               selectedDayBackgroundColor: "#7B2869",
               todayTextColor: "#7B2869",
             }}
-          />
+          /> */}
         </>
       )}
 

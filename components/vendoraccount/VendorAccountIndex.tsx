@@ -41,14 +41,15 @@ const AccountScreen: React.FC = () => {
         console.log("Navigating to Edit Profile...");
         router.push('/vendoreditprofile');
         break;
-      case 'Notifications':
-        router.push('/notificationacc');
-        break;
+      // case 'Notifications':
+      //   router.push('/notificationacc');
+      //   break;
       case 'Frequently Asked Questions':
         router.push('/faqs');
         break;
       case 'Contact Us':
-        openWhatsApp(); // Open WhatsApp
+        //openWhatsApp(); // Open WhatsApp
+        router.push('/contactus');
         break;
       case 'Sign Out':
         setModalVisible(true); // Show confirmation modal
@@ -100,7 +101,7 @@ const AccountScreen: React.FC = () => {
 
   const menuOptions = [
     { title: 'Edit Profile' },
-    { title: 'Notifications' },
+   // { title: 'Notifications' },
     { title: 'Frequently Asked Questions' },
     { title: 'Contact Us' },
     { title: 'Sign Out' },
