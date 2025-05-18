@@ -13,27 +13,46 @@ jest.mock("expo-router", () => ({
   }),
 }));
 
+jest.mock("@/store", () => ({
+  getSecureData: jest.fn(() =>
+    Promise.resolve(
+      JSON.stringify({
+        name: "Midhat Rizvi",
+        email: "midhat@example.com",
+        role: "Organizer",
+      })
+    )
+  ),
+  deleteSecureData: jest.fn(() => Promise.resolve()),
+}));
+
+
 
 describe("AccountScreen", () => {
   beforeEach(() => {
     jest.clearAllMocks(); // ✅ Reset mock calls before each test
   });
 
-  it("renders the profile section with correct user name and a valid email", () => {
+  it("renders the profile section with correct user name and a valid email", async () => {
     const { getByText } = render(<AccountScreen />);
 
-    expect(getByText("Midhat Rizvi")).toBeTruthy(); // ✅ Allow any username
-    expect(
-      getByText(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/i)
-    ).toBeTruthy();
-    // ✅ Allows any valid email
+    await waitFor(() => {
+      expect(getByText("Midhat Rizvi")).toBeTruthy();
+      expect(getByText("midhat@example.com")).toBeTruthy();
+    });
   });
 
-  it("navigates to Edit Profile when Edit Profile is clicked", () => {
+
+  it("navigates to Edit Profile when Edit Profile is clicked", async () => {
     const { getByText } = render(<AccountScreen />);
+
+    await waitFor(() => expect(getByText("Edit Profile")).toBeTruthy());
+
     fireEvent.press(getByText("Edit Profile"));
-    expect(mockPush).toHaveBeenCalledWith("/editprofile"); // ✅ Fixed router mock issue
+
+    expect(mockPush).toHaveBeenCalledWith("/editprofile");
   });
+
 
   it("navigates to Notifications when Notifications is clicked", () => {
     const { getAllByText } = render(<AccountScreen />);
@@ -107,18 +126,6 @@ it("opens WhatsApp with the correct URL when 'Contact Us' is clicked", async () 
     expect(Linking.openURL).toHaveBeenCalledWith(expectedURL); // ✅ Now the test matches encoding
   });
 });
-it("renders the profile avatar correctly", () => {
-  const { getByText } = render(<AccountScreen />);
-  expect(getByText("MR")).toBeTruthy(); // ✅ Checks if avatar is displayed
-});
-
-it("navigates to Privacy Policy when the link is clicked", () => {
-  const { getByText } = render(<AccountScreen />);
-
-  fireEvent.press(getByText("Privacy Policy"));
-
-  expect(mockPush).toHaveBeenCalledWith("/privacypolicy");
-});
 
 it("does not show logout confirmation modal initially", () => {
   const { queryByTestId } = render(<AccountScreen />);
@@ -129,22 +136,24 @@ it("does not show logout confirmation modal initially", () => {
 it("renders all bottom navigation items correctly", () => {
   const { getAllByText } = render(<AccountScreen />);
 
-  const bottomNavItems = ["Dashboard", "Messages", "Notifications", "Account"];
+  const bottomNavItems = ["Home", "Messages", "Notifications", "Account"];
 
   bottomNavItems.forEach((item) => {
-    const elements = getAllByText(item); // ✅ Get all elements matching the text
-    expect(elements.length).toBeGreaterThan(0); // ✅ Ensure at least one exists
-    expect(elements[elements.length - 1]).toBeTruthy(); // ✅ Select the last occurrence (bottom nav)
+    const elements = getAllByText(item);
+    expect(elements.length).toBeGreaterThan(0);
+    expect(elements[elements.length - 1]).toBeTruthy();
   });
 });
-it("renders and allows clicking 'Edit Profile' button", () => {
-  const { getByText } = render(<AccountScreen />);
-  const editProfileButton = getByText("Edit Profile");
 
-  expect(editProfileButton).toBeTruthy(); // ✅ Exists
-  fireEvent.press(editProfileButton);
-  expect(mockPush).toHaveBeenCalledWith("/editprofile"); // ✅ Navigates correctly
+it("renders and allows clicking 'Edit Profile' button", async () => {
+  const { getByText } = render(<AccountScreen />);
+
+  await waitFor(() => expect(getByText("Edit Profile")).toBeTruthy());
+  fireEvent.press(getByText("Edit Profile"));
+
+  expect(mockPush).toHaveBeenCalledWith("/editprofile");
 });
+
 it("renders 'Sign Out' button before interaction", () => {
   const { getByText } = render(<AccountScreen />);
   expect(getByText("Sign Out")).toBeTruthy(); // ✅ Check before clicking

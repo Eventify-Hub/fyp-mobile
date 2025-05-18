@@ -128,10 +128,10 @@ const PersonalizedExperienceScreen: React.FC = () => {
         keyboardType="numeric"
         value={guests}
         onChangeText={setGuests}
-        testID="guests-input" // testID for guests input
+        testID="guests-input-top" // testID for guests input
       />
       {errors.guests ? (
-        <Text style={styles.errorText} testID="guests-error">
+        <Text style={styles.errorText} testID="guests-error-top">
           {errors.guests}
         </Text> // testID for guests error message
       ) : null} */}
@@ -149,7 +149,7 @@ const PersonalizedExperienceScreen: React.FC = () => {
           >
             <Text
               style={{ color: "#000", fontSize: 14 }}
-              testID={`service-name-${service.name}`}
+              testID={`checkbox-alt-${service.name}`} // ✅ Make it unique
             >
               {selectedServices.includes(service.name) ? "☑️" : "⬜"}{" "}
               {service.name}
@@ -171,8 +171,13 @@ const PersonalizedExperienceScreen: React.FC = () => {
         keyboardType="numeric"
         value={guests}
         onChangeText={setGuests}
+        testID="guests-input-bottom" // NEW: unique testID for first guests input
       />
-      {errors.guests ? <Text style={styles.errorText}>{errors.guests}</Text> : null}
+      {errors.guests ? (
+        <Text style={styles.errorText} testID="guests-error-bottom">
+          {errors.guests}
+        </Text> //test id
+      ) : null}
 
       <Text style={styles.label}>Your Budget</Text>
       <TextInput
@@ -182,8 +187,13 @@ const PersonalizedExperienceScreen: React.FC = () => {
         keyboardType="numeric"
         value={budget}
         onChangeText={setBudget}
+        testID="budget-input" // ✅ Added testID
       />
-      {errors.budget ? <Text style={styles.errorText}>{errors.budget}</Text> : null}
+      {errors.budget ? (
+        <Text style={styles.errorText} testID="budget-error">
+          {errors.budget}
+        </Text> //test id
+      ) : null}
 
       <Text style={styles.label}>Desired Services</Text>
       <View style={styles.checkboxContainer}>
@@ -193,30 +203,55 @@ const PersonalizedExperienceScreen: React.FC = () => {
             style={styles.checkbox}
             onPress={() => toggleService(service.name)}
           >
-            <Text style={{ color: '#000', fontSize: 14 }}>
-              {selectedServices.includes(service.name) ? '☑️' : '⬜'} {service.name}
+            <Text style={{ color: "#000", fontSize: 14 }}>
+              {selectedServices.includes(service.name) ? "☑️" : "⬜"}{" "}
+              {service.name}
             </Text>
           </TouchableOpacity>
         ))}
       </View>
-      {errors.selectedServices ? <Text style={styles.errorText}>{errors.selectedServices}</Text> : null}
+      {errors.selectedServices ? (
+        <Text style={styles.errorText}>{errors.selectedServices}</Text>
+      ) : null}
 
       <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.aiPlanButton} onPress={async () => {
-          if (validateFields()) {
-            await saveSecureData("eventDetails", JSON.stringify({ eventName, eventType, eventDate, guests, selectedServices, budget }))
-            router.push('/AI');
-          }
-        }}>
+        <TouchableOpacity
+          style={styles.aiPlanButton}
+          onPress={async () => {
+            if (validateFields()) {
+              await saveSecureData(
+                "eventDetails",
+                JSON.stringify({
+                  eventName,
+                  eventType,
+                  eventDate,
+                  guests,
+                  selectedServices,
+                  budget,
+                })
+              );
+              router.push("/AI");
+            }
+          }}
+        >
           <Text style={styles.aiPlanButtonText}>AI Suggested Plan</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.customizeButton}
           onPress={() => {
             if (validateFields()) {
-              saveSecureData("eventDetails", JSON.stringify({ eventName, eventType, eventDate, guests, selectedServices }))
+              saveSecureData(
+                "eventDetails",
+                JSON.stringify({
+                  eventName,
+                  eventType,
+                  eventDate,
+                  guests,
+                  selectedServices,
+                })
+              );
               router.push({
-                pathname: '/customizeyourown',
+                pathname: "/customizeyourown",
                 params: { selectedServices: JSON.stringify(selectedServices) },
               });
             }

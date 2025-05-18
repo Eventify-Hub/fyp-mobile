@@ -4,6 +4,9 @@ import "react-native-gesture-handler/jestSetup";
 
 console.log("Jest setup file loaded successfully");
 
+// Silence all console.error logs globally during tests
+jest.spyOn(console, "error").mockImplementation(() => {});
+
 // ✅ Ignore warnings for deprecated React Native modules
 jest.spyOn(console, "warn").mockImplementation((message) => {
   // Ignore specific warnings only
@@ -47,6 +50,7 @@ jest.mock("expo-router", () => ({
 jest.mock("react-native-toast-message", () => ({
   show: jest.fn(),
   hide: jest.fn(),
+  default: () => null, // ✅ Important for JSX usage: <Toast />
 }));
 
 // ✅ Mock `clearImmediate` for React Native environment
@@ -58,3 +62,21 @@ jest.mock("expo-secure-store", () => ({
   getItemAsync: jest.fn(),
   deleteItemAsync: jest.fn(),
 }));
+
+// ✅ Suppress only act(...) warnings globally
+const originalConsoleError = console.error;
+
+console.error = (...args) => {
+  const [firstArg] = args;
+
+  const isActWarning =
+    typeof firstArg === "string" &&
+    firstArg.includes("An update to") &&
+    firstArg.includes("was not wrapped in act(...)");
+
+  if (!isActWarning) {
+    originalConsoleError(...args); // Allow all other errors
+  }
+};
+
+

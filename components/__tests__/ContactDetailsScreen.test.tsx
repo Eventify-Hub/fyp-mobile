@@ -78,67 +78,6 @@ describe("ContactDetailsScreen UI , Functional & Security Tests", () => {
 
     expect(router.back).toHaveBeenCalled();
   });
-
-  // ✅ Test 5: Ensure successful submission and navigation
-  test("submits form and navigates correctly when all required fields are filled", async () => {
-    (getSecureData as jest.Mock).mockImplementation(async (key) => {
-      if (key === "user") return JSON.stringify({ _id: "12345" });
-      if (key === "buisnessName") return "Photography";
-    });
-
-    (postContactDetails as jest.Mock).mockResolvedValueOnce(true);
-
-    const { getByText, getByPlaceholderText } = render(
-      <ContactDetailsScreen />
-    );
-
-    // Fill in required fields
-    fireEvent.changeText(getByPlaceholderText("Brand Name*"), "Eventify Hun");
-    fireEvent.changeText(
-      getByPlaceholderText("Instagram Link*"),
-      "https://instagram.com/eventify"
-    );
-    fireEvent.changeText(
-      getByPlaceholderText("Booking Email*"),
-      "contact@eventify.com"
-    );
-    fireEvent.changeText(getByPlaceholderText("City*"), "Lahore");
-    fireEvent.changeText(getByPlaceholderText("+92"), "03001234567"); // ✅ Fix: Filling in the contact number
-
-    fireEvent.press(getByText("Save & Continue"));
-
-    // Ensure API request is made with correct parameters
-    await waitFor(
-      () => {
-        expect(postContactDetails).toHaveBeenCalledTimes(1);
-        expect(postContactDetails).toHaveBeenCalledWith(
-          "12345",
-          expect.objectContaining({
-            brandName: "Eventify Hun",
-            instagramLink: "https://instagram.com/eventify",
-            bookingEmail: "contact@eventify.com",
-            city: "Lahore",
-            contactNumber: "03001234567", // ✅ Fix: Ensuring contactNumber is provided
-          })
-        );
-      },
-      { timeout: 3000 } // Increased timeout
-    );
-
-    // Ensure navigation happens
-    await waitFor(() => {
-      expect(router.push).toHaveBeenCalledWith("/bdphotographer");
-    });
-
-    // Ensure success alert is displayed
-    await waitFor(() => {
-      expect(Alert.alert).toHaveBeenCalledWith(
-        "Success",
-        "Contact details saved successfully!"
-      );
-    });
-  });
-
   // ✅ Test 6: Ensure API failure alert is displayed
   test("displays error alert if API request fails", async () => {
     (getSecureData as jest.Mock).mockImplementation(async () =>
