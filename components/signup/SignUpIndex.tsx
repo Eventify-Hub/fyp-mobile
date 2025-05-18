@@ -4,7 +4,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { Asset } from 'expo-asset';
 import { router } from 'expo-router';
 import React, { useEffect, useState } from 'react';
-import { ActivityIndicator, Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { ActivityIndicator, Image, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import Toast from 'react-native-toast-message';
 
 export default function SignupScreen() {
@@ -89,35 +89,43 @@ export default function SignupScreen() {
     setName("");
     setPhone(""); // new
   }
-
+  const image = Asset.fromModule(require('@/assets/images/GetStarted.png')).uri;
   return (
-    <View style={styles.container}>
+    <ScrollView 
+    contentContainerStyle={styles.container}
+    keyboardShouldPersistTaps="handled"
+  >
       <Toast />
       <TouchableOpacity style={styles.backButton} onPress={() => { router.back() }}>
         <Ionicons name="arrow-back" size={24} color="#333" />
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.socialButton1} onPress={handleGoogleLogin}>
+      <Image
+        source={{ uri: image }}
+        style={styles.logo}
+      />
+
+      {/* <TouchableOpacity style={styles.socialButton1} onPress={handleGoogleLogin}>
         <Image
           source={{ uri: google }}
           style={styles.socialIcon}
         />
         <Text style={styles.socialButtonText}>SignUp with Google</Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
 
-      <TouchableOpacity style={styles.socialButton2} onPress={handleFacebookLogin}>
+      {/* <TouchableOpacity style={styles.socialButton2} onPress={handleFacebookLogin}>
         <Image
           source={{ uri: facebook }}
           style={styles.socialIcon}
         />
         <Text style={styles.socialButtonText}>SignUp with Facebook</Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
 
-      <View style={styles.separatorContainer}>
+      {/* <View style={styles.separatorContainer}>
         <View style={styles.separatorLine} />
         <Text style={styles.separatorText}>OR</Text>
         <View style={styles.separatorLine} />
-      </View>
+      </View> */}
 
       <Text style={styles.label}>Name</Text>
       <TextInput
@@ -172,7 +180,7 @@ export default function SignupScreen() {
           <Text style={styles.registerButtonText}>Create Account</Text>
         )}
       </TouchableOpacity>
-    </View>
+    </ScrollView>
   );
 }
 
@@ -181,7 +189,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#F8E9F0',
     paddingHorizontal: 40,
-    paddingTop: 80,
+    paddingTop: 200,
   },
   socialButton1: {
     flexDirection: 'row',
@@ -282,6 +290,13 @@ const styles = StyleSheet.create({
   disabledButton: {
     backgroundColor: '#A9A9A9', // Lighter color for disabled state
     opacity: 0.6, // Make it appear dimmed
+  },
+  logo: {
+    width: 100,
+    height: 100,
+    resizeMode: 'contain',
+    marginBottom: 20,
+    alignSelf: 'center', // <-- Add this line
   },
 });
 

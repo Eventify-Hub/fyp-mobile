@@ -76,12 +76,12 @@ export default function LoginScreen() {
         <Ionicons name="arrow-back" size={24} color="#333" />
       </TouchableOpacity>
 
-      {/* <Image
+      <Image
         source={{ uri: image }}
         style={styles.logo}
-      /> */}
+      />
 
-      <TouchableOpacity style={styles.socialButton1} onPress={handleGoogleLogin}>
+      {/* <TouchableOpacity style={styles.socialButton1} onPress={handleGoogleLogin}>
         <Image
           source={{ uri: google }}
           style={styles.socialIcon}
@@ -95,13 +95,13 @@ export default function LoginScreen() {
           style={styles.socialIcon}
         />
         <Text style={styles.socialButtonText}>Login with Facebook</Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
 
-      <View style={styles.separatorContainer}>
+      {/* <View style={styles.separatorContainer}>
         <View style={styles.separatorLine} />
         <Text style={styles.separatorText}>OR</Text>
         <View style={styles.separatorLine} />
-      </View>
+      </View> */}
 
       <Text style={styles.label}>E-mail</Text>
       <TextInput
@@ -153,7 +153,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#F7ECF5', // Light pink background
     paddingHorizontal: 40,
-    paddingTop: 80,
+    paddingTop: 200,
   },
   socialButton1: {
     flexDirection: 'row',
@@ -226,12 +226,20 @@ const styles = StyleSheet.create({
     color: '#999',
     paddingHorizontal: 10,
   },
+  // logo: {
+  //   width: 100,
+  //   height: 100,
+  //   resizeMode: 'contain',
+  //   marginBottom: 20,
+  // },
   logo: {
     width: 100,
     height: 100,
     resizeMode: 'contain',
     marginBottom: 20,
+    alignSelf: 'center', // <-- Add this line
   },
+  
   loginButton: {
     backgroundColor: '#780C60', // Dark purple color
     paddingVertical: 15,
