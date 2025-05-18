@@ -55,10 +55,10 @@ describe("PhotographerDetailsScreen", () => {
     const { findByTestId } = render(<PhotographerDetailsScreen />);
     expect(await findByTestId("error-message")).toBeTruthy();
   });
-  
-it("shows loading indicator on initial render", () => {
-  const { getByTestId } = render(<PhotographerDetailsScreen />);
-  expect(getByTestId("loading-indicator")).toBeTruthy();
-});
+
+  it("shows loading indicator on initial render", () => {
+    const { getByTestId } = render(<PhotographerDetailsScreen />);
+    expect(getByTestId("loading-indicator")).toBeTruthy();
+  });
 
 });

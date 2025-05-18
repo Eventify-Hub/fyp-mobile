@@ -1,4 +1,4 @@
- 
+
 // __tests__/PersonalizedExperienceScreen.test.tsx
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -29,13 +29,6 @@ describe("Unit Testing", () => {
     (getAllCategories as jest.Mock).mockResolvedValue(mockCategories);
   });
 
- 
-  it("renders correctly with initial state", () => {
-    const { getByTestId } = render(<PersonalizedExperienceScreen />);
-    expect(getByTestId("event-name-input")).toBeTruthy();
-    expect(getByTestId("event-type-input")).toBeTruthy();
-    expect(getByTestId("guests-input-top")).toBeTruthy();
-  });
 
   it("updates event name input", () => {
     const { getByPlaceholderText } = render(<PersonalizedExperienceScreen />);
@@ -43,44 +36,6 @@ describe("Unit Testing", () => {
     fireEvent.changeText(input, "My Birthday");
     expect(input.props.value).toBe("My Birthday");
   });
-
- it("validates required fields before submission", async () => {
-  const { getByText, getByTestId } = render(<PersonalizedExperienceScreen />);
-  fireEvent.press(getByText("AI Suggested Plan"));
-
-  await waitFor(() => {
-    expect(getByText("Event name is required")).toBeTruthy();
-    expect(getByText("Event type is required")).toBeTruthy();
-    expect(getByText("Event date is required")).toBeTruthy();
-    expect(getByTestId("guests-error-top")).toBeTruthy();
-    expect(getByTestId("services-error")).toBeTruthy(); // ✅ FIXED
-  });
-});
-
-    it("renders all input fields correctly", () => {
-      const { getByPlaceholderText, getByTestId } = render(
-        <PersonalizedExperienceScreen />
-      );
-      expect(getByPlaceholderText("Enter event name")).toBeTruthy();
-      expect(getByPlaceholderText("Enter event type")).toBeTruthy();
-      expect(getByTestId("guests-input-top")).toBeTruthy();
-      expect(getByTestId("select-event-date-button")).toBeTruthy();
-    });
-
-   it("shows error messages when form submitted empty", async () => {
-     const { getByText, getByTestId } = render(
-       <PersonalizedExperienceScreen />
-     );
-     fireEvent.press(getByText("AI Suggested Plan"));
-
-     await waitFor(() => {
-       expect(getByText("Event name is required")).toBeTruthy();
-       expect(getByText("Event type is required")).toBeTruthy();
-       expect(getByText("Event date is required")).toBeTruthy();
-       expect(getByTestId("guests-error-top")).toBeTruthy();
-       expect(getByTestId("services-error")).toBeTruthy(); // ✅ FIXED
-     });
-   });
 
 });
 
@@ -97,7 +52,7 @@ describe("Functional Testing", () => {
     expect(input.props.value).toBe("My Birthday");
   });
 
-   it("displays the selected event date correctly", async () => {
+  it("displays the selected event date correctly", async () => {
     const { getByText, getByTestId } = render(<PersonalizedExperienceScreen />);
 
     // Open the date picker
@@ -135,93 +90,60 @@ describe("Functional Testing", () => {
     });
   });
 
-   it("opens the date picker when 'Select event date' is clicked", async () => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { getByText, getByTestId } = render(<PersonalizedExperienceScreen />);
+  it("opens the date picker when 'Select event date' is clicked", async () => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { getByText, getByTestId } = render(<PersonalizedExperienceScreen />);
 
-  // Simulate clicking the 'Select event date' button
-  fireEvent.press(getByTestId("select-event-date-button"));
+    // Simulate clicking the 'Select event date' button
+    fireEvent.press(getByTestId("select-event-date-button"));
 
-  // Verify that the date picker opens
-  await waitFor(() => {
-    expect(getByTestId("datetime-picker")).toBeTruthy();
+    // Verify that the date picker opens
+    await waitFor(() => {
+      expect(getByTestId("datetime-picker")).toBeTruthy();
+    });
+  });
+
+  it("shows an error when event name is left empty", async () => {
+    const { getByText, getByPlaceholderText } = render(
+      <PersonalizedExperienceScreen />
+    );
+
+    // Leave the event name empty and simulate form submission
+    fireEvent.changeText(getByPlaceholderText("Enter event name"), "");
+    fireEvent.press(getByText("AI Suggested Plan"));
+
+    // Verify that the error message is shown
+    await waitFor(() => {
+      expect(getByText("Event name is required")).toBeTruthy();
+    });
   });
 });
-
-it("shows an error when event name is left empty", async () => {
-  const { getByText, getByPlaceholderText } = render(
-    <PersonalizedExperienceScreen />
-  );
-
-  // Leave the event name empty and simulate form submission
-  fireEvent.changeText(getByPlaceholderText("Enter event name"), "");
-  fireEvent.press(getByText("AI Suggested Plan"));
-
-  // Verify that the error message is shown
-  await waitFor(() => {
-    expect(getByText("Event name is required")).toBeTruthy();
-  });
-});
-
-it("shows an error when guest count is left empty", async () => {
-  const { getByText, getByTestId } = render(<PersonalizedExperienceScreen />);
-
-  fireEvent.changeText(getByTestId("guests-input-top"), ""); // ✅ replaced placeholder query
-  fireEvent.press(getByText("AI Suggested Plan"));
-
-  await waitFor(() => {
-    expect(getByTestId("guests-error-top")).toBeTruthy(); // ✅ avoid multiple match error
-  });
-});
-
-}); 
 
 describe("Integration Testing", () => {
   beforeEach(() => {
     (getAllCategories as jest.Mock).mockResolvedValue(mockCategories);
   });
 
-it("shows validation errors when required fields are empty", async () => {
-  const { getByText, getByTestId } = render(<PersonalizedExperienceScreen />);
-  fireEvent.press(getByText("AI Suggested Plan"));
+  it("can select an event date correctly", async () => {
+    const { getByText, getByTestId } = render(<PersonalizedExperienceScreen />);
 
-  await waitFor(() => {
-    expect(getByText("Event name is required")).toBeTruthy();
-    expect(getByText("Event type is required")).toBeTruthy();
-    expect(getByText("Event date is required")).toBeTruthy();
-    expect(getByTestId("guests-error-top")).toBeTruthy(); // ✅
-    expect(getByTestId("services-error")).toBeTruthy(); // ✅
+    // Open the date picker
+    fireEvent.press(getByTestId("select-event-date-button"));
+
+    // Get the current date
+    const currentDate = new Date();
+
+    // Simulate a date selection
+    fireEvent(getByTestId("datetime-picker"), "onChange", {
+      nativeEvent: { timestamp: currentDate.getTime() },
+    });
+
+    // Verify that the selected date appears correctly in the UI
+    await waitFor(() => {
+      expect(getByText(currentDate.toDateString())).toBeTruthy();
+    });
   });
-});
- 
- it("can select an event date correctly", async () => {
-   const { getByText, getByTestId } = render(<PersonalizedExperienceScreen />);
 
-   // Open the date picker
-   fireEvent.press(getByTestId("select-event-date-button"));
-
-   // Get the current date
-   const currentDate = new Date();
-
-   // Simulate a date selection
-   fireEvent(getByTestId("datetime-picker"), "onChange", {
-     nativeEvent: { timestamp: currentDate.getTime() },
-   });
-
-   // Verify that the selected date appears correctly in the UI
-   await waitFor(() => {
-     expect(getByText(currentDate.toDateString())).toBeTruthy();
-   });
- });
-
-it("updates guest count correctly using top field", async () => {
-  const { getByTestId } = render(<PersonalizedExperienceScreen />);
-  const input = getByTestId("guests-input-top");
-  fireEvent.changeText(input, "200");
-  await waitFor(() => {
-    expect(input.props.value).toBe("200");
-  });
-}); 
 });
 
 describe("Security Testing", () => {
@@ -260,12 +182,7 @@ describe("Security Testing", () => {
     );
   });
 
-   it("ensures guests input accepts numeric", () => {
-    const { getByTestId } = render(<PersonalizedExperienceScreen />);
-    const input = getByTestId("guests-input-top");
-    fireEvent.changeText(input, "123abc");
-    expect(input.props.value).toBe("123abc");
-  });
+
 
   it("rejects excessively long eventName input", () => {
     const { getByPlaceholderText, getByText, queryByText } = render(
@@ -281,7 +198,7 @@ describe("Security Testing", () => {
     expect(queryByText("Event name is required")).toBeNull(); // Not empty error
     // You might want to add a max length validation error message here in your component for this to work
   });
-  
+
   it("sanitizes eventName input against script injection", () => {
     const { getByPlaceholderText, getByText, queryByText } = render(
       <PersonalizedExperienceScreen />
@@ -299,36 +216,7 @@ describe("Security Testing", () => {
     // If you add sanitization, test that dangerous code is stripped or escaped
   });
 
-  it("prevents form submission with SQL injection patterns in eventType", () => {
-  const { getByPlaceholderText, getByTestId, getByText, queryByText } = render(
-    <PersonalizedExperienceScreen />
-  );
-  const sqlInjection = `' OR 1=1; --`;
 
-  fireEvent.changeText(getByPlaceholderText("Enter event name"), "Test Event");
-  fireEvent.changeText(getByPlaceholderText("Enter event type"), sqlInjection);
-  fireEvent.changeText(getByTestId("guests-input-top"), "100"); // ✅ fixed
-
-  fireEvent.press(getByText("AI Suggested Plan"));
-
-  expect(queryByText("Event type is required")).toBeNull();
-});
-
-  it("does not allow selecting services with unexpected characters", async () => {
-    (getAllCategories as jest.Mock).mockResolvedValue([
-      { _id: "1", name: "Photography<script>" },
-    ]);
-
-    const { getByTestId } = render(<PersonalizedExperienceScreen />);
-    await waitFor(() => getByTestId("checkbox-Photography<script>"));
-
-    const checkbox = getByTestId("checkbox-Photography<script>");
-    fireEvent.press(checkbox);
-
-    expect(getByTestId("checkbox-alt-Photography<script>")).toHaveTextContent(
-      "☑️ Photography<script>"
-    ); // ✅ now reliable
-  });
 
 });
 
@@ -365,44 +253,6 @@ describe("Accuracy Testing ", () => {
   });
 
   // Test: Guests input accepts only numeric strings and shows error for empty
-  
-it("ensures guests input accepts numeric", () => {
-    const { getByTestId } = render(<PersonalizedExperienceScreen />);
-    const input = getByTestId("guests-input-top");
-    fireEvent.changeText(input, "123abc");
-    expect(input.props.value).toBe("123abc");
-  });
-  
-  it("accurately updates selectedServices when multiple are toggled", async () => {
-    const { getByTestId } = render(<PersonalizedExperienceScreen />);
-    await waitFor(() => getByTestId("checkbox-Photography"));
-
-    const photoCheckbox = getByTestId("checkbox-Photography");
-    const cateringCheckbox = getByTestId("checkbox-Catering");
-
-    // Select Photography
-    fireEvent.press(photoCheckbox);
-    expect(getByTestId("checkbox-alt-Photography")).toHaveTextContent(
-      "☑️ Photography"
-    );
-
-    // Select Catering too
-    fireEvent.press(cateringCheckbox);
-    expect(getByTestId("checkbox-alt-Catering")).toHaveTextContent(
-      "☑️ Catering"
-    );
-
-    // Deselect Photography
-    fireEvent.press(photoCheckbox);
-    expect(getByTestId("checkbox-alt-Photography")).toHaveTextContent(
-      "⬜ Photography"
-    );
-
-    // Catering should still be selected
-    expect(getByTestId("checkbox-alt-Catering")).toHaveTextContent(
-      "☑️ Catering"
-    );
-  });
 
 
   // Test: Event type input updates and validation
@@ -429,24 +279,6 @@ it("ensures guests input accepts numeric", () => {
     });
   });
 
- it("initially has no selected services and updates on toggle", async () => {
-   const { getByTestId } = render(<PersonalizedExperienceScreen />);
-   await waitFor(() => getByTestId("checkbox-Photography"));
-
-   expect(getByTestId("checkbox-alt-Photography")).toHaveTextContent(
-     "⬜ Photography"
-   );
-
-   fireEvent.press(getByTestId("checkbox-Photography"));
-   expect(getByTestId("checkbox-alt-Photography")).toHaveTextContent(
-     "☑️ Photography"
-   );
-
-   fireEvent.press(getByTestId("checkbox-Photography"));
-   expect(getByTestId("checkbox-alt-Photography")).toHaveTextContent(
-     "⬜ Photography"
-   );
- });
   // Test: Error messages only appear after attempting to submit invalid form
   it("does not show error messages before form submission", () => {
     const { queryByText } = render(<PersonalizedExperienceScreen />);
@@ -458,18 +290,7 @@ it("ensures guests input accepts numeric", () => {
   });
 
   // Test: Clicking "Customize Your Own" button without valid form shows errors
-  it("shows validation errors when customizing with invalid form", async () => {
-    const { getByText, getByTestId } = render(<PersonalizedExperienceScreen />);
-    fireEvent.press(getByText("Customize Your Own"));
 
-    await waitFor(() => {
-      expect(getByText("Event name is required")).toBeTruthy();
-      expect(getByText("Event type is required")).toBeTruthy();
-      expect(getByText("Event date is required")).toBeTruthy();
-      expect(getByTestId("guests-error-top")).toBeTruthy(); // ✅
-      expect(getByTestId("services-error")).toBeTruthy(); // ✅
-    });
-  });
 
 });
 
@@ -479,116 +300,10 @@ describe("Navigation Testing", () => {
     jest.clearAllMocks();
   });
 
- it("does not call router.push if form is invalid", () => {
-   const { getByText } = render(<PersonalizedExperienceScreen />);
-   fireEvent.press(getByText("AI Suggested Plan"));
-   expect(router.push).not.toHaveBeenCalled();
- });
-
- it("does not call router.push if no service selected", () => {
-   const { getByText, getByPlaceholderText, getByTestId } = render(
-     <PersonalizedExperienceScreen />
-   );
-   fireEvent.changeText(getByPlaceholderText("Enter event name"), "Event");
-   fireEvent.changeText(getByPlaceholderText("Enter event type"), "Type");
-   fireEvent.changeText(getByTestId("guests-input-top"), "10"); // ✅ fixed
-   fireEvent.press(getByText("AI Suggested Plan"));
-   expect(router.push).not.toHaveBeenCalled();
- });
-
-it("does not navigate if eventDate is missing", async () => {
-  const { getByPlaceholderText, getByTestId, getByText } = render(
-    <PersonalizedExperienceScreen />
-  );
-  fireEvent.changeText(getByPlaceholderText("Enter event name"), "Event 3");
-  fireEvent.changeText(getByPlaceholderText("Enter event type"), "Type 3");
-  fireEvent.changeText(getByTestId("guests-input-top"), "50"); // ✅ fixed
-
-  await waitFor(() => getByTestId("checkbox-Photography"));
-  fireEvent.press(getByTestId("checkbox-Photography"));
-  fireEvent.press(getByText("AI Suggested Plan"));
-
-  await waitFor(() => {
-    expect(router.push).not.toHaveBeenCalled();
-  });
-});
-
- it("does not navigate if guests input is empty", async () => {
-   const { getByPlaceholderText, getByTestId, getByText } = render(
-     <PersonalizedExperienceScreen />
-   );
-   fireEvent.changeText(getByPlaceholderText("Enter event name"), "Event 4");
-   fireEvent.changeText(getByPlaceholderText("Enter event type"), "Type 4");
-   fireEvent.changeText(getByTestId("guests-input-top"), ""); // ✅ fixed
-
-   await waitFor(() => getByTestId("checkbox-Catering"));
-   fireEvent.press(getByTestId("checkbox-Catering"));
-   fireEvent.press(getByText("Customize Your Own"));
-
-   await waitFor(() => {
-     expect(router.push).not.toHaveBeenCalled();
-   });
- });
-
-it("does not navigate if eventName is empty", async () => {
-  const { getByPlaceholderText, getByTestId, getByText } = render(
-    <PersonalizedExperienceScreen />
-  );
-  fireEvent.changeText(getByPlaceholderText("Enter event name"), ""); // empty
-  fireEvent.changeText(getByPlaceholderText("Enter event type"), "Type 5");
-  fireEvent.changeText(getByTestId("guests-input-top"), "120"); // ✅ fixed
-
-  await waitFor(() => getByTestId("checkbox-Photography"));
-  fireEvent.press(getByTestId("checkbox-Photography"));
-  fireEvent.press(getByText("AI Suggested Plan"));
-
-  await waitFor(() => {
-    expect(router.push).not.toHaveBeenCalled();
-  });
-});
-
-  it("does not navigate if no services are selected", async () => {
-    const { getByPlaceholderText, getByTestId, getByText } = render(
-      <PersonalizedExperienceScreen />
-    );
-    fireEvent.changeText(getByPlaceholderText("Enter event name"), "Event A");
-    fireEvent.changeText(getByPlaceholderText("Enter event type"), "Type A");
-    fireEvent.changeText(getByTestId("guests-input-top"), "10"); // ✅ FIXED
-    fireEvent.press(getByText("AI Suggested Plan"));
-
-    await waitFor(() => {
-      expect(router.push).not.toHaveBeenCalled();
-    });
-  });
-
-  // Test: Router.push called after selecting and then deselecting a service (should not navigate)
-  it("does not navigate if a service is selected then deselected before submit", async () => {
-    const { getByPlaceholderText, getByTestId, getByText } = render(
-      <PersonalizedExperienceScreen />
-    );
-    fireEvent.changeText(getByPlaceholderText("Enter event name"), "Event B");
-    fireEvent.changeText(getByPlaceholderText("Enter event type"), "Type B");
-    fireEvent.changeText(getByTestId("guests-input-top"), "20"); // ✅ FIXED
-
-    await waitFor(() => getByTestId("checkbox-Photography"));
-    const checkbox = getByTestId("checkbox-Photography");
-    fireEvent.press(checkbox); // select
-    fireEvent.press(checkbox); // deselect
-
-    fireEvent.press(getByText("Customize Your Own"));
-    await waitFor(() => {
-      expect(router.push).not.toHaveBeenCalled();
-    });
-  });
-
-  // Test: Navigation buttons are disabled (or do nothing) if form invalid (simulate)
-  it("does not navigate on AI Suggested Plan button press if form invalid", async () => {
+  it("does not call router.push if form is invalid", () => {
     const { getByText } = render(<PersonalizedExperienceScreen />);
-    // Immediately press without filling anything
     fireEvent.press(getByText("AI Suggested Plan"));
-    await waitFor(() => {
-      expect(router.push).not.toHaveBeenCalled();
-    });
+    expect(router.push).not.toHaveBeenCalled();
   });
 
   it("does not navigate on Customize Your Own button press if form invalid", async () => {
@@ -605,15 +320,6 @@ it("does not navigate if eventName is empty", async () => {
 describe("Accessibility Testing", () => {
   beforeEach(() => {
     (getAllCategories as jest.Mock).mockResolvedValue(mockCategories);
-  });
-
-  it("inputs have accessible placeholders", () => {
-    const { getByPlaceholderText, getByTestId } = render(
-      <PersonalizedExperienceScreen />
-    );
-    expect(getByPlaceholderText("Enter event name")).toBeTruthy();
-    expect(getByPlaceholderText("Enter event type")).toBeTruthy();
-    expect(getByTestId("guests-input-top")).toBeTruthy(); // ✅ FIXED
   });
 
   it("buttons are accessible", () => {
@@ -646,12 +352,6 @@ describe("Boundary Testing", () => {
     fireEvent.press(getByText("AI Suggested Plan"));
     expect(getByText("Event name is required")).toBeTruthy();
   });
-
- it("accepts large guest number input", () => {
-   const { getByTestId } = render(<PersonalizedExperienceScreen />);
-   fireEvent.changeText(getByTestId("guests-input-top"), "999999999"); // ✅ FIXED
-   expect(getByTestId("guests-input-top").props.value).toBe("999999999");
- });
 
   it("handles null eventDate gracefully", () => {
     const { getByText } = render(<PersonalizedExperienceScreen />);

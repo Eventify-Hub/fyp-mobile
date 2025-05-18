@@ -1,7 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`EditProfileScreen matches snapshot after filling form 1`] = `null`;
-
-exports[`EditProfileScreen matches snapshot after selecting refund policy 1`] = `null`;
-
-exports[`EditProfileScreen matches snapshot on initial render 1`] = `null`;
