@@ -1,8 +1,9 @@
 
 import getAllVendorsByCategoryId from "@/services/getAllVendorsByCategoryId";
+import searchVendorsWithFilters from "@/services/searchVendorsWithFilters";
 import { getSecureData } from "@/store";
 import { Ionicons, MaterialIcons } from "@expo/vector-icons";
-import { router } from "expo-router";
+import { router, useLocalSearchParams } from "expo-router";
 import React, { useEffect, useState } from "react";
 import {
   FlatList,
@@ -18,17 +19,47 @@ export default function App() {
   const [data, setData] = useState<any>([]);
   const [headerTitle, setHeaderTitle] = useState<string>("");
   const [vendorData, setVendorData] = useState<any>(null);
+  const routeParams = useLocalSearchParams();
+  const [searchQuery, setSearchQuery] = useState<string>("");
 
   useEffect(() => {
     fetchData();
     fetchCategoryName(); // Fetch category name for header title
   }, []);
 
+  // const fetchData = async () => {
+  //   const categoryId = (await getSecureData("categoryId")) || "";
+  //   const data = await getAllVendorsByCategoryId(categoryId);
+  //   setData(data);
+  // };
+
   const fetchData = async () => {
-    const categoryId = (await getSecureData("categoryId")) || "";
-    const data = await getAllVendorsByCategoryId(categoryId);
-    setData(data);
+    const categoryIdRaw = await getSecureData("categoryId");
+    const categoryId = categoryIdRaw ?? undefined;
+
+    const city = Array.isArray(routeParams?.city) ? routeParams.city[0] : routeParams?.city;
+    const staff = Array.isArray(routeParams?.staff) ? routeParams.staff[0] : routeParams?.staff;
+    const cancellationPolicy = Array.isArray(routeParams?.cancellationPolicy)
+      ? routeParams.cancellationPolicy[0]
+      : routeParams?.cancellationPolicy;
+    const minRatingStr = Array.isArray(routeParams?.minRating)
+      ? routeParams.minRating[0]
+      : routeParams?.minRating;
+
+    const filters = {
+      name: searchQuery || undefined,
+      categoryId,
+      city: city || undefined,
+      staff: staff || undefined,
+      cancellationPolicy: cancellationPolicy || undefined,
+      minRating: minRatingStr ? parseInt(minRatingStr) : undefined,
+    };
+    const vendorResults = await searchVendorsWithFilters(filters);
+    setData(vendorResults);
   };
+
+
+
 
   const fetchCategoryName = async () => {
     const categoryName = (await getSecureData("categoryName")) || "Category";
@@ -78,6 +109,7 @@ export default function App() {
         </TouchableOpacity>
         <Text style={styles.headerTitle}>{headerTitle || "Loading..."}</Text>
       </View>
+
       <View style={styles.searchContainer}>
         <Ionicons
           name="search"
@@ -86,15 +118,27 @@ export default function App() {
           style={styles.searchIcon}
         />
         <TextInput
-          placeholder="Search Salon & Spa"
+          placeholder="Search"
           style={styles.searchInput}
           placeholderTextColor="#C4C4C4"
+          value={searchQuery}
+          returnKeyType="search"
+          onChangeText={(text) => {
+            setSearchQuery(text);
+          }}
+          onSubmitEditing={async () => {
+            console.log("Search text")
+            await fetchData();
+          }}
         />
         {/*add test id */}
         <TouchableOpacity
           testID="filter-button"
           onPress={() => {
-            router.push("/makeupfilter");
+            router.push({
+              pathname: "/makeupfilter",
+              params: { name: searchQuery },
+            });
           }}
         >
           <MaterialIcons name="tune" size={24} color="#C4C4C4" />
@@ -105,6 +149,11 @@ export default function App() {
         renderItem={renderItem}
         keyExtractor={(item) => item._id}
         contentContainerStyle={styles.list}
+        ListEmptyComponent={
+          <View style={{ padding: 20, alignItems: "center" }}>
+            <Text style={{ color: "#888", fontSize: 16 }}>No results found</Text>
+          </View>
+        }
       />
     </View>
   );

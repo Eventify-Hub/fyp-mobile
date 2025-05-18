@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { View, Text, TextInput, FlatList, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import { router, useRouter } from 'expo-router';
@@ -8,7 +7,9 @@ import { saveSecureData } from '@/store';
 
 const VendorCategoriesIndex = () => {
   const [categories, setCategories] = useState<ICategory[]>([]);
-  const router = useRouter(); // Use the Expo Router hook for navigation
+  const [searchQuery, setSearchQuery] = useState('');
+  const [filteredCategories, setFilteredCategories] = useState<ICategory[]>([]);
+  const router = useRouter();
 
   useEffect(() => {
     getCategories();
@@ -17,11 +18,20 @@ const VendorCategoriesIndex = () => {
   const getCategories = async () => {
     const response = await getAllCategories();
     setCategories(response);
+    setFilteredCategories(response);
   };
 
+  const handleSearch = (query: string) => {
+    setSearchQuery(query);
+    const lowerQuery = query.toLowerCase();
+    const filtered = categories.filter(category =>
+      category.name.toLowerCase().includes(lowerQuery) ||
+      category.description.toLowerCase().includes(lowerQuery)
+    );
+    setFilteredCategories(filtered);
+  };
 
-
-  const renderItem = ({ item }: { item: typeof categories[0] }) => (
+  const renderItem = ({ item }: { item: ICategory }) => (
     <TouchableOpacity
       style={styles.itemContainer}
       onPress={async () => {
@@ -39,20 +49,22 @@ const VendorCategoriesIndex = () => {
 
   return (
     <View style={styles.container}>
-      {/* Back Button */}
       <TouchableOpacity style={styles.backButton} onPress={() => router.back()}>
         <Text style={styles.backButtonText}>Back</Text>
       </TouchableOpacity>
 
-      {/* Header */}
       <Text style={styles.header}>Vendor Categories</Text>
 
-      {/* Search Input */}
-      <TextInput style={styles.searchInput} placeholder="Search vendor categories" placeholderTextColor="#aaa" />
+      <TextInput
+        style={styles.searchInput}
+        placeholder="Search vendor categories"
+        placeholderTextColor="#aaa"
+        value={searchQuery}
+        onChangeText={handleSearch}
+      />
 
-      {/* Vendor List */}
       <FlatList
-        data={categories}
+        data={filteredCategories}
         renderItem={renderItem}
         keyExtractor={(item) => item._id}
         contentContainerStyle={styles.listContainer}
