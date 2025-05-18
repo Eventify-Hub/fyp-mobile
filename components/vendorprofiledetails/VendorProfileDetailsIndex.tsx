@@ -183,7 +183,7 @@ const PhotographerDetailsScreen: React.FC = () => {
         </TouchableOpacity>
 
         {/* Title */}
-        <Text style={styles.title}>Photographer Details</Text>
+        <Text style={styles.title}>{vendorData.name}</Text>
 
         {/* Cart Icon */}
         <TouchableOpacity

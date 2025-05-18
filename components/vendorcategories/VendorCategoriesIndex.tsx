@@ -36,6 +36,7 @@ const VendorCategoriesIndex = () => {
       style={styles.itemContainer}
       onPress={async () => {
         await saveSecureData("categoryId", item._id);
+        await saveSecureData("categoryName", item.name);
         router.push("/categoryvendorlisting");
       }}
     >

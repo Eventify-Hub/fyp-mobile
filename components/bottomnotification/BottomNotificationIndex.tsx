@@ -40,7 +40,7 @@ const NotificationsScreen: React.FC = () => {
         }
 
         return (
-            <View style={styles.notificationContainer}>
+            <View key={item._id} style={styles.notificationContainer}>
                 <View style={styles.iconContainer}>{icon}</View>
                 <View style={styles.textContainer}>
                     <Text style={styles.notificationType}>{item.type}</Text>
@@ -68,7 +68,7 @@ const NotificationsScreen: React.FC = () => {
             <FlatList
                 data={notifications}
                 renderItem={renderNotification}
-                keyExtractor={(item) => item.id}
+                keyExtractor={(item) => item._id}
                 contentContainerStyle={styles.list}
             />
 

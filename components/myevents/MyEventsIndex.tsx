@@ -76,7 +76,7 @@ const MyEventsScreen = () => {
                 : '#dc3545';
 
           return (
-            <View key={event.id} style={styles.card}>
+            <View key={event._id} style={styles.card}>
               {/* <Image source={{ uri: event.image }} style={styles.image} /> */}
               <Text style={styles.eventName}>{event.eventName}</Text>
               {/* <Text style={styles.info}>📍 {event.location}</Text> */}

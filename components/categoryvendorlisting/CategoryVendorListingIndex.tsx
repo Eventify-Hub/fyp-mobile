@@ -18,7 +18,6 @@ import {
 export default function App() {
   const [data, setData] = useState<any>([]);
   const [headerTitle, setHeaderTitle] = useState<string>("");
-  const [vendorData, setVendorData] = useState<any>(null);
   const routeParams = useLocalSearchParams();
   const [searchQuery, setSearchQuery] = useState<string>("");
 
@@ -26,12 +25,6 @@ export default function App() {
     fetchData();
     fetchCategoryName(); // Fetch category name for header title
   }, []);
-
-  // const fetchData = async () => {
-  //   const categoryId = (await getSecureData("categoryId")) || "";
-  //   const data = await getAllVendorsByCategoryId(categoryId);
-  //   setData(data);
-  // };
 
   const fetchData = async () => {
     const categoryIdRaw = await getSecureData("categoryId");
@@ -63,6 +56,7 @@ export default function App() {
 
   const fetchCategoryName = async () => {
     const categoryName = (await getSecureData("categoryName")) || "Category";
+    console.log("categoryName", categoryName);
     setHeaderTitle(categoryName);
   };
 

@@ -1,5 +1,6 @@
 
-import { getSecureData } from '@/store';
+import getVendorByIdParam from '@/services/getVendorByIdParam';
+import { getSecureData, saveSecureData } from '@/store';
 import { Ionicons } from '@expo/vector-icons';
 import { router } from 'expo-router';
 import React, { useEffect, useState } from 'react';
@@ -12,9 +13,27 @@ const BottomNavigationFinal: React.FC = () => {
         loadUser();
     }, []);
     const loadUser = async () => {
-        const user = JSON.parse(await getSecureData("user") || "");
-        setRole(user.role)
-    }
+        try {
+            const rawUser = await getSecureData("user");
+            if (!rawUser) {
+                console.warn("No user found in secure storage.");
+                return;
+            }
+
+            const user = JSON.parse(rawUser);
+
+            setRole(user.role); // Assuming setRole is from useState
+            if (user.role === "Vendor") {
+                const vendor = await getVendorByIdParam(user._id);
+
+                // Save user again
+                await saveSecureData("user", JSON.stringify(vendor));
+                console.log("User saved again to secure storage.");
+            }
+        } catch (error) {
+            console.error("Failed to load or save user:", error);
+        }
+    };
     return (
         role === "Vendor"
             ?

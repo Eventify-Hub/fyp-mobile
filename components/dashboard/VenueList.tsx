@@ -20,7 +20,7 @@ const ItemList: React.FC<{ title: string; data: TopVendor[] }> = ({ title, data 
 );
 
 const ItemCard: React.FC<{ item: TopVendor }> = ({ item }) => (
-  <TouchableOpacity style={styles.card} onPress={() => { router.push(`/vendorprofiledetails?id=${item.vendorId}`) }}>
+  <TouchableOpacity key={item.vendorId} style={styles.card} onPress={() => { router.push(`/vendorprofiledetails?id=${item.vendorId}`) }}>
     <Image
       resizeMode="cover"
       source={{ uri: item.vendor.coverImage }}
