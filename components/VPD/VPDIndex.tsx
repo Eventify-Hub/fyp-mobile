@@ -1,5 +1,7 @@
 
+import getVendorReviews from '@/services/getAllReviewsForVendor';
 import { getSecureData, saveSecureData } from '@/store';
+import { Ionicons } from '@expo/vector-icons';
 import axios from 'axios';
 import { router, useGlobalSearchParams } from 'expo-router';
 import React, { useEffect, useState } from 'react';
@@ -15,49 +17,24 @@ const PhotographerDetailsScreen: React.FC = () => {
     const [loading, setLoading] = useState<boolean>(true);
     const { id } = useGlobalSearchParams();
 
-    const handleAddToCart = async (pkg: any) => {
+    const [reviews, setReviews] = useState<any[]>([]);
+
+    const fetchReviews = async () => {
         try {
-            // Step 1: Get the existing cart data (if any)
-            const existingCartData = await getSecureData('cartData');
-            let cart = existingCartData ? JSON.parse(existingCartData) : { vendors: [] };
-            // console.log("cart.vendors", cart.vendors, "vendorData", vendorData)
-            console.log("vendorData", vendorData._id)
-            // Step 2: Check if the vendor already exists in the cart
-            const vendorIndex = cart.vendors.findIndex((vendor: any) => vendor.vendor._id === vendorData._id);
-            console.log("existingCartData", existingCartData)
-            // If the vendor exists, we need to update the selected package
-            if (vendorIndex !== -1) {
-                // Update the selected package for the existing vendor
-                cart.vendors[vendorIndex].packages.push(pkg); // Add package to this vendor's list
-            } else {
-                // If the vendor doesn't exist in the cart, create a new vendor entry
-                const vendorPackageData = {
-                    vendor: vendorData, // Saving all vendor data
-                    packages: [pkg],    // Saving the selected package data
-                };
-                cart.vendors.push(vendorPackageData); // Add new vendor with package
-            }
-
-            // Step 3: Save the updated cart data back
-            await saveSecureData('cartData', JSON.stringify(cart));
-
-            // Step 4: Show a success toast message
-            Toast.show({
-                type: 'success',
-                text1: 'Added to Cart',
-                text2: `${pkg.packageName} has been added to your cart!`,
-                position: 'bottom',
-            });
+            const data = await getVendorReviews(vendorData._id);
+            console.log("reviews", data);
+            setReviews(data);
         } catch (error) {
-            console.error('Error handling add to cart:', error);
-            Toast.show({
-                type: 'error',
-                text1: 'Error',
-                text2: 'Failed to add to cart. Please try again.',
-                position: 'bottom',
-            });
+            console.error('Error fetching reviews:', error);
         }
     };
+
+    // ✅ Call fetchReviews after vendorData loads
+    useEffect(() => {
+        if (vendorData?._id) {
+            fetchReviews();
+        }
+    }, [vendorData]);
 
 
     useEffect(() => {
@@ -357,91 +334,28 @@ const PhotographerDetailsScreen: React.FC = () => {
 
                 </>
             )}
-
-            {/* {activeTab === 'Reviews' && (
-                <View style={styles.tabContent}>
-                    <Text>Reviews Tab Content (Static for now)</Text>
-                </View>
-            )} */}
             {activeTab === "Reviews" && (
                 <View style={styles.tabContent}>
-                    {/* Tab Navigation for Reviews 
-             add test id  */}
-                    <View style={styles.reviewTabContainer}>
-                        <TouchableOpacity
-                            testID="review-tab-eventify"
-                            style={[
-                                styles.reviewTab,
-                                activeReviewTab === "Eventify" && styles.activeReviewTab,
-                            ]}
-                            onPress={() => setActiveReviewTab("Eventify")}
-                        >
-                            <Text
-                                style={[
-                                    styles.reviewTabText,
-                                    activeReviewTab === "Eventify" &&
-                                    styles.activeReviewTabText,
-                                ]}
-                            >
-                                Eventify Hub's Reviews
-                            </Text>
-                        </TouchableOpacity>
-
-
-                    </View>
-
                     {/* Eventify Reviews */}
                     {activeReviewTab === "Eventify" && (
                         <View>
-                            <Text style={styles.sectionTitle}>1 Review</Text>
-                            <View style={styles.eventifyReview}>
-                                <Text style={styles.reviewerName}>Imran</Text>
-                                <Text style={styles.reviewDate}>April 12, 2023</Text>
-                                <Text style={styles.reviewText}>
-                                    Venue was good but location is not up to the mark.
-                                </Text>
-                            </View>
-                            <TouchableOpacity style={styles.showMoreButton}>
-                                <Text style={styles.showMoreButtonText}>Show More</Text>
-                            </TouchableOpacity>
-                        </View>
-                    )}
-
-                    {/* Google Reviews */}
-                    {activeReviewTab === "Google" && (
-                        <View>
-                            <Text style={styles.googleReviewStats}>130 Reviews ⭐ 4.2</Text>
-                            <Text style={styles.reviewNote}>
-                                *Ratings and reviews gathered from online sources*
-                            </Text>
-                            {/* Ratings Breakdown */}
-                            <View style={styles.ratingsBreakdown}>
-                                {[5, 4, 3, 2, 1].map((stars) => (
-                                    <View key={stars} style={styles.ratingRow}>
-                                        <Text style={styles.ratingText}>{stars} Stars</Text>
-                                        <View style={styles.ratingBar}>
-                                            <View
-                                                style={[
-                                                    styles.filledRatingBar,
-                                                    { width: `${stars * 20}%` },
-                                                ]}
+                            {reviews.map((review, index) => (
+                                <View key={index} style={styles.eventifyReview}>
+                                    <Text style={styles.reviewerName}>{review.reviewerName || 'Anonymous'}</Text>
+                                    <Text style={styles.reviewDate}>{new Date(review.createdAt).toDateString()}</Text>
+                                    <Text style={styles.reviewText}>{review.reviewText}</Text>
+                                    <View style={{ flexDirection: 'row', marginTop: 4 }}>
+                                        {[1, 2, 3, 4, 5].map((star) => (
+                                            <Ionicons
+                                                key={star}
+                                                name={review.rating >= star ? 'star' : 'star-outline'}
+                                                size={16}
+                                                color="#FFD700"
                                             />
-                                        </View>
-                                        <Text style={styles.ratingCount}>{stars * 20}</Text>
+                                        ))}
                                     </View>
-                                ))}
-                            </View>
-                            {/* Individual Reviews */}
-                            {["Vlog KAHDI", "Vlog KAHDI", "Vlog KAHDI"].map(
-                                (reviewer, index) => (
-                                    <View key={index} style={styles.googleReview}>
-                                        <Text style={styles.reviewerName}>{reviewer}</Text>
-                                        <Text style={styles.reviewText}>
-                                            ⭐ 5.0 - Excellent service. Highly recommended!
-                                        </Text>
-                                    </View>
-                                )
-                            )}
+                                </View>
+                            ))}
                         </View>
                     )}
                 </View>
